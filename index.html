@@ -1362,9 +1362,6 @@ img { display: block; max-width: 100%; }
 </head>
 <body>
 
-<!-- SHOPIFY STOREFRONT WIRING -->
-<shopify-store store-domain="individualdesignstore.myshopify.com" public-access-token="accb3cae2f5f9ef150b126cadd4d5944" country="IN" language="en"></shopify-store>
-
 <!-- ANNOUNCEMENT -->
 <div class="announcement">
   <div class="announcement-track">
@@ -2277,24 +2274,98 @@ function toggleFaq(el) {
 // ========================
 // BUY HANDLER
 // ========================
-function handleBuy() {
-  const qty = Math.max(1, parseInt(document.getElementById('qty').value, 10) || 1);
-  const trigger = document.getElementById('shopify-add-' + currentProduct);
-  if (!trigger) {
-    alert('Cart is still loading. Please try again in a moment.');
-    return;
+// ========================
+// SHOPIFY STOREFRONT API
+// ========================
+const SHOPIFY_DOMAIN = 'individualdesignstore.myshopify.com';
+const SHOPIFY_TOKEN  = 'accb3cae2f5f9ef150b126cadd4d5944';
+const SHOPIFY_API_URL = `https://${SHOPIFY_DOMAIN}/api/2024-04/graphql.json`;
+
+async function shopifyFetch(query, variables) {
+  const res = await fetch(SHOPIFY_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Shopify-Storefront-Access-Token': SHOPIFY_TOKEN
+    },
+    body: JSON.stringify({ query, variables })
+  });
+  const json = await res.json();
+  if (json.errors) { console.error('Shopify errors:', json.errors); throw new Error(json.errors[0].message); }
+  return json.data;
+}
+
+async function getVariantId(handle) {
+  const d = await shopifyFetch(`
+    query($handle: String!) {
+      product(handle: $handle) {
+        variants(first: 1) { edges { node { id } } }
+      }
+    }
+  `, { handle });
+  return d.product && d.product.variants.edges[0] && d.product.variants.edges[0].node.id;
+}
+
+async function addToCart(handle, quantity) {
+  const variantId = await getVariantId(handle);
+  if (!variantId) throw new Error('Variant not found for ' + handle);
+
+  let cartId = localStorage.getItem('shopify_cart_id');
+  let checkoutUrl;
+
+  if (cartId) {
+    try {
+      const d = await shopifyFetch(`
+        mutation($cartId: ID!, $lines: [CartLineInput!]!) {
+          cartLinesAdd(cartId: $cartId, lines: $lines) {
+            cart { id checkoutUrl }
+            userErrors { message }
+          }
+        }
+      `, { cartId, lines: [{ merchandiseId: variantId, quantity }] });
+      if (d.cartLinesAdd && d.cartLinesAdd.cart) {
+        checkoutUrl = d.cartLinesAdd.cart.checkoutUrl;
+      } else { cartId = null; }
+    } catch(e) { cartId = null; }
   }
+
+  if (!cartId) {
+    const d = await shopifyFetch(`
+      mutation($lines: [CartLineInput!]!) {
+        cartCreate(input: { lines: $lines }) {
+          cart { id checkoutUrl }
+          userErrors { message }
+        }
+      }
+    `, { lines: [{ merchandiseId: variantId, quantity }] });
+    cartId = d.cartCreate.cart.id;
+    checkoutUrl = d.cartCreate.cart.checkoutUrl;
+    localStorage.setItem('shopify_cart_id', cartId);
+  }
+
+  return checkoutUrl;
+}
+
+async function handleBuy() {
+  const qty = Math.max(1, parseInt(document.getElementById('qty').value, 10) || 1);
+  const handle = products[currentProduct].handle;
   const span = document.getElementById('buyBtnText');
   const orig = span.textContent;
   span.textContent = '✓ Adding to cart...';
-  for (let i = 0; i < qty; i++) {
-    setTimeout(() => trigger.click(), i * 120);
+  try {
+    const url = await addToCart(handle, qty);
+    span.textContent = '✓ Redirecting...';
+    window.location.href = url;
+  } catch (e) {
+    console.error(e);
+    span.textContent = orig;
+    alert('Could not add to cart: ' + e.message);
   }
-  setTimeout(() => { span.textContent = orig; }, 1000 + qty * 120);
 }
+
 function openCart() {
-  const cart = document.getElementById('main-cart');
-  if (cart && cart.showModal) cart.showModal();
+  // Open the live Shopify cart page in a new tab — keeps user on LP
+  window.open(`https://${SHOPIFY_DOMAIN}/cart`, '_blank');
 }
 
 // ========================
@@ -2367,34 +2438,6 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
-
-<!-- =====================================
-     SHOPIFY ADD-TO-CART TRIGGERS + CART
-     ===================================== -->
-<div class="shopify-add-triggers" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;">
-  <shopify-context type="product" handle="mini-leopard-tote">
-    <template>
-      <button id="shopify-add-0" type="button" tabindex="-1" onclick="document.getElementById('main-cart').addLine(event).showModal();"></button>
-    </template>
-  </shopify-context>
-  <shopify-context type="product" handle="retro-tote-bag">
-    <template>
-      <button id="shopify-add-1" type="button" tabindex="-1" onclick="document.getElementById('main-cart').addLine(event).showModal();"></button>
-    </template>
-  </shopify-context>
-  <shopify-context type="product" handle="zebra-tote-pu-pocket">
-    <template>
-      <button id="shopify-add-2" type="button" tabindex="-1" onclick="document.getElementById('main-cart').addLine(event).showModal();"></button>
-    </template>
-  </shopify-context>
-  <shopify-context type="product" handle="leopard-tote-bag">
-    <template>
-      <button id="shopify-add-3" type="button" tabindex="-1" onclick="document.getElementById('main-cart').addLine(event).showModal();"></button>
-    </template>
-  </shopify-context>
-</div>
-
-<shopify-cart id="main-cart"></shopify-cart>
 
 </body>
 </html>
