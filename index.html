@@ -77,13 +77,8 @@ img { display: block; max-width: 100%; }
   top: 0;
   z-index: 100;
 }
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 2px;
-}
-.logo span { font-style: italic; font-weight: 400; color: var(--gold-deep); font-size: 18px; }
+.logo { display: inline-flex; align-items: center; }
+.logo img { height: 44px; width: auto; display: block; }
 .nav-links { display: flex; gap: 36px; list-style: none; font-size: 13px; font-weight: 500; }
 .nav-links a { color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--gold-deep); }
@@ -1382,7 +1377,7 @@ img { display: block; max-width: 100%; }
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="logo">INDIVIDUAL <span>design</span></div>
+  <a href="#" class="logo" aria-label="Individual Design"><img src="assets/Individual%20Design%20Logo%20(1).png" alt="Individual Design"></a>
   <ul class="nav-links">
     <li><a href="#">Shop</a></li>
     <li><a href="#">Women</a></li>
