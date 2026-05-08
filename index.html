@@ -1362,6 +1362,9 @@ img { display: block; max-width: 100%; }
 </head>
 <body>
 
+<!-- SHOPIFY STOREFRONT WIRING -->
+<shopify-store store-domain="individualdesignstore.myshopify.com" public-access-token="accb3cae2f5f9ef150b126cadd4d5944" country="IN" language="en"></shopify-store>
+
 <!-- ANNOUNCEMENT -->
 <div class="announcement">
   <div class="announcement-track">
@@ -1390,7 +1393,7 @@ img { display: block; max-width: 100%; }
   <div class="nav-actions">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="button" aria-label="Open cart" onclick="openCart()" style="cursor:pointer"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
   </div>
 </nav>
 
@@ -1634,7 +1637,7 @@ img { display: block; max-width: 100%; }
         <div class="collection-card-img"><img src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.png" alt="Zebra Tote"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW · PREMIUM</div>
-          <div class="collection-card-name">Zebra PU-Pocket Tote</div>
+          <div class="collection-card-name">Zebra Tote PU Pocket</div>
           <div class="collection-card-price">₹3,399 <s>₹3,999</s></div>
         </div>
       </div>
@@ -1642,7 +1645,7 @@ img { display: block; max-width: 100%; }
         <div class="collection-card-img"><img src="assets/LEOPARD%20TOTE%20BAG%202.png" alt="Leopard Tote"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
-          <div class="collection-card-name">Leopard Chain Tote</div>
+          <div class="collection-card-name">Leopard Tote Bag</div>
           <div class="collection-card-price">₹2,124 <s>₹2,499</s></div>
         </div>
       </div>
@@ -1810,7 +1813,7 @@ img { display: block; max-width: 100%; }
 
       <div class="review-card reveal">
         <div class="review-stars">★★★★★</div>
-        <h4 class="review-title">"Wife loved the Leopard Chain Tote."</h4>
+        <h4 class="review-title">"Wife loved the Leopard Tote Bag."</h4>
         <p class="review-text">Anniversary gift — went with the big Leopard Tote with the gold chain handles. She literally hasn't carried any other bag since. Says it makes any outfit look polished. Delivery was 3 days flat to Delhi. COD option made me feel safer too. 10/10.</p>
         <div class="review-author">
           <div class="author-avatar">R</div>
@@ -1933,7 +1936,7 @@ img { display: block; max-width: 100%; }
           Which bag should I pick first?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><strong>Mini Leopard:</strong> daily compact, weekend brunches, evenings out.<br><strong>Retro Tote Bag:</strong> office-to-evening, timeless, pairs with everything.<br><strong>Zebra PU-Pocket:</strong> premium choice, large enough for laptop + essentials.<br><strong>Leopard Chain:</strong> roomiest, statement piece for travel and gifting.</div>
+        <div class="faq-a"><strong>Mini Leopard:</strong> daily compact, weekend brunches, evenings out.<br><strong>Retro Tote Bag:</strong> office-to-evening, timeless, pairs with everything.<br><strong>Zebra Tote PU Pocket:</strong> premium choice, large enough for laptop + essentials.<br><strong>Leopard Tote Bag:</strong> roomiest, statement piece for travel and gifting.</div>
       </div>
 
       <div class="faq-item">
@@ -2082,6 +2085,7 @@ img { display: block; max-width: 100%; }
 // ========================
 const products = [
   {
+    handle: 'mini-leopard-tote',
     name: 'Mini Leopard Tote',
     headline: 'Mini Leopard Tote — The Compact Statement For Bold Women',
     tagline: 'For the woman who carries less, but means more.',
@@ -2099,6 +2103,7 @@ const products = [
     stock: 6
   },
   {
+    handle: 'retro-tote-bag',
     name: 'Retro Tote Bag',
     headline: 'Retro Tote Bag — Timeless Elegance, Reimagined',
     tagline: 'For the woman who reads vintage Vogue and rewrites the rules.',
@@ -2116,8 +2121,9 @@ const products = [
     stock: 8
   },
   {
-    name: 'Zebra PU-Pocket Tote',
-    headline: 'Zebra PU-Pocket Tote — The Office Power Move',
+    handle: 'zebra-tote-pu-pocket',
+    name: 'Zebra Tote PU Pocket',
+    headline: 'Zebra Tote PU Pocket — The Office Power Move',
     tagline: 'For the woman whose entrance is the meeting.',
     price: 3399,
     original: 3999,
@@ -2133,8 +2139,9 @@ const products = [
     stock: 4
   },
   {
-    name: 'Leopard Chain Tote',
-    headline: 'Leopard Chain Tote — Roomy Glamour, Effortless',
+    handle: 'leopard-tote-bag',
+    name: 'Leopard Tote Bag',
+    headline: 'Leopard Tote Bag — Roomy Glamour, Effortless',
     tagline: 'For the woman who packs like she\'s never coming back.',
     price: 2124,
     original: 2499,
@@ -2142,7 +2149,7 @@ const products = [
     emi: 708,
     images: ['assets/LEOPARD%20TOTE%20BAG%202.png', 'assets/LEOPARD%20TOTE%20BAG%201.png'],
     pattern: 'Classic leopard with gold chain handles',
-    style: 'Leopard Chain Tote — large glamour tote',
+    style: 'Leopard Tote Bag — large glamour tote',
     specsTitle: 'Glamour with all the room you need.',
     specsDesc: 'Our roomiest piece. Classic leopard print with stunning gold chain detailing on the handles. Perfect for travel, work, or weekend trips. Holds laptop, lunchbox, makeup, and more — without losing structure.',
     badge: '15% OFF',
@@ -2271,14 +2278,23 @@ function toggleFaq(el) {
 // BUY HANDLER
 // ========================
 function handleBuy() {
-  const btn = document.getElementById('buyBtn');
+  const qty = Math.max(1, parseInt(document.getElementById('qty').value, 10) || 1);
+  const trigger = document.getElementById('shopify-add-' + currentProduct);
+  if (!trigger) {
+    alert('Cart is still loading. Please try again in a moment.');
+    return;
+  }
   const span = document.getElementById('buyBtnText');
   const orig = span.textContent;
-  span.textContent = '✓ Redirecting to Checkout...';
-  setTimeout(() => {
-    span.textContent = orig;
-    alert('In a live store, this would redirect directly to checkout — bypassing the cart for faster conversion.\n\nSelected product: ' + products[currentProduct].name + '\nPrice: ₹' + products[currentProduct].price.toLocaleString('en-IN'));
-  }, 1200);
+  span.textContent = '✓ Adding to cart...';
+  for (let i = 0; i < qty; i++) {
+    setTimeout(() => trigger.click(), i * 120);
+  }
+  setTimeout(() => { span.textContent = orig; }, 1000 + qty * 120);
+}
+function openCart() {
+  const cart = document.getElementById('main-cart');
+  if (cart && cart.showModal) cart.showModal();
 }
 
 // ========================
@@ -2351,6 +2367,34 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+
+<!-- =====================================
+     SHOPIFY ADD-TO-CART TRIGGERS + CART
+     ===================================== -->
+<div class="shopify-add-triggers" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none;">
+  <shopify-context type="product" handle="mini-leopard-tote">
+    <template>
+      <button id="shopify-add-0" type="button" tabindex="-1" onclick="document.getElementById('main-cart').addLine(event).showModal();"></button>
+    </template>
+  </shopify-context>
+  <shopify-context type="product" handle="retro-tote-bag">
+    <template>
+      <button id="shopify-add-1" type="button" tabindex="-1" onclick="document.getElementById('main-cart').addLine(event).showModal();"></button>
+    </template>
+  </shopify-context>
+  <shopify-context type="product" handle="zebra-tote-pu-pocket">
+    <template>
+      <button id="shopify-add-2" type="button" tabindex="-1" onclick="document.getElementById('main-cart').addLine(event).showModal();"></button>
+    </template>
+  </shopify-context>
+  <shopify-context type="product" handle="leopard-tote-bag">
+    <template>
+      <button id="shopify-add-3" type="button" tabindex="-1" onclick="document.getElementById('main-cart').addLine(event).showModal();"></button>
+    </template>
+  </shopify-context>
+</div>
+
+<shopify-cart id="main-cart"></shopify-cart>
 
 </body>
 </html>
