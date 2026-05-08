@@ -383,50 +383,6 @@ img { display: block; max-width: 100%; }
 }
 .countdown-sep { color: var(--gold); font-weight: 700; }
 
-/* DELIVERY */
-.delivery-box {
-  background: var(--green-light);
-  border: 1px solid #c8e2c2;
-  padding: 14px 16px;
-  border-radius: 4px;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-.delivery-icon { font-size: 22px; margin-top: 2px; }
-.delivery-content { flex: 1; }
-.delivery-content strong {
-  font-size: 13px;
-  display: block;
-  margin-bottom: 4px;
-  font-weight: 700;
-}
-.delivery-content p { font-size: 12px; color: var(--text-mid); margin: 0; }
-.delivery-content em { color: var(--green); font-style: normal; font-weight: 700; }
-.pincode-row { display: flex; gap: 8px; margin-top: 10px; }
-.pincode-input {
-  flex: 1;
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  font-size: 13px;
-  font-family: 'Inter', sans-serif;
-  background: var(--white);
-  outline: none;
-}
-.pincode-input:focus { border-color: var(--green); }
-.pincode-btn {
-  padding: 8px 16px;
-  background: var(--green);
-  color: var(--white);
-  border: none;
-  border-radius: 2px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
 /* SCARCITY */
 .scarcity {
   background: var(--red-light);
@@ -1525,19 +1481,6 @@ img { display: block; max-width: 100%; }
     </div>
     <p class="tax-note">Inclusive of all taxes · Free shipping pan-India · COD available</p>
 
-    <!-- DELIVERY -->
-    <div class="delivery-box">
-      <div class="delivery-icon">🚚</div>
-      <div class="delivery-content">
-        <strong>Get it by <em id="deliveryDate">Sunday, May 4</em></strong>
-        <p>Order in the next <strong id="deliveryCountdown">3h 41m</strong> · Free express delivery · COD available</p>
-        <div class="pincode-row">
-          <input type="text" class="pincode-input" id="pincodeInput" placeholder="Enter pincode for exact date" maxlength="6">
-          <button class="pincode-btn" onclick="checkPincode()">Check</button>
-        </div>
-      </div>
-    </div>
-
     <!-- OFFER -->
     <div class="offer-strip">
       <div class="offer-text">
@@ -2355,42 +2298,6 @@ setInterval(() => {
   document.getElementById('mins').textContent = String(m).padStart(2,'0');
   document.getElementById('secs').textContent = String(s).padStart(2,'0');
 }, 1000);
-
-// Delivery countdown
-let deliveryTotal = 3*3600 + 41*60;
-setInterval(() => {
-  deliveryTotal--;
-  if (deliveryTotal < 0) deliveryTotal = 3*3600 + 41*60;
-  const h = Math.floor(deliveryTotal/3600);
-  const m = Math.floor((deliveryTotal%3600)/60);
-  document.getElementById('deliveryCountdown').textContent = `${h}h ${m}m`;
-}, 60000);
-
-// ========================
-// DELIVERY DATE
-// ========================
-function setDeliveryDate(days = 4) {
-  const d = new Date();
-  d.setDate(d.getDate() + days);
-  const opts = { weekday: 'long', month: 'short', day: 'numeric' };
-  document.getElementById('deliveryDate').textContent = d.toLocaleDateString('en-IN', opts);
-}
-setDeliveryDate();
-
-function checkPincode() {
-  const v = document.getElementById('pincodeInput').value.trim();
-  if (!/^\d{6}$/.test(v)) {
-    alert('Please enter a valid 6-digit pincode.');
-    return;
-  }
-  const metros = ['400', '110', '560', '600', '500', '411', '700'];
-  const isMetro = metros.some(p => v.startsWith(p));
-  setDeliveryDate(isMetro ? 2 : 4);
-  const elem = document.getElementById('deliveryDate');
-  elem.style.color = '#2e7d32';
-  setTimeout(() => elem.style.color = '', 2000);
-  alert(`Delivery to ${v}: ${isMetro ? '2 business days' : '3-4 business days'} · Free express shipping ✓ · COD available ✓`);
-}
 
 // ========================
 // STICKY BAR
