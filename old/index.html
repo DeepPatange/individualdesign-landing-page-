@@ -182,6 +182,39 @@ img { display: block; max-width: 100%; }
 .urgency-bar span { font-weight: 700; }
 
 /* PRODUCT SWITCHER */
+/* LIVE STATS BAR */
+.stats-bar-wrap {
+  background: var(--off-white);
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.stats-bar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--text-mid);
+  padding: 12px 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-weight: 500;
+}
+.stat-pill strong { color: var(--text-dark); font-weight: 700; }
+.stat-pill .stat-icon { width: 16px; height: 16px; flex-shrink: 0; color: var(--text-dark); }
+@media (max-width: 768px) {
+  .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+  .stat-pill { font-size: 12px; padding: 10px 12px; }
+}
+
 .product-switcher-wrap {
   background: var(--off-white);
   padding: 22px 20px;
@@ -1689,38 +1722,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- PRODUCT SWITCHER -->
-<div class="product-switcher-wrap">
-  <div class="product-switcher-inner">
-    <div class="switcher-label">— Choose Your Style —</div>
-    <div class="product-tabs" id="productTabs">
-      <button class="product-tab active" data-product="0">
-        <img src="../assets/MINI%20LEOPARD%20-%20PU.jpg" alt="Mini Leopard">
-        <div class="product-tab-info">
-          <div class="product-tab-name">Mini Leopard</div>
-          <div class="product-tab-price">₹2,499 <s>₹2,999</s></div>
-        </div>
-      </button>
-      <button class="product-tab" data-product="1">
-        <img src="../assets/RETRO%20TOTE%20BAG.jpg" alt="Retro Tote">
-        <div class="product-tab-info">
-          <div class="product-tab-name">Retro Tote</div>
-          <div class="product-tab-price">₹2,499 <s>₹2,999</s></div>
-        </div>
-      </button>
-      <button class="product-tab" data-product="2">
-        <img src="../assets/ZEBRA%20TOTE%20-%20PU%20POCKET.jpg" alt="Zebra Tote">
-        <div class="product-tab-info">
-          <div class="product-tab-name">Zebra Tote</div>
-          <div class="product-tab-price">₹3,999 <s>₹4,499</s></div>
-        </div>
-      </button>
-      <button class="product-tab" data-product="3">
-        <img src="../assets/LEOPARD%20TOTE%20BAG%202.jpg" alt="Leopard Tote">
-        <div class="product-tab-info">
-          <div class="product-tab-name">Leopard Tote</div>
-          <div class="product-tab-price">₹2,499 <s>₹2,999</s></div>
-        </div>
-      </button>
+<!-- LIVE STATS BAR (replaces product switcher) -->
+<div class="stats-bar-wrap">
+  <div class="stats-bar-inner">
+    <div class="stat-pill">
+      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg>
+      <span><strong id="statSold">23</strong> sold today</span>
+    </div>
+    <div class="stat-pill">
+      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-6 8-13a8 8 0 1 0-16 0c0 7 8 13 8 13z"/></svg>
+      <span><strong>Only 6</strong> left in stock</span>
+    </div>
+    <div class="stat-pill">
+      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span><strong id="statViewing">47</strong> viewing now</span>
+    </div>
+    <div class="stat-pill">
+      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <span>Drop ends in <strong>2 days</strong></span>
     </div>
   </div>
 </div>
