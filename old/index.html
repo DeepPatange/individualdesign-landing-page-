@@ -1837,6 +1837,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="tax-note">Inclusive of all taxes · Free shipping pan-India · COD available</p>
 
+    <!-- OFFER -->
+    <div class="offer-strip">
+      <div class="offer-text">
+        <strong>FIRST 100 OFFER ENDS IN</strong>
+        <em>17% OFF</em> auto-applied · Only <strong style="color:inherit;letter-spacing:0;text-transform:none;font-size:13px;display:inline;margin:0;">63 of 100 spots</strong> left
+      </div>
+      <div class="countdown">
+        <span class="countdown-unit" id="hrs">04</span>
+        <span class="countdown-sep">:</span>
+        <span class="countdown-unit" id="mins">23</span>
+        <span class="countdown-sep">:</span>
+        <span class="countdown-unit" id="secs">47</span>
+      </div>
+    </div>
+
     <!-- SCARCITY -->
     <div class="scarcity">
       <span class="scarcity-icon"></span>
@@ -2620,6 +2635,28 @@ function changeQty(d) {
   if (v > 5) v = 5;
   i.value = v;
 }
+
+// ========================
+// OFFER COUNTDOWN (FIRST 100)
+// ========================
+(function () {
+  const hrs = document.getElementById('hrs');
+  const mins = document.getElementById('mins');
+  const secs = document.getElementById('secs');
+  if (!hrs || !mins || !secs) return;
+  let total = 4*3600 + 23*60 + 47;
+  function tick() {
+    total = total - 1;
+    if (total < 0) total = 4*3600 + 23*60 + 47;
+    const h = Math.floor(total/3600);
+    const m = Math.floor((total%3600)/60);
+    const s = total%60;
+    hrs.textContent = String(h).padStart(2,'0');
+    mins.textContent = String(m).padStart(2,'0');
+    secs.textContent = String(s).padStart(2,'0');
+  }
+  setInterval(tick, 1000);
+})();
 
 // ========================
 // FAQ
