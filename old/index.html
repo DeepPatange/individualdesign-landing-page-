@@ -182,89 +182,76 @@ img { display: block; max-width: 100%; }
 .urgency-bar span { font-weight: 700; }
 
 /* PRODUCT SWITCHER */
-/* LIVE STATS BAR — CRO design (v2 light) */
-.stats-bar-wrap {
-  background: #ffffff;
-  color: #0a0a0a;
-  padding: 20px 24px;
-  border-top: 1px solid #ececec;
-  border-bottom: 1px solid #ececec;
-  position: relative;
+/* LIVE ACTIVITY BAR — real-time social-proof feed */
+.activity-bar {
+  background: #0a0a0a;
+  color: #e6e6e6;
+  font-size: 13px;
+  padding: 11px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.stats-bar-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid;
-  grid-template-columns: auto 1fr 1fr 1fr 1fr;
-  gap: 22px;
-  align-items: center;
+.activity-bar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px;
 }
-.live-indicator {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 800; letter-spacing: 2.2px;
-  color: #ffffff;
-  background: #dc2626;
-  padding: 8px 14px; border-radius: 999px;
-  box-shadow: 0 0 0 0 rgba(220,38,38,0.55);
-  animation: pulseRed 2s infinite;
+.activity-feed {
+  display: flex; align-items: center; gap: 12px;
+  min-width: 0; flex: 1;
 }
-.live-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 8px rgba(255,255,255,0.9);
-  animation: blink 1.2s infinite;
+.activity-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34,197,94,0.8);
+  flex-shrink: 0;
+  animation: actBlink 1.4s infinite;
 }
-@keyframes pulseRed {
-  0%   { box-shadow: 0 0 0 0 rgba(220,38,38,0.55); }
-  70%  { box-shadow: 0 0 0 12px rgba(220,38,38,0); }
-  100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); }
-}
-@keyframes blink {
+@keyframes actBlink {
   0%, 60%, 100% { opacity: 1; }
   30%           { opacity: 0.35; }
 }
-.stat-block {
-  display: flex; flex-direction: column; gap: 4px;
-  border-left: 1px solid #ececec;
-  padding-left: 22px;
+.activity-avatar {
+  width: 28px; height: 28px; border-radius: 50%; object-fit: cover;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  transition: opacity 0.4s ease;
 }
-.stat-block:first-of-type { border-left: 0; padding-left: 0; }
-.stat-number {
-  font-family: 'Playfair Display', 'Instrument Serif', serif;
-  font-size: 30px; font-weight: 700; line-height: 1;
-  color: #0a0a0a;
-  transition: color 0.25s ease-out, transform 0.25s ease-out;
-  letter-spacing: -0.5px;
+.activity-text {
+  display: inline-flex; gap: 6px; align-items: baseline;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: opacity 0.35s ease;
+  font-weight: 400;
+  letter-spacing: 0.1px;
 }
-.stat-number.tick { animation: tickPop 0.55s ease-out; }
-@keyframes tickPop {
-  0%   { transform: scale(1);    color: #16a34a; }
-  60%  { transform: scale(1.18); color: #16a34a; }
-  100% { transform: scale(1);    color: #0a0a0a; }
-}
-.stat-block.urgent .stat-number { color: #dc2626; }
-.stat-label {
-  font-size: 10.5px; letter-spacing: 1.6px; text-transform: uppercase;
-  color: #737373; font-weight: 700;
-}
-.stat-block.urgent .stat-label { color: #dc2626; }
-.countdown-row { display: inline-flex; gap: 4px; align-items: baseline; }
-.countdown-row .stat-number {
-  font-size: 22px;
-  background: #0a0a0a; color: #ffffff;
-  padding: 6px 8px; border-radius: 4px;
-  font-family: 'Instrument Sans', 'Inter', sans-serif;
-  letter-spacing: 0; font-weight: 700;
-  min-width: 34px; text-align: center;
-}
-.countdown-row .stat-number.tick { animation: none; }
-.countdown-row span.cd-sep { color: #0a0a0a; font-weight: 700; font-size: 18px; padding: 0 1px; }
+.activity-text strong { color: #ffffff; font-weight: 600; }
+.activity-text em { color: #ffffff; font-style: normal; font-weight: 500; }
+.activity-text .activity-time { color: rgba(255,255,255,0.5); margin-left: 6px; }
+.activity-fade { opacity: 0; }
 
-@media (max-width: 900px) {
-  .stats-bar-inner { grid-template-columns: 1fr 1fr; row-gap: 22px; column-gap: 14px; }
-  .live-indicator { grid-column: 1 / -1; justify-self: center; }
-  .stat-block { border-left: 0; padding-left: 0; text-align: center; align-items: center; }
-  .stat-number { font-size: 26px; }
-  .countdown-row .stat-number { font-size: 18px; min-width: 30px; padding: 5px 6px; }
+.activity-stats {
+  display: flex; gap: 14px; align-items: center;
+  font-size: 12px; color: rgba(255,255,255,0.7);
+  flex-shrink: 0;
+}
+.activity-stats > div { display: inline-flex; gap: 6px; align-items: baseline; }
+.activity-stats strong { color: #ffffff; font-weight: 700; }
+.activity-stats .stat-stock { color: #fca5a5; }
+.activity-stats .stat-stock-label { color: rgba(255,255,255,0.85); }
+.activity-stats .sep { color: rgba(255,255,255,0.25); }
+.activity-stats .cd-pill {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 4px 10px; border-radius: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 880px) {
+  .activity-bar-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .activity-feed, .activity-stats { font-size: 12px; }
+  .activity-stats { width: 100%; justify-content: flex-start; }
+}
+@media (max-width: 480px) {
+  .activity-text .activity-time { display: none; }
 }
 
 .product-switcher-wrap {
@@ -1780,30 +1767,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- PRODUCT SWITCHER -->
-<!-- LIVE STATS BAR — CRO design -->
-<div class="stats-bar-wrap">
-  <div class="stats-bar-inner">
-    <div class="live-indicator"><span class="live-dot"></span>LIVE</div>
-    <div class="stat-block">
-      <div class="stat-number" id="statSold">23</div>
-      <div class="stat-label">Sold today</div>
-    </div>
-    <div class="stat-block urgent">
-      <div class="stat-number" id="statStock">6</div>
-      <div class="stat-label">Left in stock</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-number" id="statViewing">47</div>
-      <div class="stat-label">Viewing now</div>
-    </div>
-    <div class="stat-block">
-      <div class="countdown-row">
-        <span class="stat-number" id="cdDays">02</span><span class="cd-sep">:</span>
-        <span class="stat-number" id="cdHrs">14</span><span class="cd-sep">:</span>
-        <span class="stat-number" id="cdMins">32</span><span class="cd-sep">:</span>
-        <span class="stat-number" id="cdSecs">05</span>
+<!-- LIVE ACTIVITY BAR -->
+<div class="activity-bar">
+  <div class="activity-bar-inner">
+    <div class="activity-feed">
+      <span class="activity-dot" aria-hidden="true"></span>
+      <img class="activity-avatar" id="activityAv" src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
+      <div class="activity-text" id="activityText">
+        <strong id="activityName">Priya</strong>
+        from <em id="activityCity">Mumbai</em>
+        bought <em id="activityProduct">Mini Leopard Tote</em>
+        <span class="activity-time" id="activityTime">· 3 min ago</span>
       </div>
-      <div class="stat-label">Drop ends in (d : h : m : s)</div>
+    </div>
+    <div class="activity-stats">
+      <div><strong id="statSold">23</strong> sold today</div>
+      <span class="sep">·</span>
+      <div><strong id="statViewing">47</strong> viewing</div>
+      <span class="sep">·</span>
+      <div><strong id="statStock" class="stat-stock">6</strong> <span class="stat-stock-label">left</span></div>
+      <span class="sep">·</span>
+      <div class="cd-pill" id="cdPill">2d 14h 32m 05s</div>
     </div>
   </div>
 </div>
@@ -2844,64 +2828,90 @@ setTimeout(showNotif, 4000);
 setInterval(showNotif, 14000);
 
 // ========================
-// LIVE STATS BAR
+// LIVE ACTIVITY BAR
 // ========================
 (function () {
-  const sold = document.getElementById('statSold');
-  const viewing = document.getElementById('statViewing');
-  const stock = document.getElementById('statStock');
-  if (!sold || !viewing || !stock) return;
+  const feed = [
+    { n: 'Priya',    c: 'Mumbai',    img: 'https://randomuser.me/api/portraits/women/65.jpg', p: 0, t: 3 },
+    { n: 'Ananya',   c: 'Bangalore', img: 'https://randomuser.me/api/portraits/women/79.jpg', p: 2, t: 7 },
+    { n: 'Meera',    c: 'Pune',      img: 'https://randomuser.me/api/portraits/women/45.jpg', p: 1, t: 12 },
+    { n: 'Kavya',    c: 'Delhi',     img: 'https://randomuser.me/api/portraits/women/30.jpg', p: 3, t: 18 },
+    { n: 'Sneha',    c: 'Hyderabad', img: 'https://randomuser.me/api/portraits/women/68.jpg', p: 0, t: 24 },
+    { n: 'Tanvi',    c: 'Chennai',   img: 'https://randomuser.me/api/portraits/women/12.jpg', p: 2, t: 31 },
+    { n: 'Divya',    c: 'Gurgaon',   img: 'https://randomuser.me/api/portraits/women/89.jpg', p: 1, t: 42 },
+    { n: 'Ishita',   c: 'Kolkata',   img: 'https://randomuser.me/api/portraits/women/72.jpg', p: 3, t: 56 }
+  ];
 
-  let soldN = parseInt(sold.textContent, 10) || 23;
-  let viewN = parseInt(viewing.textContent, 10) || 47;
+  const elText = document.getElementById('activityText');
+  const elAv   = document.getElementById('activityAv');
+  const elName = document.getElementById('activityName');
+  const elCity = document.getElementById('activityCity');
+  const elProd = document.getElementById('activityProduct');
+  const elTime = document.getElementById('activityTime');
 
-  function tick(el, newVal) {
-    el.textContent = newVal;
-    el.classList.remove('tick');
-    void el.offsetWidth; // restart animation
-    el.classList.add('tick');
+  let fIdx = 0;
+  function renderActivity(item) {
+    elName.textContent = item.n;
+    elCity.textContent = item.c;
+    elProd.textContent = (typeof products !== 'undefined' && products[item.p]) ? products[item.p].name : 'this bag';
+    elTime.textContent = `· ${item.t} min ago`;
+    elAv.src = item.img;
   }
-  // sold-today: +1 every ~18–35s
-  function scheduleSold() {
+  function cycleActivity() {
+    if (!elText) return;
+    elText.classList.add('activity-fade');
+    elAv.classList.add('activity-fade');
     setTimeout(() => {
-      soldN += 1;
-      tick(sold, soldN);
-      scheduleSold();
-    }, 18000 + Math.random() * 17000);
+      const item = feed[fIdx % feed.length];
+      renderActivity(item);
+      elText.classList.remove('activity-fade');
+      elAv.classList.remove('activity-fade');
+      fIdx++;
+    }, 350);
   }
-  scheduleSold();
+  renderActivity(feed[0]); fIdx = 1;
+  setInterval(cycleActivity, 5500);
 
-  // viewing-now: drift +/- 1-3 every ~6–12s, keep in 30..80
-  function scheduleViewing() {
-    setTimeout(() => {
-      const delta = (Math.random() < 0.55 ? 1 : -1) * (1 + Math.floor(Math.random() * 3));
-      viewN = Math.max(30, Math.min(80, viewN + delta));
-      tick(viewing, viewN);
-      scheduleViewing();
-    }, 6000 + Math.random() * 6000);
+  // Sold-today counter — +1 every ~18–35s
+  const soldEl = document.getElementById('statSold');
+  if (soldEl) {
+    let soldN = parseInt(soldEl.textContent, 10) || 23;
+    (function scheduleSold() {
+      setTimeout(() => { soldN += 1; soldEl.textContent = soldN; scheduleSold(); },
+        18000 + Math.random() * 17000);
+    })();
   }
-  scheduleViewing();
 
-  // Countdown — 2 days from page load
-  const target = new Date(Date.now() + 2 * 24 * 3600 * 1000 + 14 * 3600 * 1000 + 32 * 60 * 1000);
-  const dEl = document.getElementById('cdDays');
-  const hEl = document.getElementById('cdHrs');
-  const mEl = document.getElementById('cdMins');
-  const sEl = document.getElementById('cdSecs');
-  function pad(n) { return String(n).padStart(2, '0'); }
-  function updateCountdown() {
-    let diff = Math.max(0, target - Date.now());
-    const d = Math.floor(diff / 86400000); diff -= d * 86400000;
-    const h = Math.floor(diff / 3600000);  diff -= h * 3600000;
-    const m = Math.floor(diff / 60000);    diff -= m * 60000;
-    const s = Math.floor(diff / 1000);
-    dEl.textContent = pad(d);
-    hEl.textContent = pad(h);
-    mEl.textContent = pad(m);
-    sEl.textContent = pad(s);
+  // Viewing-now drifter — ±1..3 every 6–12s, clamped 30..80
+  const viewEl = document.getElementById('statViewing');
+  if (viewEl) {
+    let viewN = parseInt(viewEl.textContent, 10) || 47;
+    (function scheduleView() {
+      setTimeout(() => {
+        const delta = (Math.random() < 0.55 ? 1 : -1) * (1 + Math.floor(Math.random() * 3));
+        viewN = Math.max(30, Math.min(80, viewN + delta));
+        viewEl.textContent = viewN;
+        scheduleView();
+      }, 6000 + Math.random() * 6000);
+    })();
   }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+
+  // Countdown — 2d 14h 32m from page load, format "Xd Yh Zm Ws"
+  const cdEl = document.getElementById('cdPill');
+  if (cdEl) {
+    const target = Date.now() + (2 * 86400 + 14 * 3600 + 32 * 60) * 1000;
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function update() {
+      let diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+      const h = Math.floor(diff / 3600000);  diff -= h * 3600000;
+      const m = Math.floor(diff / 60000);    diff -= m * 60000;
+      const s = Math.floor(diff / 1000);
+      cdEl.textContent = `${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
+    }
+    update();
+    setInterval(update, 1000);
+  }
 })();
 
 // ========================
