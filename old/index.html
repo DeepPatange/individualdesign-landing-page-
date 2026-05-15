@@ -539,41 +539,62 @@ img { display: block; max-width: 100%; }
 .offer-strip {
   background: var(--text-dark);
   color: var(--white);
-  padding: 20px 24px;
+  padding: 18px 22px;
   margin-bottom: 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-left: 3px solid var(--white);
-  border-radius: 2px;
+  border-radius: 3px;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 16px;
 }
-.offer-text { font-size: 16px; color: var(--white); line-height: 1.35; }
-.offer-text strong { color: var(--white); display: block; font-size: 13px; letter-spacing: 1.8px; margin-bottom: 6px; font-weight: 700; text-transform: uppercase; }
+.offer-text {
+  font-size: 14.5px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+.offer-text strong {
+  color: rgba(255,255,255,0.6);
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: 2.4px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
 .offer-text em {
-  color: var(--text-dark);
-  font-style: normal;
-  font-weight: 700;
-  background: var(--white);
-  padding: 3px 10px;
-  border-radius: 2px;
-  letter-spacing: 0.5px;
-  font-size: 16px;
+  color: #ffffff;
+  font-family: 'Playfair Display', 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 0;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
 }
-.countdown { display: flex; gap: 7px; align-items: center; }
+.countdown {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+  font-family: 'Playfair Display', 'Instrument Serif', serif;
+}
 .countdown-unit {
-  background: var(--white);
-  color: var(--text-dark);
-  padding: 8px 11px;
-  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  min-width: 42px;
+  background: transparent;
+  color: #ffffff;
+  padding: 0;
+  font-family: inherit;
+  font-size: 26px;
+  font-weight: 600;
+  min-width: 30px;
   text-align: center;
-  border-radius: 2px;
+  border-radius: 0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
 }
-.countdown-sep { color: var(--white); font-weight: 700; }
+.countdown-sep { color: rgba(255,255,255,0.4); font-weight: 400; font-size: 22px; font-family: 'Playfair Display', 'Instrument Serif', serif; }
 
 /* DELIVERY */
 .delivery-box {
@@ -1841,8 +1862,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- OFFER -->
     <div class="offer-strip">
       <div class="offer-text">
-        <strong>FIRST 100 OFFER ENDS IN</strong>
-        <em>17% OFF</em> auto-applied · Only <strong style="color:inherit;letter-spacing:0;text-transform:none;font-size:16px;display:inline;margin:0;">63 of 100 spots</strong> left
+        <strong>First-100 launch offer</strong>
+        <em>17% off</em> auto-applied · 63 of 100 spots remaining
       </div>
       <div class="countdown">
         <span class="countdown-unit" id="hrs">04</span>
