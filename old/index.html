@@ -128,33 +128,8 @@ img { display: block; max-width: 100%; }
   z-index: 100;
   gap: 32px;
 }
-.logo {
-  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text-dark);
-}
-.logo::before {
-  content: "ID";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--text-dark);
-  color: var(--white);
-  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 1px;
-  border-radius: 2px;
-}
-.logo span { font-style: normal; font-weight: 300; color: var(--text-light); font-size: 11px; letter-spacing: 2px; }
+.logo { display: inline-flex; align-items: center; text-decoration: none; }
+.logo img { height: 66px; width: auto; display: block; }
 .nav-links {
   display: flex;
   gap: 44px;
@@ -1683,7 +1658,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="announcement-item">NEW Collection — Just Dropped</span>
     <span class="announcement-item">Free Shipping Pan-India</span>
     <span class="announcement-item">Cash on Delivery Available</span>
-    <span class="announcement-item">Use Code NEW15 for Extra 15% Off</span>
     <span class="announcement-item">NEW Collection — Just Dropped</span>
     <span class="announcement-item">Free Shipping Pan-India</span>
     <span class="announcement-item">Cash on Delivery Available</span>
@@ -1692,7 +1666,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="https://individualdesign.in/" class="logo" aria-label="Individual Design">INDIVIDUAL <span>design</span></a>
+  <a href="https://individualdesign.in/" class="logo" aria-label="Individual Design"><img src="../assets/Individual%20Design%20Logo%20(1).png" alt="Individual Design"></a>
   <ul class="nav-links">
     <li><a href="https://individualdesign.in/">Home</a></li>
     <li><a href="https://individualdesign.in/collections/all">Shop</a></li>
@@ -1703,12 +1677,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="https://individualdesign.in/blogs/news">Blogs</a></li>
   </ul>
   <div class="nav-actions">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4-4"/></svg>
-    <a href="#" class="cart-icon" aria-label="Cart" onclick="document.getElementById('main-cart').showModal(); return false;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 11.5a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-      <span class="cart-dot"></span>
-    </a>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="button" aria-label="Open cart" onclick="document.getElementById('main-cart').showModal(); return false;" style="cursor:pointer"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
   </div>
 </nav>
 
