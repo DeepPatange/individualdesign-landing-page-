@@ -1837,35 +1837,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <p class="tax-note">Inclusive of all taxes · Free shipping pan-India · COD available</p>
 
-    <!-- EMI -->
-    <!-- DELIVERY -->
-    <div class="delivery-box">
-      <div class="delivery-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h15v12H3z"/><path d="M18 13h6l4 4v4H18z"/><circle cx="8" cy="23" r="2.5"/><circle cx="23" cy="23" r="2.5"/></svg></div>
-      <div class="delivery-content">
-        <strong>Get it by <em id="deliveryDate">Sunday, May 4</em></strong>
-        <p>Order in the next <strong id="deliveryCountdown">3h 41m</strong> · Free express delivery · COD available</p>
-        <div class="pincode-row">
-          <input type="text" class="pincode-input" id="pincodeInput" placeholder="Enter pincode for exact date" maxlength="6">
-          <button class="pincode-btn" onclick="checkPincode()">Check</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- OFFER -->
-    <div class="offer-strip">
-      <div class="offer-text">
-        <strong>FLASH OFFER ENDS IN</strong>
-        Extra 15% off — code <em>NEW15</em>
-      </div>
-      <div class="countdown">
-        <span class="countdown-unit" id="hrs">04</span>
-        <span class="countdown-sep">:</span>
-        <span class="countdown-unit" id="mins">23</span>
-        <span class="countdown-sep">:</span>
-        <span class="countdown-unit" id="secs">47</span>
-      </div>
-    </div>
-
     <!-- SCARCITY -->
     <div class="scarcity">
       <span class="scarcity-icon"></span>
@@ -2726,57 +2697,6 @@ function handleAddToCart() {
   const product = products[currentProduct];
   fireTracking('AddToCart', product);
   clickHiddenShopifyBtn('add');
-}
-
-// ========================
-// COUNTDOWN
-// ========================
-let total = 4*3600 + 23*60 + 47;
-setInterval(() => {
-  total--;
-  if (total < 0) total = 4*3600 + 23*60 + 47;
-  const h = Math.floor(total/3600);
-  const m = Math.floor((total%3600)/60);
-  const s = total%60;
-  document.getElementById('hrs').textContent = String(h).padStart(2,'0');
-  document.getElementById('mins').textContent = String(m).padStart(2,'0');
-  document.getElementById('secs').textContent = String(s).padStart(2,'0');
-}, 1000);
-
-// Delivery countdown
-let deliveryTotal = 3*3600 + 41*60;
-setInterval(() => {
-  deliveryTotal--;
-  if (deliveryTotal < 0) deliveryTotal = 3*3600 + 41*60;
-  const h = Math.floor(deliveryTotal/3600);
-  const m = Math.floor((deliveryTotal%3600)/60);
-  document.getElementById('deliveryCountdown').textContent = `${h}h ${m}m`;
-}, 60000);
-
-// ========================
-// DELIVERY DATE
-// ========================
-function setDeliveryDate(days = 4) {
-  const d = new Date();
-  d.setDate(d.getDate() + days);
-  const opts = { weekday: 'long', month: 'short', day: 'numeric' };
-  document.getElementById('deliveryDate').textContent = d.toLocaleDateString('en-IN', opts);
-}
-setDeliveryDate();
-
-function checkPincode() {
-  const v = document.getElementById('pincodeInput').value.trim();
-  if (!/^\d{6}$/.test(v)) {
-    alert('Please enter a valid 6-digit pincode.');
-    return;
-  }
-  const metros = ['400', '110', '560', '600', '500', '411', '700'];
-  const isMetro = metros.some(p => v.startsWith(p));
-  setDeliveryDate(isMetro ? 2 : 4);
-  const elem = document.getElementById('deliveryDate');
-  elem.style.color = '#0a0a0a';
-  setTimeout(() => elem.style.color = '', 2000);
-  alert(`Delivery to ${v}: ${isMetro ? '2 business days' : '3-4 business days'} · Free express shipping ✓ · COD available ✓`);
 }
 
 // ========================
