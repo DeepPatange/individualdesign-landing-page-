@@ -182,37 +182,86 @@ img { display: block; max-width: 100%; }
 .urgency-bar span { font-weight: 700; }
 
 /* PRODUCT SWITCHER */
-/* LIVE STATS BAR */
+/* LIVE STATS BAR — CRO design */
 .stats-bar-wrap {
-  background: var(--off-white);
-  padding: 18px 20px;
-  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1f1f1f 100%);
+  color: #ffffff;
+  padding: 18px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.stats-bar-wrap::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(220,38,38,0.18), transparent 60%);
+  pointer-events: none;
 }
 .stats-bar-inner {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 1100px; margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-.stat-pill {
-  display: flex;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr;
+  gap: 24px;
   align-items: center;
-  gap: 10px;
-  justify-content: center;
-  font-size: 13px;
-  color: var(--text-mid);
-  padding: 12px 14px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-weight: 500;
+  position: relative; z-index: 1;
 }
-.stat-pill strong { color: var(--text-dark); font-weight: 700; }
-.stat-pill .stat-icon { width: 16px; height: 16px; flex-shrink: 0; color: var(--text-dark); }
-@media (max-width: 768px) {
-  .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
-  .stat-pill { font-size: 12px; padding: 10px 12px; }
+.live-indicator {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 800; letter-spacing: 2px;
+  color: #ffffff;
+  background: #dc2626;
+  padding: 7px 12px; border-radius: 999px;
+  box-shadow: 0 0 0 0 rgba(220,38,38,0.5);
+  animation: pulseRed 2s infinite;
+}
+.live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255,255,255,0.9);
+  animation: blink 1.2s infinite;
+}
+@keyframes pulseRed {
+  0%   { box-shadow: 0 0 0 0 rgba(220,38,38,0.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(220,38,38,0); }
+  100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); }
+}
+@keyframes blink {
+  0%, 60%, 100% { opacity: 1; }
+  30%           { opacity: 0.35; }
+}
+.stat-block {
+  display: flex; flex-direction: column; gap: 2px;
+  border-left: 1px solid rgba(255,255,255,0.12);
+  padding-left: 20px;
+  position: relative;
+}
+.stat-block:first-of-type { border-left: 0; padding-left: 0; }
+.stat-number {
+  font-family: 'Playfair Display', 'Instrument Serif', serif;
+  font-size: 28px; font-weight: 700; line-height: 1;
+  color: #ffffff;
+  transition: color 0.25s, transform 0.25s;
+}
+.stat-block.urgent .stat-number { color: #fca5a5; }
+.stat-number.tick { animation: tickPop 0.5s ease-out; }
+@keyframes tickPop {
+  0%   { transform: scale(1); color: #fbbf24; }
+  60%  { transform: scale(1.18); color: #facc15; }
+  100% { transform: scale(1); }
+}
+.stat-label {
+  font-size: 10.5px; letter-spacing: 1.6px; text-transform: uppercase;
+  color: rgba(255,255,255,0.65); font-weight: 600;
+}
+.stat-block.urgent .stat-label { color: #fca5a5; }
+.countdown-row { display: inline-flex; gap: 6px; align-items: baseline; }
+.countdown-row .stat-number { font-size: 22px; }
+.countdown-row span.cd-sep { color: rgba(255,255,255,0.4); font-size: 18px; }
+
+@media (max-width: 900px) {
+  .stats-bar-inner { grid-template-columns: 1fr 1fr; row-gap: 18px; column-gap: 14px; }
+  .live-indicator { grid-column: 1 / -1; justify-self: center; }
+  .stat-block { border-left: 0; padding-left: 0; text-align: center; align-items: center; }
+  .stat-number { font-size: 24px; }
 }
 
 .product-switcher-wrap {
@@ -419,10 +468,16 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
 }
-.stars { color: var(--gold); font-size: 16px; letter-spacing: 1px; }
+.stars { color: #16a34a; font-size: 16px; letter-spacing: 1px; }
 .rating-text { font-size: 13px; color: var(--text-mid); }
 .rating-text strong { color: var(--text-dark); font-weight: 600; }
-.rating-link { font-size: 13px; color: var(--gold-deep); text-decoration: underline; cursor: pointer; }
+.rating-link {
+  font-size: 13px; color: #ffffff; text-decoration: none; cursor: pointer;
+  background: #16a34a; padding: 6px 14px; border-radius: 999px;
+  font-weight: 600; transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.rating-link:hover { background: #15803d; transform: translateY(-1px); }
 .rating-divider { color: var(--border); }
 .bestseller-tag {
   background: var(--gold);
@@ -1082,7 +1137,7 @@ img { display: block; max-width: 100%; }
   line-height: 1;
   font-weight: 700;
 }
-.summary-rating .stars-large { color: var(--gold); font-size: 20px; letter-spacing: 2px; }
+.summary-rating .stars-large { color: #16a34a; font-size: 20px; letter-spacing: 2px; }
 .summary-info { font-size: 13px; color: var(--text-mid); }
 .summary-info strong { font-weight: 700; }
 .rating-bars { display: flex; flex-direction: column; gap: 6px; max-width: 360px; }
@@ -1106,7 +1161,7 @@ img { display: block; max-width: 100%; }
   transition: all 0.3s;
 }
 .review-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-.review-stars { color: var(--gold); font-size: 14px; margin-bottom: 10px; letter-spacing: 1px; }
+.review-stars { color: #16a34a; font-size: 14px; margin-bottom: 10px; letter-spacing: 1px; }
 .review-title {
   font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 17px;
@@ -1122,14 +1177,14 @@ img { display: block; max-width: 100%; }
   border-top: 1px solid var(--border);
 }
 .author-avatar {
-  width: 38px; height: 38px;
+  width: 42px; height: 42px;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 14px;
+  background: var(--light-gray);
+  overflow: hidden;
   flex-shrink: 0;
+  display: block;
 }
+.author-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .author-info { flex: 1; }
 .author-name {
   font-size: 13px;
@@ -1529,14 +1584,14 @@ img { display: block; max-width: 100%; }
 .live-notification.show { transform: translateX(0); }
 .live-notification.no-sticky { bottom: 24px; }
 .notif-avatar {
-  width: 38px; height: 38px;
+  width: 40px; height: 40px;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 14px;
+  overflow: hidden;
+  background: var(--light-gray);
   flex-shrink: 0;
+  display: block;
 }
+.notif-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .notif-text strong { font-weight: 700; display: block; margin-bottom: 2px; }
 .notif-text span { font-size: 11px; color: var(--text-light); }
 .notif-close {
@@ -1722,24 +1777,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- PRODUCT SWITCHER -->
-<!-- LIVE STATS BAR (replaces product switcher) -->
+<!-- LIVE STATS BAR — CRO design -->
 <div class="stats-bar-wrap">
   <div class="stats-bar-inner">
-    <div class="stat-pill">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg>
-      <span><strong id="statSold">23</strong> sold today</span>
+    <div class="live-indicator"><span class="live-dot"></span>LIVE</div>
+    <div class="stat-block">
+      <div class="stat-number" id="statSold">23</div>
+      <div class="stat-label">Sold today</div>
     </div>
-    <div class="stat-pill">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-6 8-13a8 8 0 1 0-16 0c0 7 8 13 8 13z"/></svg>
-      <span><strong>Only 6</strong> left in stock</span>
+    <div class="stat-block urgent">
+      <div class="stat-number" id="statStock">6</div>
+      <div class="stat-label">Left in stock</div>
     </div>
-    <div class="stat-pill">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-      <span><strong id="statViewing">47</strong> viewing now</span>
+    <div class="stat-block">
+      <div class="stat-number" id="statViewing">47</div>
+      <div class="stat-label">Viewing now</div>
     </div>
-    <div class="stat-pill">
-      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-      <span>Drop ends in <strong>2 days</strong></span>
+    <div class="stat-block">
+      <div class="countdown-row">
+        <span class="stat-number" id="cdDays">02</span><span class="cd-sep">:</span>
+        <span class="stat-number" id="cdHrs">14</span><span class="cd-sep">:</span>
+        <span class="stat-number" id="cdMins">32</span><span class="cd-sep">:</span>
+        <span class="stat-number" id="cdSecs">05</span>
+      </div>
+      <div class="stat-label">Drop ends in (d : h : m : s)</div>
     </div>
   </div>
 </div>
@@ -2099,7 +2160,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Mini Leopard is my new daily."</h4>
         <p class="review-text">I went for the Mini Leopard because I wanted something compact but bold. SO glad I did. Fits my wallet, phone, sunglasses, lipstick, AirPods, keys — all of it. The print is gorgeous in person. PU handles feel premium. Got compliments at brunch within 10 minutes.</p>
         <div class="review-author">
-          <div class="author-avatar">A</div>
+          <div class="author-avatar"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Ananya R."></div>
           <div class="author-info">
             <div class="author-name">Ananya R. <span class="verified">Verified</span></div>
             <div class="author-meta">Bangalore · 18 April 2026</div>
@@ -2112,7 +2173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Zebra Tote turned heads at work."</h4>
         <p class="review-text">Bought the Zebra Tote with PU pockets — yes it's the most expensive of the four but worth every rupee. The fabric is heavy and feels expensive. Studded pockets on the front are GORGEOUS detail. My laptop, lunchbox, planner all fit easily. EMI was a lifesaver.</p>
         <div class="review-author">
-          <div class="author-avatar">M</div>
+          <div class="author-avatar"><img src="https://randomuser.me/api/portraits/women/79.jpg" alt="Meera S."></div>
           <div class="author-info">
             <div class="author-name">Meera S. <span class="verified">Verified</span></div>
             <div class="author-meta">Mumbai · 15 April 2026</div>
@@ -2125,7 +2186,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Retro Tote — gift for my mom."</h4>
         <p class="review-text">My mom is 58 and she went CRAZY for the retro ornamental tote. She said it reminded her of vintage saree borders. The black-and-cream pattern is timeless. Solid build, comfortable to carry. She uses it every day now. Best ₹2,499 I've ever spent.</p>
         <div class="review-author">
-          <div class="author-avatar">P</div>
+          <div class="author-avatar"><img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Priyanka V."></div>
           <div class="author-info">
             <div class="author-name">Priyanka V. <span class="verified">Verified</span></div>
             <div class="author-meta">Pune · 12 April 2026</div>
@@ -2138,7 +2199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Wife loved the Leopard Chain Tote."</h4>
         <p class="review-text">Anniversary gift — went with the big Leopard Tote with the gold chain handles. She literally hasn't carried any other bag since. Says it makes any outfit look polished. Delivery was 3 days flat to Delhi. COD option made me feel safer too. 10/10.</p>
         <div class="review-author">
-          <div class="author-avatar">R</div>
+          <div class="author-avatar"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Rohit K."></div>
           <div class="author-info">
             <div class="author-name">Rohit K. <span class="verified">Verified</span></div>
             <div class="author-meta">Delhi · 09 April 2026</div>
@@ -2151,7 +2212,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Finally, bags that don't whisper."</h4>
         <p class="review-text">As a 28-year-old consultant, I needed bags that don't scream "first job" but also don't cost ₹40,000. This collection is THE answer. Bold prints, premium feel, fair price. Already ordered 2 — Mini Leopard for casual, Zebra for office. Both arrived perfectly packed.</p>
         <div class="review-author">
-          <div class="author-avatar">N</div>
+          <div class="author-avatar"><img src="https://randomuser.me/api/portraits/women/30.jpg" alt="Nisha B."></div>
           <div class="author-info">
             <div class="author-name">Nisha B. <span class="verified">Verified</span></div>
             <div class="author-meta">Hyderabad · 06 April 2026</div>
@@ -2164,7 +2225,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"COD + EMI = best decision."</h4>
         <p class="review-text">I usually don't trust online bag stores so the COD option made me try them. Bag arrived in 2 days, exactly as shown. Used my HDFC card for EMI — paying ₹708/month is so much easier than upfront. Pattern is vibrant, stitching is solid. Recommended.</p>
         <div class="review-author">
-          <div class="author-avatar">S</div>
+          <div class="author-avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Shreya M."></div>
           <div class="author-info">
             <div class="author-name">Shreya M. <span class="verified">Verified</span></div>
             <div class="author-meta">Chennai · 03 April 2026</div>
@@ -2411,7 +2472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- LIVE NOTIF -->
 <div class="live-notification" id="liveNotif">
   <button class="notif-close" onclick="document.getElementById('liveNotif').classList.remove('show')">×</button>
-  <div class="notif-avatar" id="notifAv">A</div>
+  <div class="notif-avatar" id="notifAv"><img id="notifAvImg" src="https://randomuser.me/api/portraits/women/65.jpg" alt=""></div>
   <div class="notif-text">
     <strong id="notifText">Anjali from Bangalore</strong>
     <span id="notifMeta">just bought the Mini Leopard · 3 min ago</span>
@@ -2754,14 +2815,14 @@ window.addEventListener('scroll', () => {
 // LIVE NOTIFICATIONS
 // ========================
 const notifs = [
-  {n:'Anjali', c:'Bangalore', a:'A', p:0},
-  {n:'Kavya', c:'Pune', a:'K', p:2},
-  {n:'Riya', c:'Delhi', a:'R', p:3},
-  {n:'Sneha', c:'Hyderabad', a:'S', p:1},
-  {n:'Tanvi', c:'Chennai', a:'T', p:0},
-  {n:'Pooja', c:'Mumbai', a:'P', p:2},
-  {n:'Divya', c:'Gurgaon', a:'D', p:3},
-  {n:'Ishita', c:'Kolkata', a:'I', p:1}
+  {n:'Anjali',  c:'Bangalore', img:'https://randomuser.me/api/portraits/women/65.jpg', p:0},
+  {n:'Kavya',   c:'Pune',      img:'https://randomuser.me/api/portraits/women/79.jpg', p:2},
+  {n:'Riya',    c:'Delhi',     img:'https://randomuser.me/api/portraits/women/45.jpg', p:3},
+  {n:'Sneha',   c:'Hyderabad', img:'https://randomuser.me/api/portraits/women/30.jpg', p:1},
+  {n:'Tanvi',   c:'Chennai',   img:'https://randomuser.me/api/portraits/women/68.jpg', p:0},
+  {n:'Pooja',   c:'Mumbai',    img:'https://randomuser.me/api/portraits/women/12.jpg', p:2},
+  {n:'Divya',   c:'Gurgaon',   img:'https://randomuser.me/api/portraits/women/89.jpg', p:3},
+  {n:'Ishita',  c:'Kolkata',   img:'https://randomuser.me/api/portraits/women/72.jpg', p:1}
 ];
 
 let nIdx = 0;
@@ -2770,13 +2831,75 @@ function showNotif() {
   const x = notifs[nIdx % notifs.length];
   document.getElementById('notifText').textContent = `${x.n} from ${x.c}`;
   document.getElementById('notifMeta').textContent = `just bought the ${products[x.p].name} · ${Math.floor(Math.random()*10)+1} min ago`;
-  document.getElementById('notifAv').textContent = x.a;
+  document.getElementById('notifAvImg').src = x.img;
+  document.getElementById('notifAvImg').alt = x.n;
   ne.classList.add('show');
   setTimeout(() => ne.classList.remove('show'), 5500);
   nIdx++;
 }
 setTimeout(showNotif, 4000);
 setInterval(showNotif, 14000);
+
+// ========================
+// LIVE STATS BAR
+// ========================
+(function () {
+  const sold = document.getElementById('statSold');
+  const viewing = document.getElementById('statViewing');
+  const stock = document.getElementById('statStock');
+  if (!sold || !viewing || !stock) return;
+
+  let soldN = parseInt(sold.textContent, 10) || 23;
+  let viewN = parseInt(viewing.textContent, 10) || 47;
+
+  function tick(el, newVal) {
+    el.textContent = newVal;
+    el.classList.remove('tick');
+    void el.offsetWidth; // restart animation
+    el.classList.add('tick');
+  }
+  // sold-today: +1 every ~18–35s
+  function scheduleSold() {
+    setTimeout(() => {
+      soldN += 1;
+      tick(sold, soldN);
+      scheduleSold();
+    }, 18000 + Math.random() * 17000);
+  }
+  scheduleSold();
+
+  // viewing-now: drift +/- 1-3 every ~6–12s, keep in 30..80
+  function scheduleViewing() {
+    setTimeout(() => {
+      const delta = (Math.random() < 0.55 ? 1 : -1) * (1 + Math.floor(Math.random() * 3));
+      viewN = Math.max(30, Math.min(80, viewN + delta));
+      tick(viewing, viewN);
+      scheduleViewing();
+    }, 6000 + Math.random() * 6000);
+  }
+  scheduleViewing();
+
+  // Countdown — 2 days from page load
+  const target = new Date(Date.now() + 2 * 24 * 3600 * 1000 + 14 * 3600 * 1000 + 32 * 60 * 1000);
+  const dEl = document.getElementById('cdDays');
+  const hEl = document.getElementById('cdHrs');
+  const mEl = document.getElementById('cdMins');
+  const sEl = document.getElementById('cdSecs');
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function updateCountdown() {
+    let diff = Math.max(0, target - Date.now());
+    const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+    const h = Math.floor(diff / 3600000);  diff -= h * 3600000;
+    const m = Math.floor(diff / 60000);    diff -= m * 60000;
+    const s = Math.floor(diff / 1000);
+    dEl.textContent = pad(d);
+    hEl.textContent = pad(h);
+    mEl.textContent = pad(m);
+    sEl.textContent = pad(s);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
 
 // ========================
 // REVEAL
