@@ -182,35 +182,29 @@ img { display: block; max-width: 100%; }
 .urgency-bar span { font-weight: 700; }
 
 /* PRODUCT SWITCHER */
-/* LIVE STATS BAR — CRO design */
+/* LIVE STATS BAR — CRO design (v2 light) */
 .stats-bar-wrap {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1f1f1f 100%);
-  color: #ffffff;
-  padding: 18px 24px;
+  background: #ffffff;
+  color: #0a0a0a;
+  padding: 20px 24px;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
   position: relative;
-  overflow: hidden;
-}
-.stats-bar-wrap::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at top right, rgba(220,38,38,0.18), transparent 60%);
-  pointer-events: none;
 }
 .stats-bar-inner {
   max-width: 1100px; margin: 0 auto;
   display: grid;
   grid-template-columns: auto 1fr 1fr 1fr 1fr;
-  gap: 24px;
+  gap: 22px;
   align-items: center;
-  position: relative; z-index: 1;
 }
 .live-indicator {
   display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 800; letter-spacing: 2px;
+  font-size: 11px; font-weight: 800; letter-spacing: 2.2px;
   color: #ffffff;
   background: #dc2626;
-  padding: 7px 12px; border-radius: 999px;
-  box-shadow: 0 0 0 0 rgba(220,38,38,0.5);
+  padding: 8px 14px; border-radius: 999px;
+  box-shadow: 0 0 0 0 rgba(220,38,38,0.55);
   animation: pulseRed 2s infinite;
 }
 .live-dot {
@@ -229,39 +223,48 @@ img { display: block; max-width: 100%; }
   30%           { opacity: 0.35; }
 }
 .stat-block {
-  display: flex; flex-direction: column; gap: 2px;
-  border-left: 1px solid rgba(255,255,255,0.12);
-  padding-left: 20px;
-  position: relative;
+  display: flex; flex-direction: column; gap: 4px;
+  border-left: 1px solid #ececec;
+  padding-left: 22px;
 }
 .stat-block:first-of-type { border-left: 0; padding-left: 0; }
 .stat-number {
   font-family: 'Playfair Display', 'Instrument Serif', serif;
-  font-size: 28px; font-weight: 700; line-height: 1;
-  color: #ffffff;
-  transition: color 0.25s, transform 0.25s;
+  font-size: 30px; font-weight: 700; line-height: 1;
+  color: #0a0a0a;
+  transition: color 0.25s ease-out, transform 0.25s ease-out;
+  letter-spacing: -0.5px;
 }
-.stat-block.urgent .stat-number { color: #fca5a5; }
-.stat-number.tick { animation: tickPop 0.5s ease-out; }
+.stat-number.tick { animation: tickPop 0.55s ease-out; }
 @keyframes tickPop {
-  0%   { transform: scale(1); color: #fbbf24; }
-  60%  { transform: scale(1.18); color: #facc15; }
-  100% { transform: scale(1); }
+  0%   { transform: scale(1);    color: #16a34a; }
+  60%  { transform: scale(1.18); color: #16a34a; }
+  100% { transform: scale(1);    color: #0a0a0a; }
 }
+.stat-block.urgent .stat-number { color: #dc2626; }
 .stat-label {
   font-size: 10.5px; letter-spacing: 1.6px; text-transform: uppercase;
-  color: rgba(255,255,255,0.65); font-weight: 600;
+  color: #737373; font-weight: 700;
 }
-.stat-block.urgent .stat-label { color: #fca5a5; }
-.countdown-row { display: inline-flex; gap: 6px; align-items: baseline; }
-.countdown-row .stat-number { font-size: 22px; }
-.countdown-row span.cd-sep { color: rgba(255,255,255,0.4); font-size: 18px; }
+.stat-block.urgent .stat-label { color: #dc2626; }
+.countdown-row { display: inline-flex; gap: 4px; align-items: baseline; }
+.countdown-row .stat-number {
+  font-size: 22px;
+  background: #0a0a0a; color: #ffffff;
+  padding: 6px 8px; border-radius: 4px;
+  font-family: 'Instrument Sans', 'Inter', sans-serif;
+  letter-spacing: 0; font-weight: 700;
+  min-width: 34px; text-align: center;
+}
+.countdown-row .stat-number.tick { animation: none; }
+.countdown-row span.cd-sep { color: #0a0a0a; font-weight: 700; font-size: 18px; padding: 0 1px; }
 
 @media (max-width: 900px) {
-  .stats-bar-inner { grid-template-columns: 1fr 1fr; row-gap: 18px; column-gap: 14px; }
+  .stats-bar-inner { grid-template-columns: 1fr 1fr; row-gap: 22px; column-gap: 14px; }
   .live-indicator { grid-column: 1 / -1; justify-self: center; }
   .stat-block { border-left: 0; padding-left: 0; text-align: center; align-items: center; }
-  .stat-number { font-size: 24px; }
+  .stat-number { font-size: 26px; }
+  .countdown-row .stat-number { font-size: 18px; min-width: 30px; padding: 5px 6px; }
 }
 
 .product-switcher-wrap {
