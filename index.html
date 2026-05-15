@@ -179,12 +179,6 @@ img { display: block; max-width: 100%; }
   font-weight: 700;
   color: var(--text-dark);
 }
-.product-tab-price s {
-  color: var(--text-light);
-  font-weight: 400;
-  font-size: 11px;
-  margin-left: 4px;
-}
 
 /* HERO */
 .hero {
@@ -233,20 +227,6 @@ img { display: block; max-width: 100%; }
 }
 .main-image.fading { opacity: 0.3; }
 .main-image-wrap:hover .main-image { transform: scale(1.04); }
-.discount-badge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: var(--red);
-  color: var(--white);
-  padding: 10px 16px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border-radius: 2px;
-  z-index: 2;
-  box-shadow: 0 4px 12px rgba(198,40,40,0.3);
-}
 .heritage-tag {
   position: absolute;
   bottom: 20px;
@@ -329,54 +309,7 @@ img { display: block; max-width: 100%; }
   font-weight: 700;
   transition: opacity 0.3s;
 }
-.price-original { font-size: 20px; color: var(--text-light); text-decoration: line-through; }
-.price-save {
-  background: var(--red);
-  color: var(--white);
-  padding: 4px 10px;
-  font-size: 12px;
-  font-weight: 700;
-  border-radius: 2px;
-}
 .tax-note { font-size: 12px; color: var(--text-light); margin-bottom: 16px; }
-
-/* OFFER */
-.offer-strip {
-  background: var(--text-dark);
-  color: var(--white);
-  padding: 16px 20px;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-left: 3px solid var(--gold);
-  border-radius: 2px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.offer-text { font-size: 13px; }
-.offer-text strong { color: var(--gold); display: block; font-size: 11px; letter-spacing: 1px; margin-bottom: 4px; font-weight: 700; }
-.offer-text em {
-  color: var(--gold);
-  font-style: normal;
-  font-weight: 700;
-  background: rgba(176,141,87,0.2);
-  padding: 2px 6px;
-  border-radius: 2px;
-}
-.countdown { display: flex; gap: 6px; align-items: center; }
-.countdown-unit {
-  background: var(--gold);
-  color: var(--text-dark);
-  padding: 6px 9px;
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-weight: 700;
-  min-width: 36px;
-  text-align: center;
-  border-radius: 2px;
-}
-.countdown-sep { color: var(--gold); font-weight: 700; }
 
 /* SCARCITY */
 .scarcity {
@@ -787,7 +720,6 @@ img { display: block; max-width: 100%; }
   font-size: 14px;
   font-weight: 700;
 }
-.collection-card-price s { color: var(--text-light); font-weight: 400; margin-left: 6px; font-size: 12px; }
 
 /* SPECS */
 .specs { background: var(--white); padding: 80px 40px; }
@@ -1117,7 +1049,6 @@ img { display: block; max-width: 100%; }
   font-size: 44px;
   font-weight: 700;
 }
-.final-cta-price .original { font-size: 20px; color: var(--text-light); text-decoration: line-through; }
 .final-cta-btn {
   display: inline-block;
   background: var(--text-dark);
@@ -1350,7 +1281,6 @@ img { display: block; max-width: 100%; }
   .sticky-text h4 { font-size: 13px; }
   .sticky-text p { font-size: 11px; }
   .sticky-cta { padding: 10px 16px; font-size: 11px; }
-  .offer-strip { flex-direction: column; align-items: flex-start; }
   .live-notification { left: 12px; right: 12px; max-width: none; }
   .compare-table thead th, .compare-table tbody td { padding: 12px 8px; font-size: 11px; }
   .value-strip-inner { grid-template-columns: 1fr 1fr; }
@@ -1368,7 +1298,6 @@ img { display: block; max-width: 100%; }
     <span class="announcement-item">NEW Collection — Just Dropped</span>
     <span class="announcement-item">Free Shipping Pan-India</span>
     <span class="announcement-item">Cash on Delivery Available</span>
-    <span class="announcement-item">Use Code NEW15 for Extra 15% Off</span>
     <span class="announcement-item">NEW Collection — Just Dropped</span>
     <span class="announcement-item">Free Shipping Pan-India</span>
     <span class="announcement-item">Cash on Delivery Available</span>
@@ -1396,7 +1325,7 @@ img { display: block; max-width: 100%; }
 
 <!-- URGENCY BAR -->
 <div class="urgency-bar">
-  ⚡ <span>NEW LAUNCH</span> · Up to <span>40% OFF</span> · COD available · Limited stock
+  ⚡ <span>NEW LAUNCH</span> · COD available · Limited stock
 </div>
 
 <!-- PRODUCT SWITCHER -->
@@ -1408,28 +1337,28 @@ img { display: block; max-width: 100%; }
         <img src="assets/MINI%20LEOPARD%20-%20PU%201.png" alt="Mini Leopard">
         <div class="product-tab-info">
           <div class="product-tab-name">Mini Leopard</div>
-          <div class="product-tab-price">₹2,124 <s>₹2,499</s></div>
+          <div class="product-tab-price">₹2,124</div>
         </div>
       </button>
       <button class="product-tab" data-product="1">
         <img src="assets/RETRO%20TOTE%20BAG%201.png" alt="Retro Tote">
         <div class="product-tab-info">
           <div class="product-tab-name">Retro Tote</div>
-          <div class="product-tab-price">₹2,124 <s>₹2,499</s></div>
+          <div class="product-tab-price">₹2,124</div>
         </div>
       </button>
       <button class="product-tab" data-product="2">
         <img src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.png" alt="Zebra Tote">
         <div class="product-tab-info">
           <div class="product-tab-name">Zebra Tote</div>
-          <div class="product-tab-price">₹3,399 <s>₹3,999</s></div>
+          <div class="product-tab-price">₹3,399</div>
         </div>
       </button>
       <button class="product-tab" data-product="3">
         <img src="assets/LEOPARD%20TOTE%20BAG%202.png" alt="Leopard Tote">
         <div class="product-tab-info">
           <div class="product-tab-name">Leopard Tote</div>
-          <div class="product-tab-price">₹2,124 <s>₹2,499</s></div>
+          <div class="product-tab-price">₹2,124</div>
         </div>
       </button>
     </div>
@@ -1449,7 +1378,6 @@ img { display: block; max-width: 100%; }
     </div>
 
     <div class="main-image-wrap">
-      <span class="discount-badge" id="discountBadge">15% OFF</span>
       <img class="main-image" id="mainImg" src="assets/MINI%20LEOPARD%20-%20PU%201.png" alt="Product">
       <div class="heritage-tag" id="heritageTag">✦ Hand-Crafted in India</div>
     </div>
@@ -1473,25 +1401,8 @@ img { display: block; max-width: 100%; }
 
     <div class="price-row">
       <span class="price-current" id="priceCurrent">₹2,124</span>
-      <span class="price-original" id="priceOriginal">₹2,499</span>
-      <span class="price-save" id="priceSave">Save 15%</span>
     </div>
     <p class="tax-note">Inclusive of all taxes · Free shipping pan-India · COD available</p>
-
-    <!-- OFFER -->
-    <div class="offer-strip">
-      <div class="offer-text">
-        <strong>FLASH OFFER ENDS IN</strong>
-        Extra 15% off — code <em>NEW15</em>
-      </div>
-      <div class="countdown">
-        <span class="countdown-unit" id="hrs">04</span>
-        <span class="countdown-sep">:</span>
-        <span class="countdown-unit" id="mins">23</span>
-        <span class="countdown-sep">:</span>
-        <span class="countdown-unit" id="secs">47</span>
-      </div>
-    </div>
 
     <!-- SCARCITY -->
     <div class="scarcity">
@@ -1619,7 +1530,7 @@ img { display: block; max-width: 100%; }
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
           <div class="collection-card-name">Mini Leopard Tote</div>
-          <div class="collection-card-price">₹2,124 <s>₹2,499</s></div>
+          <div class="collection-card-price">₹2,124</div>
         </div>
       </div>
       <div class="collection-card reveal" onclick="selectProduct(1)">
@@ -1627,7 +1538,7 @@ img { display: block; max-width: 100%; }
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
           <div class="collection-card-name">Retro Tote Bag</div>
-          <div class="collection-card-price">₹2,124 <s>₹2,499</s></div>
+          <div class="collection-card-price">₹2,124</div>
         </div>
       </div>
       <div class="collection-card reveal" onclick="selectProduct(2)">
@@ -1635,7 +1546,7 @@ img { display: block; max-width: 100%; }
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW · PREMIUM</div>
           <div class="collection-card-name">Zebra Tote PU Pocket</div>
-          <div class="collection-card-price">₹3,399 <s>₹3,999</s></div>
+          <div class="collection-card-price">₹3,399</div>
         </div>
       </div>
       <div class="collection-card reveal" onclick="selectProduct(3)">
@@ -1643,7 +1554,7 @@ img { display: block; max-width: 100%; }
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
           <div class="collection-card-name">Leopard Tote Bag</div>
-          <div class="collection-card-price">₹2,124 <s>₹2,499</s></div>
+          <div class="collection-card-price">₹2,124</div>
         </div>
       </div>
     </div>
@@ -1987,7 +1898,6 @@ img { display: block; max-width: 100%; }
 
   <div class="final-cta-price">
     <span class="current">From ₹2,124</span>
-    <span class="original">₹2,499</span>
   </div>
 
   <a href="#" class="final-cta-btn" onclick="document.getElementById('buyBtn').scrollIntoView({behavior:'smooth'}); return false;">⚡ Buy It Now →</a>
@@ -2060,7 +1970,7 @@ img { display: block; max-width: 100%; }
     <img class="sticky-thumb" id="stickyThumb" src="assets/MINI%20LEOPARD%20-%20PU%201.png" alt="Bag">
     <div class="sticky-text">
       <h4 id="stickyName">Mini Leopard Tote</h4>
-      <p id="stickyPrice">₹2,124 <span>₹2,499</span></p>
+      <p id="stickyPrice">₹2,124</p>
     </div>
   </div>
   <button class="sticky-cta" onclick="document.getElementById('buyBtn').scrollIntoView({behavior:'smooth',block:'center'})">Buy Now →</button>
@@ -2174,11 +2084,8 @@ function selectProduct(idx) {
   const title = document.getElementById('productTitle');
   const tagline = document.getElementById('productTagline');
   const priceCurrent = document.getElementById('priceCurrent');
-  const priceOriginal = document.getElementById('priceOriginal');
-  const priceSave = document.getElementById('priceSave');
   const buyBtnText = document.getElementById('buyBtnText');
   const stockText = document.getElementById('stockText');
-  const discountBadge = document.getElementById('discountBadge');
   const heritageTag = document.getElementById('heritageTag');
   const mainImg = document.getElementById('mainImg');
   const stickyThumb = document.getElementById('stickyThumb');
@@ -2200,16 +2107,13 @@ function selectProduct(idx) {
     title.textContent = p.headline;
     tagline.textContent = p.tagline;
     priceCurrent.textContent = '₹' + p.price.toLocaleString('en-IN');
-    priceOriginal.textContent = '₹' + p.original.toLocaleString('en-IN');
-    priceSave.textContent = 'Save ' + p.save + '%';
     buyBtnText.textContent = '⚡ Buy It Now · ₹' + p.price.toLocaleString('en-IN');
     stockText.textContent = 'Only ' + p.stock + ' left';
-    discountBadge.textContent = p.badge;
     heritageTag.textContent = p.tag;
     mainImg.src = p.images[0];
     stickyThumb.src = p.images[0];
     stickyName.textContent = p.name;
-    stickyPrice.innerHTML = '₹' + p.price.toLocaleString('en-IN') + ' <span>₹' + p.original.toLocaleString('en-IN') + '</span>';
+    stickyPrice.textContent = '₹' + p.price.toLocaleString('en-IN');
     liveProduct.textContent = p.name;
     storyImage.src = p.images[0];
     specsTitle.textContent = p.specsTitle;
@@ -2367,21 +2271,6 @@ function openCart() {
   // Open the live Shopify cart page in a new tab — keeps user on LP
   window.open(`https://${SHOPIFY_DOMAIN}/cart`, '_blank');
 }
-
-// ========================
-// COUNTDOWN
-// ========================
-let total = 4*3600 + 23*60 + 47;
-setInterval(() => {
-  total--;
-  if (total < 0) total = 4*3600 + 23*60 + 47;
-  const h = Math.floor(total/3600);
-  const m = Math.floor((total%3600)/60);
-  const s = total%60;
-  document.getElementById('hrs').textContent = String(h).padStart(2,'0');
-  document.getElementById('mins').textContent = String(m).padStart(2,'0');
-  document.getElementById('secs').textContent = String(s).padStart(2,'0');
-}, 1000);
 
 // ========================
 // STICKY BAR
