@@ -2735,8 +2735,6 @@ async function handleAddToCart() {
     alert('Could not add to cart: ' + e.message);
   }
 }
-  catch (e) { console.error(e); alert('Could not add to cart: ' + e.message); }
-}
 
 function openCart() {
   window.open(`https://${SHOPIFY_DOMAIN}/cart`, '_blank');
