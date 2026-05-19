@@ -2704,23 +2704,37 @@ async function handleBuy() {
   fireTracking('InitiateCheckout', product);
   const span = document.getElementById('buyBtnText');
   const orig = span.innerHTML;
-  span.textContent = '✓ Adding to cart...';
+  span.textContent = '✓ Redirecting...';
   try {
-    const url = await addToCart(product.handle, qty);
-    span.textContent = '✓ Redirecting...';
-    window.location.href = url;
+    const variantGid = await getVariantId(product.handle);
+    if (!variantGid) throw new Error('Variant not found for ' + product.handle);
+    // Strip 'gid://shopify/ProductVariant/' prefix -> bare numeric id
+    const variantId = String(variantGid).split('/').pop();
+    // Land on /cart so Breeze (super.money) overlay can pick it up.
+    // Older Shopify cart-permalink: /cart/<variant>:<qty> auto-adds then 302s to /cart.
+    window.location.href = `https://individualdesign.in/cart/${variantId}:${qty}`;
   } catch (e) {
     console.error(e);
     span.innerHTML = orig;
-    alert('Could not add to cart: ' + e.message);
+    alert('Could not start checkout: ' + e.message);
   }
 }
 
 async function handleAddToCart() {
+  // Same flow — Breeze overlay opens on /cart and lets the buyer review/edit.
   const qty = Math.max(1, parseInt(document.getElementById('qty').value, 10) || 1);
   const product = products[currentProduct];
   fireTracking('AddToCart', product);
-  try { await addToCart(product.handle, qty); openCart(); }
+  try {
+    const variantGid = await getVariantId(product.handle);
+    if (!variantGid) throw new Error('Variant not found');
+    const variantId = String(variantGid).split('/').pop();
+    window.location.href = `https://individualdesign.in/cart/${variantId}:${qty}`;
+  } catch (e) {
+    console.error(e);
+    alert('Could not add to cart: ' + e.message);
+  }
+}
   catch (e) { console.error(e); alert('Could not add to cart: ' + e.message); }
 }
 
