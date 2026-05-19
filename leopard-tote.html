@@ -2712,7 +2712,7 @@ async function handleBuy() {
     const variantId = String(variantGid).split('/').pop();
     // Land on /cart so Breeze (super.money) overlay can pick it up.
     // Older Shopify cart-permalink: /cart/<variant>:<qty> auto-adds then 302s to /cart.
-    window.location.href = `https://individualdesign.in/cart/${variantId}:${qty}`;
+    window.location.href = `https://individualdesign.in/cart/add?id=${variantId}&quantity=${qty}&return_to=/cart`;
   } catch (e) {
     console.error(e);
     span.innerHTML = orig;
@@ -2729,7 +2729,7 @@ async function handleAddToCart() {
     const variantGid = await getVariantId(product.handle);
     if (!variantGid) throw new Error('Variant not found');
     const variantId = String(variantGid).split('/').pop();
-    window.location.href = `https://individualdesign.in/cart/${variantId}:${qty}`;
+    window.location.href = `https://individualdesign.in/cart/add?id=${variantId}&quantity=${qty}&return_to=/cart`;
   } catch (e) {
     console.error(e);
     alert('Could not add to cart: ' + e.message);
