@@ -3,12 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New Arrivals — Hand-Crafted Tote Bags For Women | Individual Design</title>
-<meta name="description" content="Brand new collection. Hand-crafted tote bags. Free shipping, 7-day returns, COD available.">
+
+<!-- =========================================================
+     SHOPIFY STOREFRONT WEB COMPONENTS
+     ========================================================= -->
+<!-- =========================================================
+     GOOGLE TAG MANAGER  (replace GTM-XXXXXXX with your container ID)
+     ========================================================= -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');
+</script>
+
+<!-- =========================================================
+     META PIXEL  (replace YOUR_PIXEL_ID with your Meta pixel ID)
+     ========================================================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+
+<!-- =========================================================
+     GOOGLE ANALYTICS 4  (optional — remove if using GA4 via GTM)
+     ========================================================= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- ========================================================= -->
+
+<title>Mini Leopard Tote — Hand-Crafted Statement Tote | Individual Design</title>
+<meta name="description" content="Mini Leopard Tote — compact, bold, hand-crafted in India. Free shipping, COD available, 17% off for the first 100 customers.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -16,15 +61,15 @@
   --off-white: #fafafa;
   --light-gray: #f5f5f5;
   --border: #e5e5e5;
-  --text-light: #6b6b6b;
+  --text-light: #8a8a8a;
   --text-mid: #404040;
-  --text-dark: #1a1a1a;
-  --gold: #b08d57;
-  --gold-deep: #8a6a3d;
-  --green: #2e7d32;
-  --green-light: #f0f7ed;
-  --red: #c62828;
-  --red-light: #fff8f3;
+  --text-dark: #0a0a0a;
+  --gold: #0a0a0a;
+  --gold-deep: #0a0a0a;
+  --green: #0a0a0a;
+  --green-light: #f5f5f5;
+  --red: #0a0a0a;
+  --red-light: #fafafa;
   --shadow: 0 4px 20px rgba(0,0,0,0.06);
   --shadow-lg: 0 20px 50px rgba(0,0,0,0.1);
 }
@@ -32,12 +77,15 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 14px;
   background: var(--white);
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 img { display: block; max-width: 100%; }
 
@@ -59,7 +107,7 @@ img { display: block; max-width: 100%; }
   white-space: nowrap;
   width: max-content;
 }
-.announcement-item::before { content: "✦"; color: var(--gold); margin-right: 10px; }
+.announcement-item::before { content: "✦"; color: var(--white); margin-right: 10px; opacity: 0.6; }
 @keyframes scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -68,7 +116,7 @@ img { display: block; max-width: 100%; }
 /* NAV */
 .nav {
   background: var(--white);
-  padding: 18px 40px;
+  padding: 22px 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -76,19 +124,54 @@ img { display: block; max-width: 100%; }
   position: sticky;
   top: 0;
   z-index: 100;
+  gap: 32px;
 }
-.logo { display: inline-flex; align-items: center; }
+.logo { display: inline-flex; align-items: center; text-decoration: none; }
 .logo img { height: 66px; width: auto; display: block; }
-.nav-links { display: flex; gap: 36px; list-style: none; font-size: 13px; font-weight: 500; }
-.nav-links a { color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--gold-deep); }
+.nav-links {
+  display: flex;
+  gap: 44px;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  flex: 1;
+  justify-content: center;
+}
+.nav-links a {
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: color 0.2s, opacity 0.2s;
+  position: relative;
+  padding: 4px 0;
+}
+.nav-links a:hover { opacity: 0.55; }
 .nav-actions { display: flex; gap: 22px; align-items: center; }
-.nav-actions svg { width: 20px; height: 20px; cursor: pointer; }
+.nav-actions > svg, .nav-actions a { color: var(--text-dark); cursor: pointer; transition: opacity 0.2s; }
+.nav-actions > svg:hover, .nav-actions a:hover { opacity: 0.55; }
+.nav-actions svg { width: 22px; height: 22px; display: block; }
+.cart-icon {
+  position: relative;
+  display: inline-flex;
+  text-decoration: none;
+}
+.cart-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: var(--text-dark);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  box-sizing: content-box;
+}
 
 /* URGENCY BAR */
 .urgency-bar {
-  background: var(--red);
-  color: var(--white);
+  background: #c62828;
+  color: #ffffff;
   padding: 8px 20px;
   text-align: center;
   font-size: 13px;
@@ -97,6 +180,82 @@ img { display: block; max-width: 100%; }
 .urgency-bar span { font-weight: 700; }
 
 /* PRODUCT SWITCHER */
+/* LIVE ACTIVITY BAR — real-time social-proof feed */
+.activity-bar {
+  background: #0a0a0a;
+  color: #e6e6e6;
+  font-size: 13px;
+  padding: 11px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.activity-bar-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 24px;
+}
+.activity-feed {
+  display: flex; align-items: center; gap: 12px;
+  min-width: 0; flex: 1;
+}
+.activity-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34,197,94,0.8);
+  flex-shrink: 0;
+  animation: actBlink 1.4s infinite;
+}
+@keyframes actBlink {
+  0%, 60%, 100% { opacity: 1; }
+  30%           { opacity: 0.35; }
+}
+.activity-avatar {
+  width: 28px; height: 28px; border-radius: 50%; object-fit: cover;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  transition: opacity 0.4s ease;
+}
+.activity-text {
+  display: inline-flex; gap: 6px; align-items: baseline;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: opacity 0.35s ease;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+.activity-text strong { color: #ffffff; font-weight: 600; }
+.activity-text em { color: #ffffff; font-style: normal; font-weight: 500; }
+.activity-text .activity-time { color: rgba(255,255,255,0.5); margin-left: 6px; }
+.activity-fade { opacity: 0; }
+
+.activity-stats {
+  display: flex; gap: 10px 14px; align-items: center;
+  font-size: 12px; color: rgba(255,255,255,0.7);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.activity-stats > div { display: inline-flex; gap: 6px; align-items: baseline; white-space: nowrap; }
+.activity-stats strong { color: #ffffff; font-weight: 700; }
+.activity-stats .stat-stock { color: #fca5a5; }
+.activity-stats .stat-stock-label { color: rgba(255,255,255,0.85); }
+.activity-stats .sep { color: rgba(255,255,255,0.25); }
+.activity-stats .cd-pill {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 4px 10px; border-radius: 4px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (max-width: 880px) {
+  .activity-bar-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .activity-feed, .activity-stats { font-size: 12px; }
+  .activity-stats { width: 100%; justify-content: flex-start; gap: 8px 12px; }
+  .activity-stats .sep { display: none; }
+}
+@media (max-width: 480px) {
+  .activity-text .activity-time { display: none; }
+  .activity-stats { font-size: 11.5px; gap: 6px 10px; }
+}
+
 .product-switcher-wrap {
   background: var(--off-white);
   padding: 22px 20px;
@@ -166,7 +325,7 @@ img { display: block; max-width: 100%; }
 }
 .product-tab-info { flex: 1; min-width: 0; }
 .product-tab-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 4px;
@@ -178,6 +337,12 @@ img { display: block; max-width: 100%; }
   font-size: 13px;
   font-weight: 700;
   color: var(--text-dark);
+}
+.product-tab-price s {
+  color: var(--text-light);
+  font-weight: 400;
+  font-size: 11px;
+  margin-left: 4px;
 }
 
 /* HERO */
@@ -227,6 +392,20 @@ img { display: block; max-width: 100%; }
 }
 .main-image.fading { opacity: 0.3; }
 .main-image-wrap:hover .main-image { transform: scale(1.04); }
+.discount-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--red);
+  color: var(--white);
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(198,40,40,0.3);
+}
 .heritage-tag {
   position: absolute;
   bottom: 20px;
@@ -255,19 +434,24 @@ img { display: block; max-width: 100%; }
   margin-bottom: 12px;
 }
 .product-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
-  line-height: 1.1;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 22px;
+  line-height: 1.25;
   margin-bottom: 10px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-dark);
   transition: opacity 0.3s;
 }
 .product-tagline {
-  font-size: 16px;
-  color: var(--gold-deep);
+  font-size: 13px;
+  color: var(--text-light);
   margin-bottom: 16px;
-  font-weight: 500;
-  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-style: normal;
 }
 
 .rating-row {
@@ -276,10 +460,16 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
 }
-.stars { color: var(--gold); font-size: 16px; letter-spacing: 1px; }
+.stars { color: #16a34a; font-size: 16px; letter-spacing: 1px; }
 .rating-text { font-size: 13px; color: var(--text-mid); }
 .rating-text strong { color: var(--text-dark); font-weight: 600; }
-.rating-link { font-size: 13px; color: var(--gold-deep); text-decoration: underline; cursor: pointer; }
+.rating-link {
+  font-size: 13px; color: #ffffff; text-decoration: none; cursor: pointer;
+  background: #16a34a; padding: 6px 14px; border-radius: 999px;
+  font-weight: 600; transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+.rating-link:hover { background: #15803d; transform: translateY(-1px); }
 .rating-divider { color: var(--border); }
 .bestseller-tag {
   background: var(--gold);
@@ -304,12 +494,155 @@ img { display: block; max-width: 100%; }
 
 .price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
 .price-current {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  font-weight: 700;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   transition: opacity 0.3s;
 }
+.price-original { font-size: 20px; color: var(--text-light); text-decoration: line-through; }
+.price-save {
+  background: var(--red);
+  color: var(--white);
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 2px;
+}
 .tax-note { font-size: 12px; color: var(--text-light); margin-bottom: 16px; }
+
+/* EMI */
+.emi-box {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.emi-icon {
+  width: 36px; height: 36px;
+  background: var(--gold);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.emi-text { font-size: 13px; color: var(--text-mid); flex: 1; }
+.emi-text strong { color: var(--text-dark); font-size: 15px; display: block; font-weight: 700; }
+.emi-text strong em { color: var(--gold-deep); font-style: normal; }
+.emi-link { font-size: 12px; color: var(--gold-deep); cursor: pointer; text-decoration: underline; }
+
+/* OFFER */
+.offer-strip {
+  background: var(--text-dark);
+  color: var(--white);
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.offer-text {
+  font-size: 15px;
+  color: #ffffff;
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+.offer-text strong {
+  color: #ffffff;
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2.4px;
+  margin-bottom: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.offer-text em {
+  color: #ffffff;
+  font-family: 'Instrument Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.2px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+.countdown {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+  font-family: 'Instrument Sans', sans-serif;
+}
+.countdown-unit {
+  background: transparent;
+  color: #ffffff;
+  padding: 0;
+  font-family: inherit;
+  font-size: 26px;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+  border-radius: 0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.5px;
+}
+.countdown-sep { color: rgba(255,255,255,0.55); font-weight: 400; font-size: 22px; font-family: 'Instrument Sans', sans-serif; }
+
+/* DELIVERY */
+.delivery-box {
+  background: var(--green-light);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.delivery-icon { width: 28px; height: 28px; margin-top: 2px; color: var(--green); flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; }
+.delivery-icon svg, .trust-icon svg, .value-emoji svg, .persona-emoji svg, .feature-icon svg { width: 100%; height: 100%; display: block; }
+.delivery-content { flex: 1; }
+.delivery-content strong {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+.delivery-content p { font-size: 12px; color: var(--text-mid); margin: 0; }
+.delivery-content em { color: var(--green); font-style: normal; font-weight: 700; }
+.pincode-row { display: flex; gap: 8px; margin-top: 10px; }
+.pincode-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-size: 13px;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  background: var(--white);
+  outline: none;
+}
+.pincode-input:focus { border-color: var(--green); }
+.pincode-btn {
+  padding: 8px 16px;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
 
 /* SCARCITY */
 .scarcity {
@@ -320,7 +653,7 @@ img { display: block; max-width: 100%; }
   align-items: center;
   gap: 12px;
   font-size: 13px;
-  border: 1px solid #f0d4ad;
+  border: 1px solid var(--border);
   border-radius: 2px;
 }
 .scarcity-icon {
@@ -403,7 +736,7 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 700;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   transition: all 0.3s;
   display: flex;
   justify-content: space-between;
@@ -416,7 +749,7 @@ img { display: block; max-width: 100%; }
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--gold-deep);
+  background: #2a2a2a;
   transform: translateX(-100%);
   transition: transform 0.4s;
 }
@@ -432,7 +765,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: 1px;
   cursor: pointer;
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   transition: all 0.3s;
   border-radius: 2px;
   display: flex;
@@ -454,7 +787,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 18px;
 }
 .trust-item { text-align: center; }
-.trust-icon { font-size: 22px; margin-bottom: 6px; color: var(--gold-deep); }
+.trust-icon { width: 28px; height: 28px; margin: 0 auto 8px; color: var(--gold-deep); display: flex; align-items: center; justify-content: center; }
 .trust-label {
   font-size: 10px;
   letter-spacing: 1px;
@@ -497,7 +830,7 @@ img { display: block; max-width: 100%; }
   text-align: center;
 }
 .value-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-.value-emoji { font-size: 28px; }
+.value-emoji { width: 36px; height: 36px; color: var(--gold-deep); display: inline-flex; align-items: center; justify-content: center; }
 .value-item strong { font-size: 13px; font-weight: 700; letter-spacing: 0.5px; }
 .value-item p { font-size: 12px; color: var(--text-light); margin: 0; }
 
@@ -522,13 +855,15 @@ img { display: block; max-width: 100%; }
 .story-image { width: 100%; height: 100%; object-fit: cover; }
 .story-content .eyebrow { margin-bottom: 16px; }
 .story-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  line-height: 1.15;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 26px;
+  line-height: 1.25;
   margin-bottom: 22px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
-.story-title em { font-style: italic; color: var(--gold-deep); }
+.story-title em { font-style: normal; color: var(--gold-deep); font-weight: 600; }
 .story-text {
   font-size: 16px;
   line-height: 1.75;
@@ -545,7 +880,7 @@ img { display: block; max-width: 100%; }
   border-top: 1px solid var(--border);
 }
 .stat-num {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 32px;
   display: block;
   font-weight: 700;
@@ -574,10 +909,12 @@ img { display: block; max-width: 100%; }
   margin-right: auto;
 }
 .for-whom-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 26px;
   margin: 12px 0 14px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   line-height: 1.15;
 }
 .for-whom-header p { font-size: 16px; color: var(--text-mid); }
@@ -601,9 +938,9 @@ img { display: block; max-width: 100%; }
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
-.persona-emoji { font-size: 40px; margin-bottom: 14px; display: block; }
+.persona-emoji { width: 44px; height: 44px; margin-bottom: 14px; color: var(--gold-deep); display: inline-flex; align-items: center; justify-content: center; }
 .persona-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 10px;
@@ -614,9 +951,11 @@ img { display: block; max-width: 100%; }
 .features { background: var(--white); padding: 80px 40px; }
 .features-header { text-align: center; max-width: 700px; margin: 0 auto 50px; }
 .features-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  font-weight: 600;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   margin: 12px 0 14px;
   line-height: 1.15;
 }
@@ -642,7 +981,7 @@ img { display: block; max-width: 100%; }
   border-color: var(--gold);
 }
 .feature-num {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 13px;
   color: var(--gold-deep);
   letter-spacing: 3px;
@@ -650,9 +989,9 @@ img { display: block; max-width: 100%; }
   margin-bottom: 18px;
   display: block;
 }
-.feature-icon { font-size: 36px; margin-bottom: 16px; color: var(--gold); }
+.feature-icon { width: 40px; height: 40px; margin-bottom: 16px; color: var(--gold); display: inline-flex; align-items: center; justify-content: center; }
 .feature-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 20px;
   margin-bottom: 12px;
   font-weight: 600;
@@ -669,9 +1008,11 @@ img { display: block; max-width: 100%; }
 .collection-inner { max-width: 1400px; margin: 0 auto; }
 .collection-header { text-align: center; margin-bottom: 50px; }
 .collection-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  font-weight: 600;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   margin-top: 12px;
   line-height: 1.15;
 }
@@ -688,6 +1029,8 @@ img { display: block; max-width: 100%; }
   transition: all 0.3s;
   cursor: pointer;
 }
+a.collection-card { text-decoration: none; color: inherit; display: block; }
+
 .collection-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
@@ -711,7 +1054,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 6px;
 }
 .collection-card-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 8px;
@@ -720,6 +1063,7 @@ img { display: block; max-width: 100%; }
   font-size: 14px;
   font-weight: 700;
 }
+.collection-card-price s { color: var(--text-light); font-weight: 400; margin-left: 6px; font-size: 12px; }
 
 /* SPECS */
 .specs { background: var(--white); padding: 80px 40px; }
@@ -732,11 +1076,13 @@ img { display: block; max-width: 100%; }
   align-items: start;
 }
 .specs-left h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 26px;
   margin: 12px 0 18px;
-  font-weight: 600;
-  line-height: 1.15;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 .specs-left p {
   font-size: 16px;
@@ -761,7 +1107,7 @@ img { display: block; max-width: 100%; }
   text-decoration: none;
   transition: background 0.2s;
 }
-.btn-buy-secondary:hover { background: var(--gold-deep); }
+.btn-buy-secondary:hover { background: #2a2a2a; }
 .specs-table { width: 100%; border-collapse: collapse; }
 .specs-table tr { border-bottom: 1px solid var(--border); }
 .specs-table tr:last-child { border-bottom: none; }
@@ -792,21 +1138,23 @@ img { display: block; max-width: 100%; }
   align-items: end;
 }
 .reviews-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  font-weight: 600;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   line-height: 1.15;
   margin-top: 12px;
 }
 .reviews-summary { display: flex; flex-direction: column; gap: 20px; }
 .summary-rating { display: flex; align-items: baseline; gap: 14px; }
 .summary-rating .num {
-  font-family: 'Playfair Display', serif;
-  font-size: 52px;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 34px;
   line-height: 1;
   font-weight: 700;
 }
-.summary-rating .stars-large { color: var(--gold); font-size: 20px; letter-spacing: 2px; }
+.summary-rating .stars-large { color: #16a34a; font-size: 20px; letter-spacing: 2px; }
 .summary-info { font-size: 13px; color: var(--text-mid); }
 .summary-info strong { font-weight: 700; }
 .rating-bars { display: flex; flex-direction: column; gap: 6px; max-width: 360px; }
@@ -830,9 +1178,9 @@ img { display: block; max-width: 100%; }
   transition: all 0.3s;
 }
 .review-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-.review-stars { color: var(--gold); font-size: 14px; margin-bottom: 10px; letter-spacing: 1px; }
+.review-stars { color: #16a34a; font-size: 14px; margin-bottom: 10px; letter-spacing: 1px; }
 .review-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 17px;
   margin-bottom: 12px;
   font-weight: 600;
@@ -846,14 +1194,14 @@ img { display: block; max-width: 100%; }
   border-top: 1px solid var(--border);
 }
 .author-avatar {
-  width: 38px; height: 38px;
+  width: 42px; height: 42px;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 14px;
+  background: var(--light-gray);
+  overflow: hidden;
   flex-shrink: 0;
+  display: block;
 }
+.author-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .author-info { flex: 1; }
 .author-name {
   font-size: 13px;
@@ -880,10 +1228,12 @@ img { display: block; max-width: 100%; }
   text-align: center;
 }
 .compare h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 26px;
   margin-bottom: 12px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 .compare-sub { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 50px; }
 .compare-table-wrap { max-width: 900px; margin: 0 auto; overflow-x: auto; }
@@ -894,11 +1244,11 @@ img { display: block; max-width: 100%; }
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-weight: 700;
-  border-bottom: 1px solid var(--gold);
-  color: rgba(255,255,255,0.8);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.85);
 }
 .compare-table thead th:nth-child(2) {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 16px;
   color: var(--white);
   position: relative;
@@ -910,12 +1260,12 @@ img { display: block; max-width: 100%; }
   top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--gold);
+  background: var(--white);
   color: var(--text-dark);
   padding: 3px 12px;
   font-size: 10px;
   letter-spacing: 1px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-weight: 700;
   white-space: nowrap;
   border-radius: 2px;
@@ -926,14 +1276,14 @@ img { display: block; max-width: 100%; }
   font-size: 14px;
 }
 .compare-table td:nth-child(2) {
-  background: rgba(176,141,87,0.08);
-  border-left: 1px solid rgba(176,141,87,0.3);
-  border-right: 1px solid rgba(176,141,87,0.3);
-  font-weight: 500;
-  color: var(--gold);
+  background: rgba(255,255,255,0.06);
+  border-left: 1px solid rgba(255,255,255,0.25);
+  border-right: 1px solid rgba(255,255,255,0.25);
+  font-weight: 600;
+  color: var(--white);
 }
-.check { color: var(--gold); font-weight: 700; }
-.cross { color: rgba(255,255,255,0.3); }
+.check { color: var(--white); font-weight: 700; }
+.cross { color: rgba(255,255,255,0.4); }
 
 /* FAQ */
 .faq { padding: 80px 40px; background: var(--white); }
@@ -946,11 +1296,13 @@ img { display: block; max-width: 100%; }
 }
 .faq-left { position: sticky; top: 100px; align-self: start; }
 .faq-left h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
-  line-height: 1.15;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 26px;
+  line-height: 1.25;
   margin: 12px 0 18px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 .faq-left p { font-size: 15px; line-height: 1.7; color: var(--text-mid); margin-bottom: 24px; }
 .faq-contact {
@@ -960,7 +1312,7 @@ img { display: block; max-width: 100%; }
   border-radius: 2px;
 }
 .faq-contact strong {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 20px;
   display: block;
   margin-bottom: 6px;
@@ -985,7 +1337,7 @@ img { display: block; max-width: 100%; }
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 17px;
   font-weight: 600;
 }
@@ -1022,13 +1374,15 @@ img { display: block; max-width: 100%; }
   border-top: 1px solid var(--border);
 }
 .final-cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 52px;
-  line-height: 1.05;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 30px;
+  line-height: 1.2;
   margin-bottom: 18px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
-.final-cta h2 em { font-style: italic; color: var(--gold-deep); }
+.final-cta h2 em { font-style: normal; color: var(--gold-deep); font-weight: 600; }
 .final-cta-text {
   font-size: 17px;
   color: var(--text-mid);
@@ -1045,9 +1399,16 @@ img { display: block; max-width: 100%; }
   flex-wrap: wrap;
 }
 .final-cta-price .current {
-  font-family: 'Playfair Display', serif;
-  font-size: 44px;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 30px;
   font-weight: 700;
+}
+.final-cta-price .original { font-size: 20px; color: var(--text-light); text-decoration: line-through; }
+.final-cta-emi {
+  font-size: 13px;
+  color: var(--gold-deep);
+  margin-bottom: 28px;
+  font-weight: 600;
 }
 .final-cta-btn {
   display: inline-block;
@@ -1060,12 +1421,12 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 700;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   transition: all 0.3s;
   text-decoration: none;
   border-radius: 2px;
 }
-.final-cta-btn:hover { background: var(--gold-deep); }
+.final-cta-btn:hover { background: #2a2a2a; }
 .final-cta-trust {
   margin-top: 26px;
   display: flex;
@@ -1094,17 +1455,37 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .footer-brand .footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
   margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+}
+.footer-brand .footer-logo::before {
+  content: "ID";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--white);
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 2px;
 }
 .footer-brand .footer-logo span {
-  font-style: italic;
-  font-weight: 400;
-  color: var(--gold);
-  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  letter-spacing: 2px;
 }
 .footer-brand p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.6); max-width: 360px; }
 .footer-col h4 {
@@ -1123,7 +1504,7 @@ img { display: block; max-width: 100%; }
   font-size: 13px;
   transition: color 0.2s;
 }
-.footer-col a:hover { color: var(--gold); }
+.footer-col a:hover { color: var(--white); }
 .footer-bottom {
   max-width: 1300px;
   margin: 0 auto;
@@ -1172,7 +1553,7 @@ img { display: block; max-width: 100%; }
 }
 .sticky-text { min-width: 0; }
 .sticky-text h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Instrument Sans', 'Instrument Serif', Times, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
   white-space: nowrap;
@@ -1196,7 +1577,7 @@ img { display: block; max-width: 100%; }
   white-space: nowrap;
   flex-shrink: 0;
 }
-.sticky-cta:hover { background: var(--gold-deep); }
+.sticky-cta:hover { background: #2a2a2a; }
 
 /* LIVE NOTIF — POSITIONED ABOVE STICKY FOOTER */
 .live-notification {
@@ -1220,14 +1601,14 @@ img { display: block; max-width: 100%; }
 .live-notification.show { transform: translateX(0); }
 .live-notification.no-sticky { bottom: 24px; }
 .notif-avatar {
-  width: 38px; height: 38px;
+  width: 40px; height: 40px;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 14px;
+  overflow: hidden;
+  background: var(--light-gray);
   flex-shrink: 0;
+  display: block;
 }
+.notif-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .notif-text strong { font-weight: 700; display: block; margin-bottom: 2px; }
 .notif-text span { font-size: 11px; color: var(--text-light); }
 .notif-close {
@@ -1249,15 +1630,15 @@ img { display: block; max-width: 100%; }
 @media (max-width: 1024px) {
   .hero { grid-template-columns: 1fr; padding: 20px; gap: 30px; }
   .info { padding: 0; }
-  .product-title { font-size: 30px; }
+  .product-title { font-size: 20px; }
   .story, .specs-inner, .faq-inner { grid-template-columns: 1fr; gap: 50px; }
   .story, .specs, .faq, .features, .reviews, .compare, .final-cta, .for-whom, .collection { padding: 60px 24px; }
   .feature-grid, .review-grid, .persona-grid, .collection-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
   .nav-links { display: none; }
   .reviews-header { grid-template-columns: 1fr; gap: 30px; }
-  .final-cta h2 { font-size: 38px; }
-  .features-title, .story-title, .specs-left h2, .reviews-header h2, .compare h2, .faq-left h2, .for-whom-header h2, .collection-header h2 { font-size: 30px; }
+  .final-cta h2 { font-size: 26px; }
+  .features-title, .story-title, .specs-left h2, .reviews-header h2, .compare h2, .faq-left h2, .for-whom-header h2, .collection-header h2 { font-size: 22px; }
   .value-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .product-tabs { grid-template-columns: repeat(2, 1fr); }
 }
@@ -1267,10 +1648,10 @@ img { display: block; max-width: 100%; }
   .gallery { grid-template-columns: 1fr; gap: 12px; }
   .thumb-stack { flex-direction: row; overflow-x: auto; gap: 8px; }
   .thumb { width: 70px; height: 70px; flex-shrink: 0; }
-  .product-title { font-size: 24px; }
-  .price-current { font-size: 28px; }
+  .product-title { font-size: 18px; }
+  .price-current { font-size: 22px; }
   .feature-grid, .review-grid, .persona-grid, .collection-grid { grid-template-columns: 1fr; }
-  .final-cta h2 { font-size: 30px; }
+  .final-cta h2 { font-size: 24px; }
   .story-stats { gap: 12px; }
   .stat-num { font-size: 24px; }
   .footer { padding: 50px 20px 20px; }
@@ -1281,6 +1662,7 @@ img { display: block; max-width: 100%; }
   .sticky-text h4 { font-size: 13px; }
   .sticky-text p { font-size: 11px; }
   .sticky-cta { padding: 10px 16px; font-size: 11px; }
+  .offer-strip { flex-direction: column; align-items: flex-start; }
   .live-notification { left: 12px; right: 12px; max-width: none; }
   .compare-table thead th, .compare-table tbody td { padding: 12px 8px; font-size: 11px; }
   .value-strip-inner { grid-template-columns: 1fr 1fr; }
@@ -1291,6 +1673,14 @@ img { display: block; max-width: 100%; }
 </style>
 </head>
 <body>
+
+
+
+<!-- =========================================================
+     GOOGLE TAG MANAGER (noscript fallback)
+     ========================================================= -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ANNOUNCEMENT -->
 <div class="announcement">
@@ -1319,48 +1709,37 @@ img { display: block; max-width: 100%; }
   <div class="nav-actions">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="button" aria-label="Open cart" onclick="openCart()" style="cursor:pointer"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="button" aria-label="Open cart" onclick="openCart(); return false;" style="cursor:pointer"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
   </div>
 </nav>
 
 <!-- URGENCY BAR -->
 <div class="urgency-bar">
-  ⚡ <span>NEW LAUNCH</span> · COD available · Limited stock
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 6px;"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg><span>17% OFF</span> for first 100 customers · Cash on Delivery available · Limited stock
 </div>
 
 <!-- PRODUCT SWITCHER -->
-<div class="product-switcher-wrap">
-  <div class="product-switcher-inner">
-    <div class="switcher-label">— Choose Your Style —</div>
-    <div class="product-tabs" id="productTabs">
-      <button class="product-tab active" data-product="0">
-        <img src="assets/MINI%20LEOPARD%20-%20PU%201.png" alt="Mini Leopard">
-        <div class="product-tab-info">
-          <div class="product-tab-name">Mini Leopard</div>
-          <div class="product-tab-price">₹2,499</div>
-        </div>
-      </button>
-      <button class="product-tab" data-product="1">
-        <img src="assets/RETRO%20TOTE%20BAG%201.png" alt="Retro Tote">
-        <div class="product-tab-info">
-          <div class="product-tab-name">Retro Tote</div>
-          <div class="product-tab-price">₹2,499</div>
-        </div>
-      </button>
-      <button class="product-tab" data-product="2">
-        <img src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.png" alt="Zebra Statement Bag">
-        <div class="product-tab-info">
-          <div class="product-tab-name">Zebra Statement Bag</div>
-          <div class="product-tab-price">₹3,999</div>
-        </div>
-      </button>
-      <button class="product-tab" data-product="3">
-        <img src="assets/LEOPARD%20TOTE%20BAG%202.png" alt="Leopard Tote">
-        <div class="product-tab-info">
-          <div class="product-tab-name">Leopard Tote</div>
-          <div class="product-tab-price">₹2,499</div>
-        </div>
-      </button>
+<!-- LIVE ACTIVITY BAR -->
+<div class="activity-bar">
+  <div class="activity-bar-inner">
+    <div class="activity-feed">
+      <span class="activity-dot" aria-hidden="true"></span>
+      <img class="activity-avatar" id="activityAv" src="assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt="">
+      <div class="activity-text" id="activityText">
+        <strong id="activityName">Priya</strong>
+        from <em id="activityCity">Mumbai</em>
+        bought <em id="activityProduct">Mini Leopard Tote</em>
+        <span class="activity-time" id="activityTime">· 3 min ago</span>
+      </div>
+    </div>
+    <div class="activity-stats">
+      <div><strong id="statSold">23</strong> sold today</div>
+      <span class="sep">·</span>
+      <div><strong id="statViewing">47</strong> viewing</div>
+      <span class="sep">·</span>
+      <div><strong id="statStock" class="stat-stock">6</strong> <span class="stat-stock-label">left</span></div>
+      <span class="sep">·</span>
+      <div class="cd-pill" id="cdPill">2d 14h 32m 05s</div>
     </div>
   </div>
 </div>
@@ -1369,16 +1748,20 @@ img { display: block; max-width: 100%; }
 <section class="hero">
   <div class="gallery">
     <div class="thumb-stack" id="thumbStack">
-      <div class="thumb active" data-img="assets/MINI%20LEOPARD%20-%20PU%201.png">
-        <img src="assets/MINI%20LEOPARD%20-%20PU%201.png" alt="View 1">
+      <div class="thumb active" data-img="assets/MINI%20LEOPARD%20-%20PU%201.jpg">
+        <img src="assets/MINI%20LEOPARD%20-%20PU%201.jpg" alt="View 1">
       </div>
-      <div class="thumb" data-img="assets/MINI%20LEOPARD%20-%20PU%202.png">
-        <img src="assets/MINI%20LEOPARD%20-%20PU%202.png" alt="View 2">
+      <div class="thumb" data-img="assets/MINI%20LEOPARD%20-%20PU%202.jpg">
+        <img src="assets/MINI%20LEOPARD%20-%20PU%202.jpg" alt="View 2">
+      </div>
+      <div class="thumb" data-img="assets/MINI%20LEOPARD%20-%20PU%20model.jpg">
+        <img src="assets/MINI%20LEOPARD%20-%20PU%20model.jpg" alt="View 3 (model)">
       </div>
     </div>
 
     <div class="main-image-wrap">
-      <img class="main-image" id="mainImg" src="assets/MINI%20LEOPARD%20-%20PU%201.png" alt="Product">
+      <span class="discount-badge" id="discountBadge">17% OFF</span>
+      <img class="main-image" id="mainImg" src="assets/MINI%20LEOPARD%20-%20PU%201.jpg" alt="Product">
       <div class="heritage-tag" id="heritageTag">✦ Hand-Crafted in India</div>
     </div>
   </div>
@@ -1401,8 +1784,25 @@ img { display: block; max-width: 100%; }
 
     <div class="price-row">
       <span class="price-current" id="priceCurrent">₹2,499</span>
+      <span class="price-original" id="priceOriginal">₹2,999</span>
+      <span class="price-save" id="priceSave">Save 17%</span>
     </div>
     <p class="tax-note">Inclusive of all taxes · Free shipping pan-India · COD available</p>
+
+    <!-- OFFER -->
+    <div class="offer-strip">
+      <div class="offer-text">
+        <strong>First-100 launch offer</strong>
+        <em>17% off</em> auto-applied · 63 of 100 spots remaining
+      </div>
+      <div class="countdown">
+        <span class="countdown-unit" id="hrs">04</span>
+        <span class="countdown-sep">:</span>
+        <span class="countdown-unit" id="mins">23</span>
+        <span class="countdown-sep">:</span>
+        <span class="countdown-unit" id="secs">47</span>
+      </div>
+    </div>
 
     <!-- SCARCITY -->
     <div class="scarcity">
@@ -1426,7 +1826,7 @@ img { display: block; max-width: 100%; }
     <!-- CTAs -->
     <div class="cta-stack">
       <button class="btn-buy" id="buyBtn" onclick="handleBuy()">
-        <span id="buyBtnText">⚡ Buy It Now · ₹2,499</span>
+        <span id="buyBtnText"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg>Buy It Now · ₹2,499</span>
         <span>→</span>
       </button>
       <a href="https://wa.me/919958001566?text=Hi,%20I%27m%20interested%20in%20your%20new%20bag%20collection" class="btn-whatsapp">
@@ -1438,19 +1838,19 @@ img { display: block; max-width: 100%; }
     <!-- TRUST -->
     <div class="trust-row">
       <div class="trust-item">
-        <div class="trust-icon">🚚</div>
+        <div class="trust-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h15v12H3z"/><path d="M18 13h6l4 4v4H18z"/><circle cx="8" cy="23" r="2.5"/><circle cx="23" cy="23" r="2.5"/></svg></div>
         <div class="trust-label">Free<br>Shipping</div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon">💵</div>
+        <div class="trust-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="26" height="14" rx="1.5"/><circle cx="16" cy="16" r="3.5"/><path d="M7 13v.01M25 19v.01"/></svg></div>
         <div class="trust-label">Cash on<br>Delivery</div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon">↺</div>
+        <div class="trust-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16a11 11 0 1 0 4-8.5"/><path d="M5 5v6h6"/></svg></div>
         <div class="trust-label">7-Day<br>Returns</div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon">✦</div>
+        <div class="trust-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z"/></svg></div>
         <div class="trust-label">Made<br>in India</div>
       </div>
     </div>
@@ -1466,22 +1866,22 @@ img { display: block; max-width: 100%; }
 <section class="value-strip">
   <div class="value-strip-inner">
     <div class="value-item">
-      <span class="value-emoji">🚚</span>
+      <span class="value-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h15v12H3z"/><path d="M18 13h6l4 4v4H18z"/><circle cx="8" cy="23" r="2.5"/><circle cx="23" cy="23" r="2.5"/></svg></span>
       <strong>FREE Express Delivery</strong>
       <p>Pan-India in 2-4 days</p>
     </div>
     <div class="value-item">
-      <span class="value-emoji">💵</span>
+      <span class="value-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="26" height="14" rx="1.5"/><circle cx="16" cy="16" r="3.5"/><path d="M7 13v.01M25 19v.01"/></svg></span>
       <strong>Cash on Delivery</strong>
       <p>Pay only when it arrives</p>
     </div>
     <div class="value-item">
-      <span class="value-emoji">↺</span>
+      <span class="value-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16a11 11 0 1 0 4-8.5"/><path d="M5 5v6h6"/></svg></span>
       <strong>7-Day Easy Returns</strong>
       <p>No questions asked</p>
     </div>
     <div class="value-item">
-      <span class="value-emoji">💬</span>
+      <span class="value-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M28 17a11 11 0 0 1-11 11h-3l-6 4v-7A11 11 0 0 1 17 6a11 11 0 0 1 11 11z"/></svg></span>
       <strong>WhatsApp Support</strong>
       <p>Reply within minutes</p>
     </div>
@@ -1491,7 +1891,7 @@ img { display: block; max-width: 100%; }
 <!-- STORY -->
 <section class="story">
   <div class="story-image-wrap reveal">
-    <img class="story-image" id="storyImage" src="assets/MINI%20LEOPARD%20-%20PU%201.png" alt="Story">
+    <img class="story-image" id="storyImage" src="assets/MINI%20LEOPARD%20-%20PU%202.jpg" alt="Story">
   </div>
   <div class="story-content reveal">
     <div class="eyebrow">— New Arrivals · April 2026 —</div>
@@ -1525,38 +1925,38 @@ img { display: block; max-width: 100%; }
     </div>
 
     <div class="collection-grid">
-      <div class="collection-card reveal" onclick="selectProduct(0)">
-        <div class="collection-card-img"><img src="assets/MINI%20LEOPARD%20-%20PU%201.png" alt="Mini Leopard"></div>
+      <a class="collection-card reveal" href="index.html" target="_blank" rel="noopener">
+        <div class="collection-card-img"><img src="assets/MINI%20LEOPARD%20-%20PU%201.jpg" alt="Mini Leopard"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
           <div class="collection-card-name">Mini Leopard Tote</div>
-          <div class="collection-card-price">₹2,499</div>
+          <div class="collection-card-price">₹2,499 <s>₹2,999</s></div>
         </div>
-      </div>
-      <div class="collection-card reveal" onclick="selectProduct(1)">
-        <div class="collection-card-img"><img src="assets/RETRO%20TOTE%20BAG%201.png" alt="Retro Tote"></div>
+      </a>
+      <a class="collection-card reveal" href="retro-tote.html" target="_blank" rel="noopener">
+        <div class="collection-card-img"><img src="assets/RETRO%20TOTE%20BAG%201.jpg" alt="Retro Tote"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
-          <div class="collection-card-name">Retro Tote Bag</div>
-          <div class="collection-card-price">₹2,499</div>
+          <div class="collection-card-name">Retro Ornament Tote</div>
+          <div class="collection-card-price">₹2,499 <s>₹2,999</s></div>
         </div>
-      </div>
-      <div class="collection-card reveal" onclick="selectProduct(2)">
-        <div class="collection-card-img"><img src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.png" alt="Zebra Statement Bag"></div>
+      </a>
+      <a class="collection-card reveal" href="zebra-tote.html" target="_blank" rel="noopener">
+        <div class="collection-card-img"><img src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg" alt="Zebra Statement Bag"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW · PREMIUM</div>
           <div class="collection-card-name">Zebra Statement Bag</div>
-          <div class="collection-card-price">₹3,999</div>
+          <div class="collection-card-price">₹3,999 <s>₹4,499</s></div>
         </div>
-      </div>
-      <div class="collection-card reveal" onclick="selectProduct(3)">
-        <div class="collection-card-img"><img src="assets/LEOPARD%20TOTE%20BAG%202.png" alt="Leopard Tote"></div>
+      </a>
+      <a class="collection-card reveal" href="leopard-tote.html" target="_blank" rel="noopener">
+        <div class="collection-card-img"><img src="assets/LEOPARD%20TOTE%20BAG%201.jpg" alt="Leopard Tote"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
-          <div class="collection-card-name">Leopard Tote Bag</div>
-          <div class="collection-card-price">₹2,499</div>
+          <div class="collection-card-name">Leopard Chain Tote</div>
+          <div class="collection-card-price">₹2,499 <s>₹2,999</s></div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -1571,17 +1971,17 @@ img { display: block; max-width: 100%; }
 
   <div class="persona-grid">
     <div class="persona-card reveal">
-      <span class="persona-emoji">💼</span>
+      <span class="persona-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="26" height="18" rx="1.5"/><path d="M11 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/><path d="M3 17h26"/></svg></span>
       <h3>The Boardroom Boss</h3>
       <p>You walk into meetings with quiet authority. Your bag carries your laptop, your notebook, your agenda — and signals you're not here to play small. The Zebra Statement Bag was made for you.</p>
     </div>
     <div class="persona-card reveal">
-      <span class="persona-emoji">✈️</span>
+      <span class="persona-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M28 19v-2.5l-11-6.5V4a1.5 1.5 0 0 0-3 0v6L3 16.5V19l11-3.5V23l-3 2v2l4.5-1.5L20 27v-2l-3-2v-7.5z"/></svg></span>
       <h3>The Style-First Traveler</h3>
       <p>From Mumbai brunch to Goa weekend to Delhi airport — you don't pack for outfits, you pack for moods. Pick the Leopard Tote. It works with everything you own.</p>
     </div>
     <div class="persona-card reveal">
-      <span class="persona-emoji">💍</span>
+      <span class="persona-emoji"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="24" height="6"/><path d="M6 17v12h20V17"/><path d="M16 11v18"/><path d="M16 11c-2 0-5-1.5-5-4s3-3 5 0c2-3 5-3 5 0s-3 4-5 4z"/></svg></span>
       <h3>The Gift Giver Who Means It</h3>
       <p>For your sister's promotion. Your mom's birthday. Your best friend's wedding. Each piece arrives gift-ready in a premium dust bag — the kind of present she'll remember every single time she carries it.</p>
     </div>
@@ -1599,25 +1999,25 @@ img { display: block; max-width: 100%; }
   <div class="feature-grid">
     <div class="feature-card reveal">
       <span class="feature-num">— 01 —</span>
-      <div class="feature-icon">◈</div>
+      <div class="feature-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l13 13-13 13L3 16z"/><path d="M16 9l7 7-7 7-7-7z"/></svg></div>
       <h3>Statement Patterns</h3>
       <p>Leopard, zebra, ornamental retro — patterns that turn entrances into arrivals. No fading, no bleeding.</p>
     </div>
     <div class="feature-card reveal">
       <span class="feature-num">— 02 —</span>
-      <div class="feature-icon">◇</div>
+      <div class="feature-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3L4 11l12 18 12-18z"/><path d="M4 11h24"/><path d="M11 11l5 18 5-18"/><path d="M11 11l5-8 5 8"/></svg></div>
       <h3>Premium Materials</h3>
       <p>Heavy-weight fabric, reinforced stitching, durable PU accents, antique brass hardware. Built for daily use.</p>
     </div>
     <div class="feature-card reveal">
       <span class="feature-num">— 03 —</span>
-      <div class="feature-icon">⬡</div>
+      <div class="feature-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11h18l-2 18H9z"/><path d="M11 11V8a5 5 0 0 1 10 0v3"/></svg></div>
       <h3>Spacious Interior</h3>
       <p>Roomy enough for laptop, water bottle, makeup, journal — without losing its silhouette.</p>
     </div>
     <div class="feature-card reveal">
       <span class="feature-num">— 04 —</span>
-      <div class="feature-icon">✦</div>
+      <div class="feature-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z"/></svg></div>
       <h3>Made With Pride in India</h3>
       <p>Crafted in our Karol Bagh workshop by skilled artisans. Ethical production. Honest pricing.</p>
     </div>
@@ -1629,9 +2029,9 @@ img { display: block; max-width: 100%; }
   <div class="specs-inner">
     <div class="specs-left reveal">
       <div class="eyebrow">— Specifications —</div>
-      <h2 id="specsTitle">Roomy enough for life. Light enough to forget you're carrying it.</h2>
+      <h2 id="specsTitle">Roomy enough for life. Light enough to forget you’re carrying it.</h2>
       <p id="specsDesc">The Mini Leopard Tote is your everyday companion — perfectly sized for essentials without compromising silhouette. Premium fabric, antique brass hardware, detachable strap.</p>
-      <a href="#buyBtn" class="btn-buy-secondary" onclick="document.getElementById('buyBtn').scrollIntoView({behavior:'smooth'}); return false;">
+      <a href="#" class="btn-buy-secondary" onclick="handleBuy(); return false;">
         <span id="specsCta">Buy Now — ₹2,499</span>
         <span>→</span>
       </a>
@@ -1685,7 +2085,7 @@ img { display: block; max-width: 100%; }
         <h4 class="review-title">"Mini Leopard is my new daily."</h4>
         <p class="review-text">I went for the Mini Leopard because I wanted something compact but bold. SO glad I did. Fits my wallet, phone, sunglasses, lipstick, AirPods, keys — all of it. The print is gorgeous in person. PU handles feel premium. Got compliments at brunch within 10 minutes.</p>
         <div class="review-author">
-          <div class="author-avatar">A</div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt="Ananya R."></div>
           <div class="author-info">
             <div class="author-name">Ananya R. <span class="verified">Verified</span></div>
             <div class="author-meta">Bangalore · 18 April 2026</div>
@@ -1696,9 +2096,9 @@ img { display: block; max-width: 100%; }
       <div class="review-card reveal">
         <div class="review-stars">★★★★★</div>
         <h4 class="review-title">"Zebra Statement Bag turned heads at work."</h4>
-        <p class="review-text">Bought the Zebra Statement Bag with PU pockets — yes it's the most expensive of the four but worth every rupee. The fabric is heavy and feels expensive. Studded pockets on the front are GORGEOUS detail. My laptop, lunchbox, planner all fit easily. Worth every rupee.</p>
+        <p class="review-text">Bought the Zebra Statement Bag with PU pockets — yes it's the most expensive of the four but worth every rupee. The fabric is heavy and feels expensive. Studded pockets on the front are GORGEOUS detail. My laptop, lunchbox, planner all fit easily.</p>
         <div class="review-author">
-          <div class="author-avatar">M</div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png" alt="Meera S."></div>
           <div class="author-info">
             <div class="author-name">Meera S. <span class="verified">Verified</span></div>
             <div class="author-meta">Mumbai · 15 April 2026</div>
@@ -1711,7 +2111,7 @@ img { display: block; max-width: 100%; }
         <h4 class="review-title">"Retro Tote — gift for my mom."</h4>
         <p class="review-text">My mom is 58 and she went CRAZY for the retro ornamental tote. She said it reminded her of vintage saree borders. The black-and-cream pattern is timeless. Solid build, comfortable to carry. She uses it every day now. Best ₹2,499 I've ever spent.</p>
         <div class="review-author">
-          <div class="author-avatar">P</div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png" alt="Priyanka V."></div>
           <div class="author-info">
             <div class="author-name">Priyanka V. <span class="verified">Verified</span></div>
             <div class="author-meta">Pune · 12 April 2026</div>
@@ -1721,10 +2121,10 @@ img { display: block; max-width: 100%; }
 
       <div class="review-card reveal">
         <div class="review-stars">★★★★★</div>
-        <h4 class="review-title">"Wife loved the Leopard Tote Bag."</h4>
+        <h4 class="review-title">"Wife loved the Leopard Chain Tote."</h4>
         <p class="review-text">Anniversary gift — went with the big Leopard Tote with the gold chain handles. She literally hasn't carried any other bag since. Says it makes any outfit look polished. Delivery was 3 days flat to Delhi. COD option made me feel safer too. 10/10.</p>
         <div class="review-author">
-          <div class="author-avatar">R</div>
+          <div class="author-avatar"><img src="assets/REview/rohit.png" alt="Rohit K."></div>
           <div class="author-info">
             <div class="author-name">Rohit K. <span class="verified">Verified</span></div>
             <div class="author-meta">Delhi · 09 April 2026</div>
@@ -1737,7 +2137,7 @@ img { display: block; max-width: 100%; }
         <h4 class="review-title">"Finally, bags that don't whisper."</h4>
         <p class="review-text">As a 28-year-old consultant, I needed bags that don't scream "first job" but also don't cost ₹40,000. This collection is THE answer. Bold prints, premium feel, fair price. Already ordered 2 — Mini Leopard for casual, Zebra for office. Both arrived perfectly packed.</p>
         <div class="review-author">
-          <div class="author-avatar">N</div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png" alt="Nisha B."></div>
           <div class="author-info">
             <div class="author-name">Nisha B. <span class="verified">Verified</span></div>
             <div class="author-meta">Hyderabad · 06 April 2026</div>
@@ -1747,10 +2147,10 @@ img { display: block; max-width: 100%; }
 
       <div class="review-card reveal">
         <div class="review-stars">★★★★★</div>
-        <h4 class="review-title">"COD made me try — and I'm glad I did."</h4>
+        <h4 class="review-title">"COD made me try them — best decision."</h4>
         <p class="review-text">I usually don't trust online bag stores so the COD option made me try them. Bag arrived in 2 days, exactly as shown. Pattern is vibrant, stitching is solid. Recommended.</p>
         <div class="review-author">
-          <div class="author-avatar">S</div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png" alt="Shreya M."></div>
           <div class="author-info">
             <div class="author-name">Shreya M. <span class="verified">Verified</span></div>
             <div class="author-meta">Chennai · 03 April 2026</div>
@@ -1815,7 +2215,7 @@ img { display: block; max-width: 100%; }
         </tr>
         <tr>
           <td>Price</td>
-          <td><strong style="color:var(--gold);">₹2,499 – ₹3,999</strong></td>
+          <td><strong style="color:#d4af37;">₹2,499 – ₹3,999</strong></td>
           <td>₹1,500–2,500</td>
           <td>₹15,000+</td>
         </tr>
@@ -1844,7 +2244,7 @@ img { display: block; max-width: 100%; }
           Which bag should I pick first?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><strong>Mini Leopard:</strong> daily compact, weekend brunches, evenings out.<br><strong>Retro Tote Bag:</strong> office-to-evening, timeless, pairs with everything.<br><strong>Zebra Statement Bag:</strong> premium choice, large enough for laptop + essentials.<br><strong>Leopard Tote Bag:</strong> roomiest, statement piece for travel and gifting.</div>
+        <div class="faq-a"><strong>Mini Leopard:</strong> daily compact, weekend brunches, evenings out.<br><strong>Retro Ornament:</strong> office-to-evening, timeless, pairs with everything.<br><strong>Zebra Statement Bag:</strong> premium choice, large enough for laptop + essentials.<br><strong>Leopard Chain:</strong> roomiest, statement piece for travel and gifting.</div>
       </div>
 
       <div class="faq-item">
@@ -1898,9 +2298,10 @@ img { display: block; max-width: 100%; }
 
   <div class="final-cta-price">
     <span class="current">From ₹2,499</span>
+    <span class="original">₹2,999</span>
   </div>
 
-  <a href="#" class="final-cta-btn" onclick="document.getElementById('buyBtn').scrollIntoView({behavior:'smooth'}); return false;">⚡ Buy It Now →</a>
+  <a href="#" class="final-cta-btn" onclick="handleBuy(); return false;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg>Buy It Now →</a>
 
   <div class="final-cta-trust">
     <span>Free Shipping</span>
@@ -1967,19 +2368,19 @@ img { display: block; max-width: 100%; }
 <!-- STICKY BUY -->
 <div class="sticky-atc" id="stickyAtc">
   <div class="sticky-info">
-    <img class="sticky-thumb" id="stickyThumb" src="assets/MINI%20LEOPARD%20-%20PU%201.png" alt="Bag">
+    <img class="sticky-thumb" id="stickyThumb" src="assets/MINI%20LEOPARD%20-%20PU%201.jpg" alt="Bag">
     <div class="sticky-text">
       <h4 id="stickyName">Mini Leopard Tote</h4>
-      <p id="stickyPrice">₹2,499</p>
+      <p id="stickyPrice">₹2,499 <span>₹2,999</span></p>
     </div>
   </div>
-  <button class="sticky-cta" onclick="document.getElementById('buyBtn').scrollIntoView({behavior:'smooth',block:'center'})">Buy Now →</button>
+  <button class="sticky-cta" onclick="handleBuy()">Buy Now →</button>
 </div>
 
 <!-- LIVE NOTIF -->
 <div class="live-notification" id="liveNotif">
   <button class="notif-close" onclick="document.getElementById('liveNotif').classList.remove('show')">×</button>
-  <div class="notif-avatar" id="notifAv">A</div>
+  <div class="notif-avatar" id="notifAv"><img id="notifAvImg" src="assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt=""></div>
   <div class="notif-text">
     <strong id="notifText">Anjali from Bangalore</strong>
     <span id="notifMeta">just bought the Mini Leopard · 3 min ago</span>
@@ -1997,33 +2398,33 @@ const products = [
     headline: 'Mini Leopard Tote — The Compact Statement For Bold Women',
     tagline: 'For the woman who carries less, but means more.',
     price: 2499,
-    original: 2499,
-    save: 15,
-    emi: 708,
-    images: ['assets/MINI%20LEOPARD%20-%20PU%201.png', 'assets/MINI%20LEOPARD%20-%20PU%202.png'],
+    original: 2999,
+    save: 17,
+    emi: 833,
+    images: ['assets/MINI%20LEOPARD%20-%20PU%201.jpg', 'assets/MINI%20LEOPARD%20-%20PU%202.jpg', 'assets/MINI%20LEOPARD%20-%20PU%20model.jpg'],
     pattern: 'Bold leopard print on premium canvas',
     style: 'Mini Leopard Tote — compact silhouette',
     specsTitle: 'Compact, bold, and ready for everything.',
     specsDesc: 'The Mini Leopard is your everyday companion — perfectly sized for essentials without compromising silhouette. Bold leopard print, premium canvas, PU handles, antique brass hardware.',
-    badge: '15% OFF',
+    badge: '17% OFF',
     tag: '✦ Compact · Bold',
     stock: 6
   },
   {
     handle: 'retro-tote-bag',
-    name: 'Retro Tote Bag',
-    headline: 'Retro Tote Bag — Timeless Elegance, Reimagined',
+    name: 'Retro Ornament Tote',
+    headline: 'Retro Ornament Tote — Timeless Elegance, Reimagined',
     tagline: 'For the woman who reads vintage Vogue and rewrites the rules.',
     price: 2499,
-    original: 2499,
-    save: 15,
-    emi: 708,
-    images: ['assets/RETRO%20TOTE%20BAG%201.png', 'assets/RETRO%20TOTE%20BAG%202.png'],
+    original: 2999,
+    save: 17,
+    emi: 833,
+    images: ['assets/RETRO%20TOTE%20BAG%201.jpg', 'assets/RETRO%20TOTE%20BAG%202.jpg', 'assets/RETRO%20TOTE%20BAG%20model.jpg'],
     pattern: 'Black &amp; cream ornamental retro print',
-    style: 'Retro Tote Bag — heritage-inspired',
+    style: 'Retro Ornament Tote — heritage-inspired',
     specsTitle: 'A pattern your grandmother would approve of.',
     specsDesc: 'Black-and-cream ornamental motifs on a sturdy structured tote. The most timeless piece in our collection — pairs beautifully with both Indian wear and Western office attire.',
-    badge: '15% OFF',
+    badge: '17% OFF',
     tag: '✦ Heritage Pattern',
     stock: 8
   },
@@ -2033,33 +2434,33 @@ const products = [
     headline: 'Zebra Statement Bag — The Office Power Move',
     tagline: 'For the woman whose entrance is the meeting.',
     price: 3999,
-    original: 3999,
-    save: 15,
-    emi: 1133,
-    images: ['assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.png', 'assets/ZEBRA%20TOTE%20-%20PU%20POCKET%202.png'],
+    original: 4499,
+    save: 11,
+    emi: 1333,
+    images: ['assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg', 'assets/ZEBRA%20TOTE%20-%20PU%20POCKET%202.jpg', 'assets/ZEBRA%20TOTE%20-%20PU%20POCKET%20model.jpg'],
     pattern: 'Zebra stripe with studded PU pockets',
     style: 'Zebra Statement Bag — premium PU-pocket detail',
     specsTitle: 'Premium fabric meets boardroom presence.',
     specsDesc: 'Our most premium piece. Heavy-weight zebra-print fabric with two studded black PU pockets on the front, top handle, plus detachable adjustable shoulder strap. Big enough for 13" laptop + essentials.',
-    badge: '15% OFF',
+    badge: '11% OFF',
     tag: '✦ Premium · Studded',
     stock: 4
   },
   {
     handle: 'leopard-tote-bag',
-    name: 'Leopard Tote Bag',
-    headline: 'Leopard Tote Bag — Roomy Glamour, Effortless',
+    name: 'Leopard Chain Tote',
+    headline: 'Leopard Chain Tote — Roomy Glamour, Effortless',
     tagline: 'For the woman who packs like she\'s never coming back.',
     price: 2499,
-    original: 2499,
-    save: 15,
-    emi: 708,
-    images: ['assets/LEOPARD%20TOTE%20BAG%202.png', 'assets/LEOPARD%20TOTE%20BAG%201.png'],
+    original: 2999,
+    save: 17,
+    emi: 833,
+    images: ['assets/LEOPARD%20TOTE%20BAG%201.jpg', 'assets/LEOPARD%20TOTE%20BAG%202.jpg', 'assets/LEOPARD%20TOTE%20BAG%20model.jpg'],
     pattern: 'Classic leopard with gold chain handles',
-    style: 'Leopard Tote Bag — large glamour tote',
+    style: 'Leopard Chain Tote — large glamour tote',
     specsTitle: 'Glamour with all the room you need.',
     specsDesc: 'Our roomiest piece. Classic leopard print with stunning gold chain detailing on the handles. Perfect for travel, work, or weekend trips. Holds laptop, lunchbox, makeup, and more — without losing structure.',
-    badge: '15% OFF',
+    badge: '17% OFF',
     tag: '✦ Spacious · Chain Handles',
     stock: 5
   }
@@ -2084,8 +2485,11 @@ function selectProduct(idx) {
   const title = document.getElementById('productTitle');
   const tagline = document.getElementById('productTagline');
   const priceCurrent = document.getElementById('priceCurrent');
+  const priceOriginal = document.getElementById('priceOriginal');
+  const priceSave = document.getElementById('priceSave');
   const buyBtnText = document.getElementById('buyBtnText');
   const stockText = document.getElementById('stockText');
+  const discountBadge = document.getElementById('discountBadge');
   const heritageTag = document.getElementById('heritageTag');
   const mainImg = document.getElementById('mainImg');
   const stickyThumb = document.getElementById('stickyThumb');
@@ -2107,13 +2511,16 @@ function selectProduct(idx) {
     title.textContent = p.headline;
     tagline.textContent = p.tagline;
     priceCurrent.textContent = '₹' + p.price.toLocaleString('en-IN');
-    buyBtnText.textContent = '⚡ Buy It Now · ₹' + p.price.toLocaleString('en-IN');
+    priceOriginal.textContent = '₹' + p.original.toLocaleString('en-IN');
+    priceSave.textContent = 'Save ' + p.save + '%';
+    buyBtnText.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg>Buy It Now · ₹' + p.price.toLocaleString('en-IN');
     stockText.textContent = 'Only ' + p.stock + ' left';
+    discountBadge.textContent = p.badge;
     heritageTag.textContent = p.tag;
     mainImg.src = p.images[0];
     stickyThumb.src = p.images[0];
     stickyName.textContent = p.name;
-    stickyPrice.textContent = '₹' + p.price.toLocaleString('en-IN');
+    stickyPrice.innerHTML = '₹' + p.price.toLocaleString('en-IN') + ' <span>₹' + p.original.toLocaleString('en-IN') + '</span>';
     liveProduct.textContent = p.name;
     storyImage.src = p.images[0];
     specsTitle.textContent = p.specsTitle;
@@ -2169,6 +2576,28 @@ function changeQty(d) {
 }
 
 // ========================
+// OFFER COUNTDOWN (FIRST 100)
+// ========================
+(function () {
+  const hrs = document.getElementById('hrs');
+  const mins = document.getElementById('mins');
+  const secs = document.getElementById('secs');
+  if (!hrs || !mins || !secs) return;
+  let total = 4*3600 + 23*60 + 47;
+  function tick() {
+    total = total - 1;
+    if (total < 0) total = 4*3600 + 23*60 + 47;
+    const h = Math.floor(total/3600);
+    const m = Math.floor((total%3600)/60);
+    const s = total%60;
+    hrs.textContent = String(h).padStart(2,'0');
+    mins.textContent = String(m).padStart(2,'0');
+    secs.textContent = String(s).padStart(2,'0');
+  }
+  setInterval(tick, 1000);
+})();
+
+// ========================
 // FAQ
 // ========================
 function toggleFaq(el) {
@@ -2176,8 +2605,43 @@ function toggleFaq(el) {
 }
 
 // ========================
-// BUY HANDLER
+// BUY HANDLER  (Shopify-wired)
+// Triggers the hidden Shopify Buy button matching the currently
+// selected product, fires AddToCart/InitiateCheckout tracking,
+// and either opens the cart drawer (handleAddToCart) or jumps
+// straight to checkout (handleBuyNow).
 // ========================
+// ========================
+// ANALYTICS HOOKS
+// ========================
+function fireTracking(eventName, product) {
+  const value = product?.price || 0;
+  if (window.fbq) {
+    fbq('track', eventName, {
+      content_name: product?.name,
+      content_ids: [String((currentProduct) + 1)],
+      content_type: 'product',
+      value: value,
+      currency: 'INR'
+    });
+  }
+  if (window.dataLayer) {
+    dataLayer.push({
+      event: eventName === 'AddToCart' ? 'add_to_cart' : 'begin_checkout',
+      ecommerce: {
+        currency: 'INR',
+        value: value,
+        items: [{
+          item_id: String((currentProduct) + 1),
+          item_name: product?.name,
+          price: value,
+          quantity: 1
+        }]
+      }
+    });
+  }
+}
+
 // ========================
 // SHOPIFY STOREFRONT API
 // ========================
@@ -2188,10 +2652,7 @@ const SHOPIFY_API_URL = `https://${SHOPIFY_DOMAIN}/api/2024-04/graphql.json`;
 async function shopifyFetch(query, variables) {
   const res = await fetch(SHOPIFY_API_URL, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': SHOPIFY_TOKEN
-    },
+    headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': SHOPIFY_TOKEN },
     body: JSON.stringify({ query, variables })
   });
   const json = await res.json();
@@ -2202,9 +2663,7 @@ async function shopifyFetch(query, variables) {
 async function getVariantId(handle) {
   const d = await shopifyFetch(`
     query($handle: String!) {
-      product(handle: $handle) {
-        variants(first: 1) { edges { node { id } } }
-      }
+      product(handle: $handle) { variants(first: 1) { edges { node { id } } } }
     }
   `, { handle });
   return d.product && d.product.variants.edges[0] && d.product.variants.edges[0].node.id;
@@ -2213,62 +2672,59 @@ async function getVariantId(handle) {
 async function addToCart(handle, quantity) {
   const variantId = await getVariantId(handle);
   if (!variantId) throw new Error('Variant not found for ' + handle);
-
   let cartId = localStorage.getItem('shopify_cart_id');
   let checkoutUrl;
-
   if (cartId) {
     try {
       const d = await shopifyFetch(`
         mutation($cartId: ID!, $lines: [CartLineInput!]!) {
-          cartLinesAdd(cartId: $cartId, lines: $lines) {
-            cart { id checkoutUrl }
-            userErrors { message }
-          }
+          cartLinesAdd(cartId: $cartId, lines: $lines) { cart { id checkoutUrl } userErrors { message } }
         }
       `, { cartId, lines: [{ merchandiseId: variantId, quantity }] });
-      if (d.cartLinesAdd && d.cartLinesAdd.cart) {
-        checkoutUrl = d.cartLinesAdd.cart.checkoutUrl;
-      } else { cartId = null; }
+      if (d.cartLinesAdd && d.cartLinesAdd.cart) { checkoutUrl = d.cartLinesAdd.cart.checkoutUrl; }
+      else { cartId = null; }
     } catch(e) { cartId = null; }
   }
-
   if (!cartId) {
     const d = await shopifyFetch(`
       mutation($lines: [CartLineInput!]!) {
-        cartCreate(input: { lines: $lines }) {
-          cart { id checkoutUrl }
-          userErrors { message }
-        }
+        cartCreate(input: { lines: $lines }) { cart { id checkoutUrl } userErrors { message } }
       }
     `, { lines: [{ merchandiseId: variantId, quantity }] });
     cartId = d.cartCreate.cart.id;
     checkoutUrl = d.cartCreate.cart.checkoutUrl;
     localStorage.setItem('shopify_cart_id', cartId);
   }
-
   return checkoutUrl;
 }
 
 async function handleBuy() {
   const qty = Math.max(1, parseInt(document.getElementById('qty').value, 10) || 1);
-  const handle = products[currentProduct].handle;
+  const product = products[currentProduct];
+  fireTracking('InitiateCheckout', product);
   const span = document.getElementById('buyBtnText');
-  const orig = span.textContent;
+  const orig = span.innerHTML;
   span.textContent = '✓ Adding to cart...';
   try {
-    const url = await addToCart(handle, qty);
+    const url = await addToCart(product.handle, qty);
     span.textContent = '✓ Redirecting...';
     window.location.href = url;
   } catch (e) {
     console.error(e);
-    span.textContent = orig;
+    span.innerHTML = orig;
     alert('Could not add to cart: ' + e.message);
   }
 }
 
+async function handleAddToCart() {
+  const qty = Math.max(1, parseInt(document.getElementById('qty').value, 10) || 1);
+  const product = products[currentProduct];
+  fireTracking('AddToCart', product);
+  try { await addToCart(product.handle, qty); openCart(); }
+  catch (e) { console.error(e); alert('Could not add to cart: ' + e.message); }
+}
+
 function openCart() {
-  // Open the live Shopify cart page in a new tab — keeps user on LP
   window.open(`https://${SHOPIFY_DOMAIN}/cart`, '_blank');
 }
 
@@ -2295,14 +2751,14 @@ window.addEventListener('scroll', () => {
 // LIVE NOTIFICATIONS
 // ========================
 const notifs = [
-  {n:'Anjali', c:'Bangalore', a:'A', p:0},
-  {n:'Kavya', c:'Pune', a:'K', p:2},
-  {n:'Riya', c:'Delhi', a:'R', p:3},
-  {n:'Sneha', c:'Hyderabad', a:'S', p:1},
-  {n:'Tanvi', c:'Chennai', a:'T', p:0},
-  {n:'Pooja', c:'Mumbai', a:'P', p:2},
-  {n:'Divya', c:'Gurgaon', a:'D', p:3},
-  {n:'Ishita', c:'Kolkata', a:'I', p:1}
+  {n:'Anjali',  c:'Bangalore', img:'assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png', p:0},
+  {n:'Kavya',   c:'Pune',      img:'assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png', p:2},
+  {n:'Riya',    c:'Delhi',     img:'assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png', p:3},
+  {n:'Sneha',   c:'Hyderabad', img:'assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png', p:1},
+  {n:'Tanvi',   c:'Chennai',   img:'assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png', p:0},
+  {n:'Pooja',   c:'Mumbai',    img:'https://randomuser.me/api/portraits/women/12.jpg', p:2},
+  {n:'Divya',   c:'Gurgaon',   img:'https://randomuser.me/api/portraits/women/89.jpg', p:3},
+  {n:'Ishita',  c:'Kolkata',   img:'https://randomuser.me/api/portraits/women/72.jpg', p:1}
 ];
 
 let nIdx = 0;
@@ -2311,13 +2767,101 @@ function showNotif() {
   const x = notifs[nIdx % notifs.length];
   document.getElementById('notifText').textContent = `${x.n} from ${x.c}`;
   document.getElementById('notifMeta').textContent = `just bought the ${products[x.p].name} · ${Math.floor(Math.random()*10)+1} min ago`;
-  document.getElementById('notifAv').textContent = x.a;
+  document.getElementById('notifAvImg').src = x.img;
+  document.getElementById('notifAvImg').alt = x.n;
   ne.classList.add('show');
   setTimeout(() => ne.classList.remove('show'), 5500);
   nIdx++;
 }
 setTimeout(showNotif, 4000);
 setInterval(showNotif, 14000);
+
+// ========================
+// LIVE ACTIVITY BAR
+// ========================
+(function () {
+  const feed = [
+    { n: 'Priya',    c: 'Mumbai',    img: 'assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png', p: 0, t: 3 },
+    { n: 'Ananya',   c: 'Bangalore', img: 'assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png', p: 2, t: 7 },
+    { n: 'Meera',    c: 'Pune',      img: 'assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png', p: 1, t: 12 },
+    { n: 'Kavya',    c: 'Delhi',     img: 'assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png', p: 3, t: 18 },
+    { n: 'Sneha',    c: 'Hyderabad', img: 'assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png', p: 0, t: 24 },
+    { n: 'Tanvi',    c: 'Chennai',   img: 'https://randomuser.me/api/portraits/women/12.jpg', p: 2, t: 31 },
+    { n: 'Divya',    c: 'Gurgaon',   img: 'https://randomuser.me/api/portraits/women/89.jpg', p: 1, t: 42 },
+    { n: 'Ishita',   c: 'Kolkata',   img: 'https://randomuser.me/api/portraits/women/72.jpg', p: 3, t: 56 }
+  ];
+
+  const elText = document.getElementById('activityText');
+  const elAv   = document.getElementById('activityAv');
+  const elName = document.getElementById('activityName');
+  const elCity = document.getElementById('activityCity');
+  const elProd = document.getElementById('activityProduct');
+  const elTime = document.getElementById('activityTime');
+
+  let fIdx = 0;
+  function renderActivity(item) {
+    elName.textContent = item.n;
+    elCity.textContent = item.c;
+    elProd.textContent = (typeof products !== 'undefined' && products[item.p]) ? products[item.p].name : 'this bag';
+    elTime.textContent = `· ${item.t} min ago`;
+    elAv.src = item.img;
+  }
+  function cycleActivity() {
+    if (!elText) return;
+    elText.classList.add('activity-fade');
+    elAv.classList.add('activity-fade');
+    setTimeout(() => {
+      const item = feed[fIdx % feed.length];
+      renderActivity(item);
+      elText.classList.remove('activity-fade');
+      elAv.classList.remove('activity-fade');
+      fIdx++;
+    }, 350);
+  }
+  renderActivity(feed[0]); fIdx = 1;
+  setInterval(cycleActivity, 5500);
+
+  // Sold-today counter — +1 every ~18–35s
+  const soldEl = document.getElementById('statSold');
+  if (soldEl) {
+    let soldN = parseInt(soldEl.textContent, 10) || 23;
+    (function scheduleSold() {
+      setTimeout(() => { soldN += 1; soldEl.textContent = soldN; scheduleSold(); },
+        18000 + Math.random() * 17000);
+    })();
+  }
+
+  // Viewing-now drifter — ±1..3 every 6–12s, clamped 30..80
+  const viewEl = document.getElementById('statViewing');
+  if (viewEl) {
+    let viewN = parseInt(viewEl.textContent, 10) || 47;
+    (function scheduleView() {
+      setTimeout(() => {
+        const delta = (Math.random() < 0.55 ? 1 : -1) * (1 + Math.floor(Math.random() * 3));
+        viewN = Math.max(30, Math.min(80, viewN + delta));
+        viewEl.textContent = viewN;
+        scheduleView();
+      }, 6000 + Math.random() * 6000);
+    })();
+  }
+
+  // Countdown — 2d 14h 32m from page load, format "Xd Yh Zm Ws"
+  const cdEl = document.getElementById('cdPill');
+  if (cdEl) {
+    const target = Date.now() + (2 * 86400 + 14 * 3600 + 32 * 60) * 1000;
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function update() {
+      let diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+      const h = Math.floor(diff / 3600000);  diff -= h * 3600000;
+      const m = Math.floor(diff / 60000);    diff -= m * 60000;
+      const s = Math.floor(diff / 1000);
+      cdEl.textContent = `${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
+    }
+    update();
+    setInterval(update, 1000);
+  }
+})();
 
 // ========================
 // REVEAL
@@ -2327,6 +2871,5 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
-
 </body>
 </html>

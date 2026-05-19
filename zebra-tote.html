@@ -7,8 +7,6 @@
 <!-- =========================================================
      SHOPIFY STOREFRONT WEB COMPONENTS
      ========================================================= -->
-<script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
-
 <!-- =========================================================
      GOOGLE TAG MANAGER  (replace GTM-XXXXXXX with your container ID)
      ========================================================= -->
@@ -50,8 +48,8 @@ gtag('config', 'G-XXXXXXXXXX');
 </script>
 <!-- ========================================================= -->
 
-<title>Retro Tote Bag — Timeless Ornamental Tote | Individual Design</title>
-<meta name="description" content="Retro Tote Bag — black &amp; cream ornamental motifs, sturdy structured silhouette, hand-crafted in India.">
+<title>Zebra Statement Bag — Premium Studded Office Tote | Individual Design</title>
+<meta name="description" content="Zebra Statement Bag — premium zebra-print fabric, studded PU pockets, fits a 13" laptop. Hand-crafted in India.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1684,60 +1682,6 @@ a.collection-card { text-decoration: none; color: inherit; display: block; }
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- =========================================================
-     SHOPIFY STORE WRAPPER
-     Replace placeholders with your real values:
-       - YOUR_STORE.myshopify.com  → e.g. individualdesign.myshopify.com
-       - YOUR_PUBLIC_ACCESS_TOKEN  → from Shopify Admin → Headless channel
-     ========================================================= -->
-<shopify-store
-  store-domain="YOUR_STORE.myshopify.com"
-  public-access-token="YOUR_PUBLIC_ACCESS_TOKEN"
-  country="IN"
-  language="EN">
-
-<!-- =========================================================
-     HIDDEN PRODUCT CONTEXTS — one per product in the switcher.
-     Replace each handle below with the product handle from Shopify Admin
-     (the slug at the end of /products/<handle>).
-     The visible Buy / Add-to-Cart buttons in the page trigger these
-     hidden contexts via JS.
-     ========================================================= -->
-<div id="shopify-products" style="display:none" aria-hidden="true">
-  <shopify-context type="product" handle="PRODUCT_1_HANDLE">
-    <template>
-      <button data-shopify-product="1" data-action="add"
-              onclick="getElementById('main-cart').addLine(event).showModal();">add</button>
-      <button data-shopify-product="1" data-action="buy"
-              onclick="document.querySelector('shopify-store').buyNow(event)">buy</button>
-    </template>
-  </shopify-context>
-  <shopify-context type="product" handle="PRODUCT_2_HANDLE">
-    <template>
-      <button data-shopify-product="2" data-action="add"
-              onclick="getElementById('main-cart').addLine(event).showModal();">add</button>
-      <button data-shopify-product="2" data-action="buy"
-              onclick="document.querySelector('shopify-store').buyNow(event)">buy</button>
-    </template>
-  </shopify-context>
-  <shopify-context type="product" handle="PRODUCT_3_HANDLE">
-    <template>
-      <button data-shopify-product="3" data-action="add"
-              onclick="getElementById('main-cart').addLine(event).showModal();">add</button>
-      <button data-shopify-product="3" data-action="buy"
-              onclick="document.querySelector('shopify-store').buyNow(event)">buy</button>
-    </template>
-  </shopify-context>
-  <shopify-context type="product" handle="PRODUCT_4_HANDLE">
-    <template>
-      <button data-shopify-product="4" data-action="add"
-              onclick="getElementById('main-cart').addLine(event).showModal();">add</button>
-      <button data-shopify-product="4" data-action="buy"
-              onclick="document.querySelector('shopify-store').buyNow(event)">buy</button>
-    </template>
-  </shopify-context>
-</div>
-
 <!-- ANNOUNCEMENT -->
 <div class="announcement">
   <div class="announcement-track">
@@ -1752,7 +1696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="https://individualdesign.in/" class="logo" aria-label="Individual Design"><img src="../assets/Individual%20Design%20Logo%20(1).png" alt="Individual Design"></a>
+  <a href="https://individualdesign.in/" class="logo" aria-label="Individual Design"><img src="assets/Individual%20Design%20Logo%20(1).png" alt="Individual Design"></a>
   <ul class="nav-links">
     <li><a href="https://individualdesign.in/">Home</a></li>
     <li><a href="https://individualdesign.in/collections/all">Shop</a></li>
@@ -1765,7 +1709,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="nav-actions">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="button" aria-label="Open cart" onclick="document.getElementById('main-cart').showModal(); return false;" style="cursor:pointer"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="button" aria-label="Open cart" onclick="openCart(); return false;" style="cursor:pointer"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
   </div>
 </nav>
 
@@ -1780,7 +1724,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="activity-bar-inner">
     <div class="activity-feed">
       <span class="activity-dot" aria-hidden="true"></span>
-      <img class="activity-avatar" id="activityAv" src="../assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt="">
+      <img class="activity-avatar" id="activityAv" src="assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt="">
       <div class="activity-text" id="activityText">
         <strong id="activityName">Priya</strong>
         from <em id="activityCity">Mumbai</em>
@@ -1804,20 +1748,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="hero">
   <div class="gallery">
     <div class="thumb-stack" id="thumbStack">
-      <div class="thumb active" data-img="../assets/RETRO%20TOTE%20BAG%201.jpg">
-        <img src="../assets/RETRO%20TOTE%20BAG%201.jpg" alt="View 1">
+      <div class="thumb active" data-img="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg">
+        <img src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg" alt="View 1">
       </div>
-      <div class="thumb" data-img="../assets/RETRO%20TOTE%20BAG%202.jpg">
-        <img src="../assets/RETRO%20TOTE%20BAG%202.jpg" alt="View 2">
+      <div class="thumb" data-img="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%202.jpg">
+        <img src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%202.jpg" alt="View 2">
       </div>
-      <div class="thumb" data-img="../assets/RETRO%20TOTE%20BAG%20model.jpg">
-        <img src="../assets/RETRO%20TOTE%20BAG%20model.jpg" alt="View 3 (model)">
+      <div class="thumb" data-img="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%20model.jpg">
+        <img src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%20model.jpg" alt="View 3 (model)">
       </div>
     </div>
 
     <div class="main-image-wrap">
-      <span class="discount-badge" id="discountBadge">17% OFF</span>
-      <img class="main-image" id="mainImg" src="../assets/RETRO%20TOTE%20BAG%201.jpg" alt="Product">
+      <span class="discount-badge" id="discountBadge">11% OFF</span>
+      <img class="main-image" id="mainImg" src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg" alt="Product">
       <div class="heritage-tag" id="heritageTag">✦ Hand-Crafted in India</div>
     </div>
   </div>
@@ -1827,8 +1771,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#">Home</a><span>/</span><a href="#">Women</a><span>/</span><a href="#">New Arrivals</a>
     </div>
     <div class="eyebrow"><span class="new-tag">★ NEW</span> &nbsp; Just Launched · April 2026</div>
-    <h1 class="product-title" id="productTitle">Retro Tote Bag — Timeless Elegance, Reimagined</h1>
-    <p class="product-tagline" id="productTagline">For the woman who reads vintage Vogue and rewrites the rules.</p>
+    <h1 class="product-title" id="productTitle">Zebra Statement Bag — The Office Power Move</h1>
+    <p class="product-tagline" id="productTagline">For the woman whose entrance is the meeting.</p>
 
     <div class="rating-row">
       <span class="stars">★★★★★</span>
@@ -1839,9 +1783,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="price-row">
-      <span class="price-current" id="priceCurrent">₹2,499</span>
-      <span class="price-original" id="priceOriginal">₹2,999</span>
-      <span class="price-save" id="priceSave">Save 17%</span>
+      <span class="price-current" id="priceCurrent">₹3,999</span>
+      <span class="price-original" id="priceOriginal">₹4,499</span>
+      <span class="price-save" id="priceSave">Save 11%</span>
     </div>
     <p class="tax-note">Inclusive of all taxes · Free shipping pan-India · COD available</p>
 
@@ -1864,7 +1808,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="scarcity">
       <span class="scarcity-icon"></span>
       <div class="scarcity-bar-track"><div class="scarcity-bar-fill"></div></div>
-      <span class="scarcity-text"><strong id="stockText">Only 8 left</strong> · 24 women bought today</span>
+      <span class="scarcity-text"><strong id="stockText">Only 4 left</strong> · 24 women bought today</span>
     </div>
 
     <!-- QTY -->
@@ -1882,7 +1826,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- CTAs -->
     <div class="cta-stack">
       <button class="btn-buy" id="buyBtn" onclick="handleBuy()">
-        <span id="buyBtnText"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg>Buy It Now · ₹2,499</span>
+        <span id="buyBtnText"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg>Buy It Now · ₹3,999</span>
         <span>→</span>
       </button>
       <a href="https://wa.me/919958001566?text=Hi,%20I%27m%20interested%20in%20your%20new%20bag%20collection" class="btn-whatsapp">
@@ -1947,7 +1891,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- STORY -->
 <section class="story">
   <div class="story-image-wrap reveal">
-    <img class="story-image" id="storyImage" src="../assets/RETRO%20TOTE%20BAG%202.jpg" alt="Story">
+    <img class="story-image" id="storyImage" src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%202.jpg" alt="Story">
   </div>
   <div class="story-content reveal">
     <div class="eyebrow">— New Arrivals · April 2026 —</div>
@@ -1982,7 +1926,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="collection-grid">
       <a class="collection-card reveal" href="index.html" target="_blank" rel="noopener">
-        <div class="collection-card-img"><img src="../assets/MINI%20LEOPARD%20-%20PU%201.jpg" alt="Mini Leopard"></div>
+        <div class="collection-card-img"><img src="assets/MINI%20LEOPARD%20-%20PU%201.jpg" alt="Mini Leopard"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
           <div class="collection-card-name">Mini Leopard Tote</div>
@@ -1990,7 +1934,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a class="collection-card reveal" href="retro-tote.html" target="_blank" rel="noopener">
-        <div class="collection-card-img"><img src="../assets/RETRO%20TOTE%20BAG%201.jpg" alt="Retro Tote"></div>
+        <div class="collection-card-img"><img src="assets/RETRO%20TOTE%20BAG%201.jpg" alt="Retro Tote"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
           <div class="collection-card-name">Retro Ornament Tote</div>
@@ -1998,7 +1942,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a class="collection-card reveal" href="zebra-tote.html" target="_blank" rel="noopener">
-        <div class="collection-card-img"><img src="../assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg" alt="Zebra Statement Bag"></div>
+        <div class="collection-card-img"><img src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg" alt="Zebra Statement Bag"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW · PREMIUM</div>
           <div class="collection-card-name">Zebra Statement Bag</div>
@@ -2006,7 +1950,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </a>
       <a class="collection-card reveal" href="leopard-tote.html" target="_blank" rel="noopener">
-        <div class="collection-card-img"><img src="../assets/LEOPARD%20TOTE%20BAG%201.jpg" alt="Leopard Tote"></div>
+        <div class="collection-card-img"><img src="assets/LEOPARD%20TOTE%20BAG%201.jpg" alt="Leopard Tote"></div>
         <div class="collection-card-info">
           <div class="collection-card-tag">★ NEW</div>
           <div class="collection-card-name">Leopard Chain Tote</div>
@@ -2085,18 +2029,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="specs-inner">
     <div class="specs-left reveal">
       <div class="eyebrow">— Specifications —</div>
-      <h2 id="specsTitle">A pattern your grandmother would approve of.</h2>
-      <p id="specsDesc">Black-and-cream ornamental motifs on a sturdy structured tote. The most timeless piece in our collection — pairs beautifully with both Indian wear and Western office attire.</p>
+      <h2 id="specsTitle">Premium fabric meets boardroom presence.</h2>
+      <p id="specsDesc">Our most premium piece. Heavy-weight zebra-print fabric with two studded black PU pockets on the front, top handle, plus detachable adjustable shoulder strap. Big enough for 13" laptop + essentials.</p>
       <a href="#" class="btn-buy-secondary" onclick="handleBuy(); return false;">
-        <span id="specsCta">Buy Now — ₹2,499</span>
+        <span id="specsCta">Buy Now — ₹3,999</span>
         <span>→</span>
       </a>
     </div>
 
     <div class="reveal">
       <table class="specs-table" id="specsTable">
-        <tr><td>Style</td><td id="specStyle">Retro Tote Bag — heritage-inspired</td></tr>
-        <tr><td>Pattern</td><td id="specPattern">Black &amp; cream ornamental retro print</td></tr>
+        <tr><td>Style</td><td id="specStyle">Zebra Statement Bag — premium PU-pocket detail</td></tr>
+        <tr><td>Pattern</td><td id="specPattern">Zebra stripe with studded PU pockets</td></tr>
         <tr><td>Material</td><td>Premium canvas with PU accents</td></tr>
         <tr><td>Lining</td><td>100% Pure Cotton</td></tr>
         <tr><td>Closure</td><td>Premium Zip · Antique Brass</td></tr>
@@ -2141,7 +2085,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Mini Leopard is my new daily."</h4>
         <p class="review-text">I went for the Mini Leopard because I wanted something compact but bold. SO glad I did. Fits my wallet, phone, sunglasses, lipstick, AirPods, keys — all of it. The print is gorgeous in person. PU handles feel premium. Got compliments at brunch within 10 minutes.</p>
         <div class="review-author">
-          <div class="author-avatar"><img src="../assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt="Ananya R."></div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt="Ananya R."></div>
           <div class="author-info">
             <div class="author-name">Ananya R. <span class="verified">Verified</span></div>
             <div class="author-meta">Bangalore · 18 April 2026</div>
@@ -2154,7 +2098,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Zebra Statement Bag turned heads at work."</h4>
         <p class="review-text">Bought the Zebra Statement Bag with PU pockets — yes it's the most expensive of the four but worth every rupee. The fabric is heavy and feels expensive. Studded pockets on the front are GORGEOUS detail. My laptop, lunchbox, planner all fit easily.</p>
         <div class="review-author">
-          <div class="author-avatar"><img src="../assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png" alt="Meera S."></div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png" alt="Meera S."></div>
           <div class="author-info">
             <div class="author-name">Meera S. <span class="verified">Verified</span></div>
             <div class="author-meta">Mumbai · 15 April 2026</div>
@@ -2167,7 +2111,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Retro Tote — gift for my mom."</h4>
         <p class="review-text">My mom is 58 and she went CRAZY for the retro ornamental tote. She said it reminded her of vintage saree borders. The black-and-cream pattern is timeless. Solid build, comfortable to carry. She uses it every day now. Best ₹2,499 I've ever spent.</p>
         <div class="review-author">
-          <div class="author-avatar"><img src="../assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png" alt="Priyanka V."></div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png" alt="Priyanka V."></div>
           <div class="author-info">
             <div class="author-name">Priyanka V. <span class="verified">Verified</span></div>
             <div class="author-meta">Pune · 12 April 2026</div>
@@ -2180,7 +2124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Wife loved the Leopard Chain Tote."</h4>
         <p class="review-text">Anniversary gift — went with the big Leopard Tote with the gold chain handles. She literally hasn't carried any other bag since. Says it makes any outfit look polished. Delivery was 3 days flat to Delhi. COD option made me feel safer too. 10/10.</p>
         <div class="review-author">
-          <div class="author-avatar"><img src="../assets/REview/rohit.png" alt="Rohit K."></div>
+          <div class="author-avatar"><img src="assets/REview/rohit.png" alt="Rohit K."></div>
           <div class="author-info">
             <div class="author-name">Rohit K. <span class="verified">Verified</span></div>
             <div class="author-meta">Delhi · 09 April 2026</div>
@@ -2193,7 +2137,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"Finally, bags that don't whisper."</h4>
         <p class="review-text">As a 28-year-old consultant, I needed bags that don't scream "first job" but also don't cost ₹40,000. This collection is THE answer. Bold prints, premium feel, fair price. Already ordered 2 — Mini Leopard for casual, Zebra for office. Both arrived perfectly packed.</p>
         <div class="review-author">
-          <div class="author-avatar"><img src="../assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png" alt="Nisha B."></div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png" alt="Nisha B."></div>
           <div class="author-info">
             <div class="author-name">Nisha B. <span class="verified">Verified</span></div>
             <div class="author-meta">Hyderabad · 06 April 2026</div>
@@ -2206,7 +2150,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="review-title">"COD made me try them — best decision."</h4>
         <p class="review-text">I usually don't trust online bag stores so the COD option made me try them. Bag arrived in 2 days, exactly as shown. Pattern is vibrant, stitching is solid. Recommended.</p>
         <div class="review-author">
-          <div class="author-avatar"><img src="../assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png" alt="Shreya M."></div>
+          <div class="author-avatar"><img src="assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png" alt="Shreya M."></div>
           <div class="author-info">
             <div class="author-name">Shreya M. <span class="verified">Verified</span></div>
             <div class="author-meta">Chennai · 03 April 2026</div>
@@ -2424,10 +2368,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- STICKY BUY -->
 <div class="sticky-atc" id="stickyAtc">
   <div class="sticky-info">
-    <img class="sticky-thumb" id="stickyThumb" src="../assets/RETRO%20TOTE%20BAG%201.jpg" alt="Bag">
+    <img class="sticky-thumb" id="stickyThumb" src="assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg" alt="Bag">
     <div class="sticky-text">
-      <h4 id="stickyName">Retro Tote Bag</h4>
-      <p id="stickyPrice">₹2,499 <span>₹2,999</span></p>
+      <h4 id="stickyName">Zebra Statement Bag</h4>
+      <p id="stickyPrice">₹3,999 <span>₹4,499</span></p>
     </div>
   </div>
   <button class="sticky-cta" onclick="handleBuy()">Buy Now →</button>
@@ -2436,7 +2380,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- LIVE NOTIF -->
 <div class="live-notification" id="liveNotif">
   <button class="notif-close" onclick="document.getElementById('liveNotif').classList.remove('show')">×</button>
-  <div class="notif-avatar" id="notifAv"><img id="notifAvImg" src="../assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt=""></div>
+  <div class="notif-avatar" id="notifAv"><img id="notifAvImg" src="assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt=""></div>
   <div class="notif-text">
     <strong id="notifText">Anjali from Bangalore</strong>
     <span id="notifMeta">just bought the Mini Leopard · 3 min ago</span>
@@ -2449,6 +2393,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 // ========================
 const products = [
   {
+    handle: 'mini-leopard-tote',
     name: 'Mini Leopard Tote',
     headline: 'Mini Leopard Tote — The Compact Statement For Bold Women',
     tagline: 'For the woman who carries less, but means more.',
@@ -2456,7 +2401,7 @@ const products = [
     original: 2999,
     save: 17,
     emi: 833,
-    images: ['../assets/MINI%20LEOPARD%20-%20PU%201.jpg', '../assets/MINI%20LEOPARD%20-%20PU%202.jpg', '../assets/MINI%20LEOPARD%20-%20PU%20model.jpg'],
+    images: ['assets/MINI%20LEOPARD%20-%20PU%201.jpg', 'assets/MINI%20LEOPARD%20-%20PU%202.jpg', 'assets/MINI%20LEOPARD%20-%20PU%20model.jpg'],
     pattern: 'Bold leopard print on premium canvas',
     style: 'Mini Leopard Tote — compact silhouette',
     specsTitle: 'Compact, bold, and ready for everything.',
@@ -2466,6 +2411,7 @@ const products = [
     stock: 6
   },
   {
+    handle: 'retro-tote-bag',
     name: 'Retro Ornament Tote',
     headline: 'Retro Ornament Tote — Timeless Elegance, Reimagined',
     tagline: 'For the woman who reads vintage Vogue and rewrites the rules.',
@@ -2473,7 +2419,7 @@ const products = [
     original: 2999,
     save: 17,
     emi: 833,
-    images: ['../assets/RETRO%20TOTE%20BAG%201.jpg', '../assets/RETRO%20TOTE%20BAG%202.jpg', '../assets/RETRO%20TOTE%20BAG%20model.jpg'],
+    images: ['assets/RETRO%20TOTE%20BAG%201.jpg', 'assets/RETRO%20TOTE%20BAG%202.jpg', 'assets/RETRO%20TOTE%20BAG%20model.jpg'],
     pattern: 'Black &amp; cream ornamental retro print',
     style: 'Retro Ornament Tote — heritage-inspired',
     specsTitle: 'A pattern your grandmother would approve of.',
@@ -2483,6 +2429,7 @@ const products = [
     stock: 8
   },
   {
+    handle: 'zebra-tote-pu-pocket',
     name: 'Zebra Statement Bag',
     headline: 'Zebra Statement Bag — The Office Power Move',
     tagline: 'For the woman whose entrance is the meeting.',
@@ -2490,7 +2437,7 @@ const products = [
     original: 4499,
     save: 11,
     emi: 1333,
-    images: ['../assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg', '../assets/ZEBRA%20TOTE%20-%20PU%20POCKET%202.jpg', '../assets/ZEBRA%20TOTE%20-%20PU%20POCKET%20model.jpg'],
+    images: ['assets/ZEBRA%20TOTE%20-%20PU%20POCKET%201.jpg', 'assets/ZEBRA%20TOTE%20-%20PU%20POCKET%202.jpg', 'assets/ZEBRA%20TOTE%20-%20PU%20POCKET%20model.jpg'],
     pattern: 'Zebra stripe with studded PU pockets',
     style: 'Zebra Statement Bag — premium PU-pocket detail',
     specsTitle: 'Premium fabric meets boardroom presence.',
@@ -2500,6 +2447,7 @@ const products = [
     stock: 4
   },
   {
+    handle: 'leopard-tote-bag',
     name: 'Leopard Chain Tote',
     headline: 'Leopard Chain Tote — Roomy Glamour, Effortless',
     tagline: 'For the woman who packs like she\'s never coming back.',
@@ -2507,7 +2455,7 @@ const products = [
     original: 2999,
     save: 17,
     emi: 833,
-    images: ['../assets/LEOPARD%20TOTE%20BAG%201.jpg', '../assets/LEOPARD%20TOTE%20BAG%202.jpg', '../assets/LEOPARD%20TOTE%20BAG%20model.jpg'],
+    images: ['assets/LEOPARD%20TOTE%20BAG%201.jpg', 'assets/LEOPARD%20TOTE%20BAG%202.jpg', 'assets/LEOPARD%20TOTE%20BAG%20model.jpg'],
     pattern: 'Classic leopard with gold chain handles',
     style: 'Leopard Chain Tote — large glamour tote',
     specsTitle: 'Glamour with all the room you need.',
@@ -2518,7 +2466,7 @@ const products = [
   }
 ];
 
-let currentProduct = 1;
+let currentProduct = 2;
 
 // ========================
 // SELECT PRODUCT
@@ -2663,9 +2611,11 @@ function toggleFaq(el) {
 // and either opens the cart drawer (handleAddToCart) or jumps
 // straight to checkout (handleBuyNow).
 // ========================
+// ========================
+// ANALYTICS HOOKS
+// ========================
 function fireTracking(eventName, product) {
   const value = product?.price || 0;
-  // Meta Pixel
   if (window.fbq) {
     fbq('track', eventName, {
       content_name: product?.name,
@@ -2675,7 +2625,6 @@ function fireTracking(eventName, product) {
       currency: 'INR'
     });
   }
-  // GTM dataLayer (use this in GA4 / Google Ads via GTM)
   if (window.dataLayer) {
     dataLayer.push({
       event: eventName === 'AddToCart' ? 'add_to_cart' : 'begin_checkout',
@@ -2693,38 +2642,90 @@ function fireTracking(eventName, product) {
   }
 }
 
-function clickHiddenShopifyBtn(action) {
-  // currentProduct is 0-indexed; data attr is 1-indexed
-  const idx = (currentProduct) + 1;
-  const btn = document.querySelector(
-    '#shopify-products button[data-shopify-product="' + idx + '"][data-action="' + action + '"]'
-  );
-  if (btn) {
-    btn.click();
-    return true;
-  }
-  console.warn('Shopify product context not loaded yet for product', idx);
-  return false;
+// ========================
+// SHOPIFY STOREFRONT API
+// ========================
+const SHOPIFY_DOMAIN = 'individualdesignstore.myshopify.com';
+const SHOPIFY_TOKEN  = 'accb3cae2f5f9ef150b126cadd4d5944';
+const SHOPIFY_API_URL = `https://${SHOPIFY_DOMAIN}/api/2024-04/graphql.json`;
+
+async function shopifyFetch(query, variables) {
+  const res = await fetch(SHOPIFY_API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': SHOPIFY_TOKEN },
+    body: JSON.stringify({ query, variables })
+  });
+  const json = await res.json();
+  if (json.errors) { console.error('Shopify errors:', json.errors); throw new Error(json.errors[0].message); }
+  return json.data;
 }
 
-function handleBuy() {
-  // Default = Buy It Now (direct to checkout via Shopify buyNow).
+async function getVariantId(handle) {
+  const d = await shopifyFetch(`
+    query($handle: String!) {
+      product(handle: $handle) { variants(first: 1) { edges { node { id } } } }
+    }
+  `, { handle });
+  return d.product && d.product.variants.edges[0] && d.product.variants.edges[0].node.id;
+}
+
+async function addToCart(handle, quantity) {
+  const variantId = await getVariantId(handle);
+  if (!variantId) throw new Error('Variant not found for ' + handle);
+  let cartId = localStorage.getItem('shopify_cart_id');
+  let checkoutUrl;
+  if (cartId) {
+    try {
+      const d = await shopifyFetch(`
+        mutation($cartId: ID!, $lines: [CartLineInput!]!) {
+          cartLinesAdd(cartId: $cartId, lines: $lines) { cart { id checkoutUrl } userErrors { message } }
+        }
+      `, { cartId, lines: [{ merchandiseId: variantId, quantity }] });
+      if (d.cartLinesAdd && d.cartLinesAdd.cart) { checkoutUrl = d.cartLinesAdd.cart.checkoutUrl; }
+      else { cartId = null; }
+    } catch(e) { cartId = null; }
+  }
+  if (!cartId) {
+    const d = await shopifyFetch(`
+      mutation($lines: [CartLineInput!]!) {
+        cartCreate(input: { lines: $lines }) { cart { id checkoutUrl } userErrors { message } }
+      }
+    `, { lines: [{ merchandiseId: variantId, quantity }] });
+    cartId = d.cartCreate.cart.id;
+    checkoutUrl = d.cartCreate.cart.checkoutUrl;
+    localStorage.setItem('shopify_cart_id', cartId);
+  }
+  return checkoutUrl;
+}
+
+async function handleBuy() {
+  const qty = Math.max(1, parseInt(document.getElementById('qty').value, 10) || 1);
   const product = products[currentProduct];
   fireTracking('InitiateCheckout', product);
   const span = document.getElementById('buyBtnText');
   const orig = span.innerHTML;
-  span.textContent = '✓ Redirecting to Checkout...';
-  const ok = clickHiddenShopifyBtn('buy');
-  if (!ok) {
-    setTimeout(() => { span.innerHTML = orig; }, 1500);
+  span.textContent = '✓ Adding to cart...';
+  try {
+    const url = await addToCart(product.handle, qty);
+    span.textContent = '✓ Redirecting...';
+    window.location.href = url;
+  } catch (e) {
+    console.error(e);
+    span.innerHTML = orig;
+    alert('Could not add to cart: ' + e.message);
   }
 }
 
-function handleAddToCart() {
-  // Used by secondary "Add to Cart" buttons; opens mini-cart.
+async function handleAddToCart() {
+  const qty = Math.max(1, parseInt(document.getElementById('qty').value, 10) || 1);
   const product = products[currentProduct];
   fireTracking('AddToCart', product);
-  clickHiddenShopifyBtn('add');
+  try { await addToCart(product.handle, qty); openCart(); }
+  catch (e) { console.error(e); alert('Could not add to cart: ' + e.message); }
+}
+
+function openCart() {
+  window.open(`https://${SHOPIFY_DOMAIN}/cart`, '_blank');
 }
 
 // ========================
@@ -2750,11 +2751,11 @@ window.addEventListener('scroll', () => {
 // LIVE NOTIFICATIONS
 // ========================
 const notifs = [
-  {n:'Anjali',  c:'Bangalore', img:'../assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png', p:0},
-  {n:'Kavya',   c:'Pune',      img:'../assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png', p:2},
-  {n:'Riya',    c:'Delhi',     img:'../assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png', p:3},
-  {n:'Sneha',   c:'Hyderabad', img:'../assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png', p:1},
-  {n:'Tanvi',   c:'Chennai',   img:'../assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png', p:0},
+  {n:'Anjali',  c:'Bangalore', img:'assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png', p:0},
+  {n:'Kavya',   c:'Pune',      img:'assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png', p:2},
+  {n:'Riya',    c:'Delhi',     img:'assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png', p:3},
+  {n:'Sneha',   c:'Hyderabad', img:'assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png', p:1},
+  {n:'Tanvi',   c:'Chennai',   img:'assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png', p:0},
   {n:'Pooja',   c:'Mumbai',    img:'https://randomuser.me/api/portraits/women/12.jpg', p:2},
   {n:'Divya',   c:'Gurgaon',   img:'https://randomuser.me/api/portraits/women/89.jpg', p:3},
   {n:'Ishita',  c:'Kolkata',   img:'https://randomuser.me/api/portraits/women/72.jpg', p:1}
@@ -2780,11 +2781,11 @@ setInterval(showNotif, 14000);
 // ========================
 (function () {
   const feed = [
-    { n: 'Priya',    c: 'Mumbai',    img: '../assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png', p: 0, t: 3 },
-    { n: 'Ananya',   c: 'Bangalore', img: '../assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png', p: 2, t: 7 },
-    { n: 'Meera',    c: 'Pune',      img: '../assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png', p: 1, t: 12 },
-    { n: 'Kavya',    c: 'Delhi',     img: '../assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png', p: 3, t: 18 },
-    { n: 'Sneha',    c: 'Hyderabad', img: '../assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png', p: 0, t: 24 },
+    { n: 'Priya',    c: 'Mumbai',    img: 'assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png', p: 0, t: 3 },
+    { n: 'Ananya',   c: 'Bangalore', img: 'assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png', p: 2, t: 7 },
+    { n: 'Meera',    c: 'Pune',      img: 'assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png', p: 1, t: 12 },
+    { n: 'Kavya',    c: 'Delhi',     img: 'assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png', p: 3, t: 18 },
+    { n: 'Sneha',    c: 'Hyderabad', img: 'assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png', p: 0, t: 24 },
     { n: 'Tanvi',    c: 'Chennai',   img: 'https://randomuser.me/api/portraits/women/12.jpg', p: 2, t: 31 },
     { n: 'Divya',    c: 'Gurgaon',   img: 'https://randomuser.me/api/portraits/women/89.jpg', p: 1, t: 42 },
     { n: 'Ishita',   c: 'Kolkata',   img: 'https://randomuser.me/api/portraits/women/72.jpg', p: 3, t: 56 }
@@ -2870,41 +2871,5 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
-
-<!-- =========================================================
-     SHOPIFY CART (popup modal). Triggered by Add-to-Cart / Buy.
-     Customizable via ::part() selectors — see <style> below.
-     ========================================================= -->
-<shopify-cart id="main-cart"></shopify-cart>
-
-<style>
-  /* Brand the Shopify mini-cart to match the LP */
-  shopify-cart::part(dialog) {
-    border-radius: 4px;
-    font-family: 'Instrument Sans', -apple-system, system-ui, sans-serif;
-  }
-  shopify-cart::part(primary-button) {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    border: none;
-    border-radius: 2px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-size: 13px;
-    padding: 16px;
-  }
-  shopify-cart::part(secondary-button) {
-    background-color: #ffffff;
-    color: #0a0a0a;
-    fill: #0a0a0a;
-    border: 1.5px solid #0a0a0a;
-    border-radius: 2px;
-  }
-</style>
-
-</shopify-store>
-<!-- end shopify-store wrapper -->
-
 </body>
 </html>
