@@ -2377,7 +2377,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- LIVE NOTIF -->
 <div class="live-notification" id="liveNotif">
   <button class="notif-close" onclick="document.getElementById('liveNotif').classList.remove('show')">×</button>
-  <div class="notif-avatar" id="notifAv"><img id="notifAvImg" src="assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt=""></div>
   <div class="notif-text">
     <strong id="notifText">Anjali from Bangalore</strong>
     <span id="notifMeta">just bought the Mini Leopard · 3 min ago</span>
@@ -2741,14 +2740,14 @@ liveNotif.classList.remove('no-sticky');
 // LIVE NOTIFICATIONS
 // ========================
 const notifs = [
-  {n:'Anjali',  c:'Bangalore', img:'assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png', p:0},
-  {n:'Kavya',   c:'Pune',      img:'assets/REview/Screenshot%202026-05-18%20at%205.04.14%20PM.png', p:2},
-  {n:'Riya',    c:'Delhi',     img:'assets/REview/Screenshot%202026-05-18%20at%205.08.12%20PM.png', p:3},
-  {n:'Sneha',   c:'Hyderabad', img:'assets/REview/Screenshot%202026-05-18%20at%205.11.44%20PM.png', p:1},
-  {n:'Tanvi',   c:'Chennai',   img:'assets/REview/Screenshot%202026-05-18%20at%205.17.31%20PM.png', p:0},
-  {n:'Pooja',   c:'Mumbai',    img:'https://randomuser.me/api/portraits/women/12.jpg', p:2},
-  {n:'Divya',   c:'Gurgaon',   img:'https://randomuser.me/api/portraits/women/89.jpg', p:3},
-  {n:'Ishita',  c:'Kolkata',   img:'https://randomuser.me/api/portraits/women/72.jpg', p:1}
+  {n:'Anjali',  c:'Delhi',   p:0},
+  {n:'Kavya',   c:'Mumbai',  p:2},
+  {n:'Riya',    c:'Pune',    p:3},
+  {n:'Sneha',   c:'Gurgaon', p:1},
+  {n:'Tanvi',   c:'Delhi',   p:0},
+  {n:'Pooja',   c:'Mumbai',  p:2},
+  {n:'Divya',   c:'Pune',    p:3},
+  {n:'Ishita',  c:'Gurgaon', p:1}
 ];
 
 let nIdx = 0;
@@ -2757,8 +2756,6 @@ function showNotif() {
   const x = notifs[nIdx % notifs.length];
   document.getElementById('notifText').textContent = `${x.n} from ${x.c}`;
   document.getElementById('notifMeta').textContent = `just bought the ${products[x.p].name} · ${Math.floor(Math.random()*10)+1} min ago`;
-  document.getElementById('notifAvImg').src = x.img;
-  document.getElementById('notifAvImg').alt = x.n;
   ne.classList.add('show');
   setTimeout(() => ne.classList.remove('show'), 5500);
   nIdx++;
