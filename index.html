@@ -500,14 +500,23 @@ img { display: block; max-width: 100%; }
   letter-spacing: 0.5px;
   transition: opacity 0.3s;
 }
-.price-original { font-size: 20px; color: var(--text-light); text-decoration: line-through; }
-.price-save {
-  background: var(--red);
-  color: var(--white);
-  padding: 4px 10px;
-  font-size: 12px;
-  font-weight: 700;
-  border-radius: 2px;
+.price-original {
+  font-size: 20px;
+  color: var(--text-light);
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.price-original::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  right: -3px;
+  height: 1.5px;
+  background: currentColor;
+  transform: translateY(-50%) rotate(-12deg);
+  pointer-events: none;
 }
 .tax-note { font-size: 12px; color: var(--text-light); margin-bottom: 16px; }
 
@@ -1770,7 +1779,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="breadcrumb">
       <a href="#">Home</a><span>/</span><a href="#">Women</a><span>/</span><a href="#">New Arrivals</a>
     </div>
-    <div class="eyebrow"><span class="new-tag">★ NEW</span> &nbsp; Just Launched · April 2026</div>
+    <div class="eyebrow"><span class="new-tag">★ NEW</span> &nbsp; Just Launched · May 2026</div>
     <h1 class="product-title" id="productTitle">Mini Leopard Tote — The Compact Statement For Bold Women</h1>
     <p class="product-tagline" id="productTagline">For the woman who carries less, but means more.</p>
 
@@ -1785,7 +1794,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="price-row">
       <span class="price-current" id="priceCurrent">₹2,499</span>
       <span class="price-original" id="priceOriginal">₹2,999</span>
-      <span class="price-save" id="priceSave">Save 17%</span>
     </div>
     <p class="tax-note">Inclusive of all taxes · Free shipping pan-India · COD available</p>
 
@@ -2486,7 +2494,6 @@ function selectProduct(idx) {
   const tagline = document.getElementById('productTagline');
   const priceCurrent = document.getElementById('priceCurrent');
   const priceOriginal = document.getElementById('priceOriginal');
-  const priceSave = document.getElementById('priceSave');
   const buyBtnText = document.getElementById('buyBtnText');
   const stockText = document.getElementById('stockText');
   const discountBadge = document.getElementById('discountBadge');
@@ -2512,7 +2519,6 @@ function selectProduct(idx) {
     tagline.textContent = p.tagline;
     priceCurrent.textContent = '₹' + p.price.toLocaleString('en-IN');
     priceOriginal.textContent = '₹' + p.original.toLocaleString('en-IN');
-    priceSave.textContent = 'Save ' + p.save + '%';
     buyBtnText.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg>Buy It Now · ₹' + p.price.toLocaleString('en-IN');
     stockText.textContent = 'Only ' + p.stock + ' left';
     discountBadge.textContent = p.badge;
