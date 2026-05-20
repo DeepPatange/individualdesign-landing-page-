@@ -1685,6 +1685,7 @@ a.collection-card { text-decoration: none; color: inherit; display: block; }
   .faq-item.open .faq-a { max-height: 1200px; padding: 0 16px 18px; }
   .faq-toggle { width: 24px; height: 24px; font-size: 14px; }
   .faq-left h2 { font-size: 20px; }
+  .nav-cart { display: none; }
 }
 </style>
 </head>
@@ -1725,7 +1726,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="nav-actions">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="button" aria-label="Open cart" onclick="openCart(); return false;" style="cursor:pointer"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    <svg class="nav-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="button" aria-label="Open cart" onclick="openCart(); return false;" style="cursor:pointer"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
   </div>
 </nav>
 
@@ -2298,7 +2299,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a class="footer-logo" href="https://individualdesign.in"><img src="assets/Individual%20Design%20Logo%20%281%29.png" alt="Individual Design"></a>
       <p>Crafting each bag with passion and precision. International quality standards, made right here in India. The fusion of global style and Indian price.</p>
     </div>
 
