@@ -1572,8 +1572,9 @@ a.collection-card { text-decoration: none; color: inherit; display: block; }
   50% { transform: translateX(220%) skewX(-20deg); }
   100% { transform: translateX(220%) skewX(-20deg); }
 }
-.btn-buy, .sticky-cta { position: relative; overflow: hidden; }
-.btn-buy::after, .sticky-cta::after {
+.btn-buy, .sticky-cta, .btn-buy-secondary, .final-cta-btn { position: relative; overflow: hidden; }
+.discount-badge { overflow: hidden; }
+.btn-buy::after, .sticky-cta::after, .btn-buy-secondary::after, .final-cta-btn::after, .discount-badge::after {
   content: '';
   position: absolute;
   top: 0; left: 0;
