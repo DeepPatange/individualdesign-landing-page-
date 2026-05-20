@@ -1746,9 +1746,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="sep">·</span>
       <div><strong id="statViewing">47</strong> viewing</div>
       <span class="sep">·</span>
-      <div><strong id="statStock" class="stat-stock">6</strong> <span class="stat-stock-label">left</span></div>
-      <span class="sep">·</span>
-      <div class="cd-pill" id="cdPill">2d 14h 32m 05s</div>
+      <div class="cd-pill" id="cdPill">0d 00h 02m 00s</div>
     </div>
   </div>
 </div>
@@ -2864,10 +2862,11 @@ setInterval(showNotif, 14000);
   // Countdown — 2d 14h 32m from page load, format "Xd Yh Zm Ws"
   const cdEl = document.getElementById('cdPill');
   if (cdEl) {
-    const target = Date.now() + (2 * 86400 + 14 * 3600 + 32 * 60) * 1000;
+    let target = Date.now() + 2 * 60 * 1000;
     function pad(n) { return String(n).padStart(2, '0'); }
     function update() {
-      let diff = Math.max(0, target - Date.now());
+      let diff = target - Date.now();
+      if (diff <= 0) { target = Date.now() + 2 * 60 * 1000; diff = target - Date.now(); }
       const d = Math.floor(diff / 86400000); diff -= d * 86400000;
       const h = Math.floor(diff / 3600000);  diff -= h * 3600000;
       const m = Math.floor(diff / 60000);    diff -= m * 60000;
