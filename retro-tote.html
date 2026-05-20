@@ -82,6 +82,7 @@ body {
   background: var(--white);
   color: var(--text-dark);
   line-height: 1.6;
+  padding-bottom: 80px;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1540,7 +1541,7 @@ a.collection-card { text-decoration: none; color: inherit; display: block; }
 /* STICKY ATC */
 .sticky-atc {
   position: fixed;
-  bottom: -100px;
+  bottom: 0;
   left: 0; right: 0;
   background: var(--white);
   border-top: 1px solid var(--border);
@@ -1589,6 +1590,23 @@ a.collection-card { text-decoration: none; color: inherit; display: block; }
   flex-shrink: 0;
 }
 .sticky-cta:hover { background: #2a2a2a; }
+
+@keyframes btn-shine {
+  0% { transform: translateX(-200%) skewX(-20deg); }
+  50% { transform: translateX(220%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+.btn-buy, .sticky-cta { position: relative; overflow: hidden; }
+.btn-buy::after, .sticky-cta::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 50%; height: 100%;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
+  transform: translateX(-200%) skewX(-20deg);
+  animation: btn-shine 3s infinite;
+  pointer-events: none;
+}
 
 /* LIVE NOTIF — POSITIONED ABOVE STICKY FOOTER */
 .live-notification {
@@ -2740,20 +2758,10 @@ function openCart() {
 // STICKY BAR
 // ========================
 const stickyEl = document.getElementById('stickyAtc');
-const buyBtn = document.getElementById('buyBtn');
 const liveNotif = document.getElementById('liveNotif');
 
-window.addEventListener('scroll', () => {
-  const r = buyBtn.getBoundingClientRect();
-  const nearFooter = window.scrollY > document.body.scrollHeight - window.innerHeight - 200;
-  if (r.bottom < 0 && !nearFooter) {
-    stickyEl.classList.add('show');
-    liveNotif.classList.remove('no-sticky');
-  } else {
-    stickyEl.classList.remove('show');
-    liveNotif.classList.add('no-sticky');
-  }
-});
+stickyEl.classList.add('show');
+liveNotif.classList.remove('no-sticky');
 
 // ========================
 // LIVE NOTIFICATIONS
