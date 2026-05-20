@@ -1744,7 +1744,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="activity-bar-inner">
     <div class="activity-feed">
       <span class="activity-dot" aria-hidden="true"></span>
-      <img class="activity-avatar" id="activityAv" src="assets/REview/Screenshot%202026-05-18%20at%204.49.42%20PM.png" alt="">
       <div class="activity-text" id="activityText">
         <strong id="activityName">Priya</strong>
         from <em id="activityCity">Mumbai</em>
@@ -2738,7 +2737,6 @@ setInterval(showNotif, 14000);
   ];
 
   const elText = document.getElementById('activityText');
-  const elAv   = document.getElementById('activityAv');
   const elName = document.getElementById('activityName');
   const elCity = document.getElementById('activityCity');
   const elProd = document.getElementById('activityProduct');
@@ -2750,17 +2748,14 @@ setInterval(showNotif, 14000);
     elCity.textContent = item.c;
     elProd.textContent = (typeof products !== 'undefined' && products[item.p]) ? products[item.p].name : 'this bag';
     elTime.textContent = `· ${item.t} min ago`;
-    elAv.src = item.img;
   }
   function cycleActivity() {
     if (!elText) return;
     elText.classList.add('activity-fade');
-    elAv.classList.add('activity-fade');
     setTimeout(() => {
       const item = feed[fIdx % feed.length];
       renderActivity(item);
       elText.classList.remove('activity-fade');
-      elAv.classList.remove('activity-fade');
       fIdx++;
     }, 350);
   }
