@@ -1804,11 +1804,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <em>₹500 off</em> auto-applied · 63 of 100 spots remaining
       </div>
       <div class="countdown">
-        <span class="countdown-unit" id="hrs">04</span>
+        <span class="countdown-unit" id="hrs">00</span>
         <span class="countdown-sep">:</span>
-        <span class="countdown-unit" id="mins">23</span>
+        <span class="countdown-unit" id="mins">02</span>
         <span class="countdown-sep">:</span>
-        <span class="countdown-unit" id="secs">47</span>
+        <span class="countdown-unit" id="secs">00</span>
       </div>
     </div>
 
@@ -1816,7 +1816,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="scarcity">
       <span class="scarcity-icon"></span>
       <div class="scarcity-bar-track"><div class="scarcity-bar-fill"></div></div>
-      <span class="scarcity-text"><strong id="stockText">Only 4 left</strong> · 24 women bought today</span>
+      <span class="scarcity-text">24 women bought today</span>
     </div>
 
     <!-- QTY -->
@@ -2495,7 +2495,6 @@ function selectProduct(idx) {
   const priceCurrent = document.getElementById('priceCurrent');
   const priceOriginal = document.getElementById('priceOriginal');
   const buyBtnText = document.getElementById('buyBtnText');
-  const stockText = document.getElementById('stockText');
   const discountBadge = document.getElementById('discountBadge');
   const heritageTag = document.getElementById('heritageTag');
   const mainImg = document.getElementById('mainImg');
@@ -2520,7 +2519,6 @@ function selectProduct(idx) {
     priceCurrent.textContent = '₹' + p.price.toLocaleString('en-IN');
     priceOriginal.textContent = '₹' + p.original.toLocaleString('en-IN');
     buyBtnText.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 6px;"><path d="M13 2L3 14h7l-1 8 11-12h-7z"/></svg>Buy It Now · ₹' + p.price.toLocaleString('en-IN');
-    stockText.textContent = 'Only ' + p.stock + ' left';
     discountBadge.textContent = p.badge;
     heritageTag.textContent = p.tag;
     mainImg.src = p.images[0];
@@ -2589,10 +2587,10 @@ function changeQty(d) {
   const mins = document.getElementById('mins');
   const secs = document.getElementById('secs');
   if (!hrs || !mins || !secs) return;
-  let total = 4*3600 + 23*60 + 47;
+  let total = 2*60;
   function tick() {
     total = total - 1;
-    if (total < 0) total = 4*3600 + 23*60 + 47;
+    if (total < 0) total = 2*60;
     const h = Math.floor(total/3600);
     const m = Math.floor((total%3600)/60);
     const s = total%60;
