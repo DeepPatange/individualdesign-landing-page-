@@ -1746,7 +1746,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="sep">·</span>
       <div><strong id="statViewing">47</strong> viewing</div>
       <span class="sep">·</span>
-      <div class="cd-pill" id="cdPill">0d 00h 02m 00s</div>
+      <div class="cd-pill" id="cdPill">5m 00s</div>
     </div>
   </div>
 </div>
@@ -1802,11 +1802,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <em>₹500 off</em> auto-applied · 63 of 100 spots remaining
       </div>
       <div class="countdown">
-        <span class="countdown-unit" id="hrs">00</span>
-        <span class="countdown-sep">:</span>
-        <span class="countdown-unit" id="mins">02</span>
-        <span class="countdown-sep">:</span>
-        <span class="countdown-unit" id="secs">00</span>
+        <span class="countdown-unit" id="cdMain">5m 00s</span>
       </div>
     </div>
 
@@ -2581,20 +2577,15 @@ function changeQty(d) {
 // OFFER COUNTDOWN (NEXT 100)
 // ========================
 (function () {
-  const hrs = document.getElementById('hrs');
-  const mins = document.getElementById('mins');
-  const secs = document.getElementById('secs');
-  if (!hrs || !mins || !secs) return;
-  let total = 2*60;
+  const cd = document.getElementById('cdMain');
+  if (!cd) return;
+  let total = 5*60;
   function tick() {
     total = total - 1;
-    if (total < 0) total = 2*60;
-    const h = Math.floor(total/3600);
-    const m = Math.floor((total%3600)/60);
+    if (total < 0) total = 5*60;
+    const m = Math.floor(total/60);
     const s = total%60;
-    hrs.textContent = String(h).padStart(2,'0');
-    mins.textContent = String(m).padStart(2,'0');
-    secs.textContent = String(s).padStart(2,'0');
+    cd.textContent = `${m}m ${String(s).padStart(2,'0')}s`;
   }
   setInterval(tick, 1000);
 })();
@@ -2862,16 +2853,14 @@ setInterval(showNotif, 14000);
   // Countdown — 2d 14h 32m from page load, format "Xd Yh Zm Ws"
   const cdEl = document.getElementById('cdPill');
   if (cdEl) {
-    let target = Date.now() + 2 * 60 * 1000;
+    let target = Date.now() + 5 * 60 * 1000;
     function pad(n) { return String(n).padStart(2, '0'); }
     function update() {
       let diff = target - Date.now();
-      if (diff <= 0) { target = Date.now() + 2 * 60 * 1000; diff = target - Date.now(); }
-      const d = Math.floor(diff / 86400000); diff -= d * 86400000;
-      const h = Math.floor(diff / 3600000);  diff -= h * 3600000;
+      if (diff <= 0) { target = Date.now() + 5 * 60 * 1000; diff = target - Date.now(); }
       const m = Math.floor(diff / 60000);    diff -= m * 60000;
       const s = Math.floor(diff / 1000);
-      cdEl.textContent = `${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
+      cdEl.textContent = `${m}m ${pad(s)}s`;
     }
     update();
     setInterval(update, 1000);
