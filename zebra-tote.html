@@ -2657,7 +2657,7 @@ async function addToCart(handle, quantity) {
 async function handleBuy() {
   const qty = Math.max(1, parseInt(document.getElementById('qty').value, 10) || 1);
   const product = products[currentProduct];
-  fireTracking('InitiateCheckout', product);
+  fireTracking('AddToCart', product);
   const span = document.getElementById('buyBtnText');
   const orig = span.innerHTML;
   span.textContent = '✓ Redirecting...';
