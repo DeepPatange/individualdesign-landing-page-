@@ -114,15 +114,20 @@ img { display: block; max-width: 100%; }
 }
 .announcement-track {
   display: flex;
-  gap: 60px;
   animation: scroll 30s linear infinite;
-  white-space: nowrap;
   width: max-content;
+}
+.announcement-group {
+  display: flex;
+  gap: 60px;
+  padding-right: 60px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .announcement-item::before { content: "✦"; color: var(--white); margin-right: 10px; opacity: 0.6; }
 @keyframes scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-25%); }
 }
 
 /* NAV */
@@ -1716,12 +1721,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ANNOUNCEMENT -->
 <div class="announcement">
   <div class="announcement-track">
-    <span class="announcement-item">NEW Collection — Just Dropped</span>
-    <span class="announcement-item">Free Shipping Pan-India</span>
-    <span class="announcement-item">Cash on Delivery Available</span>
-    <span class="announcement-item">NEW Collection — Just Dropped</span>
-    <span class="announcement-item">Free Shipping Pan-India</span>
-    <span class="announcement-item">Cash on Delivery Available</span>
+    <div class="announcement-group">
+      <span class="announcement-item">NEW Collection — Just Dropped</span>
+      <span class="announcement-item">Free Shipping Pan-India</span>
+      <span class="announcement-item">Cash on Delivery Available</span>
+    </div>
+    <div class="announcement-group" aria-hidden="true">
+      <span class="announcement-item">NEW Collection — Just Dropped</span>
+      <span class="announcement-item">Free Shipping Pan-India</span>
+      <span class="announcement-item">Cash on Delivery Available</span>
+    </div>
+    <div class="announcement-group" aria-hidden="true">
+      <span class="announcement-item">NEW Collection — Just Dropped</span>
+      <span class="announcement-item">Free Shipping Pan-India</span>
+      <span class="announcement-item">Cash on Delivery Available</span>
+    </div>
+    <div class="announcement-group" aria-hidden="true">
+      <span class="announcement-item">NEW Collection — Just Dropped</span>
+      <span class="announcement-item">Free Shipping Pan-India</span>
+      <span class="announcement-item">Cash on Delivery Available</span>
+    </div>
   </div>
 </div>
 
