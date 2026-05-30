@@ -727,6 +727,18 @@ img { display: block; max-width: 100%; }
 }
 
 /* QTY */
+.variant-section { display: none; }
+.variant-section.is-active { display: block; }
+.variant-label-current { color: var(--text-mid); font-weight: 500; margin-left: 6px; text-transform: none; letter-spacing: 0.4px; }
+.variant-swatches { display: flex; gap: 12px; flex-wrap: wrap; }
+.variant-swatch {
+  width: 56px; height: 56px; border-radius: 50%; padding: 2px;
+  border: 2px solid transparent; cursor: pointer; background: white;
+  transition: border-color 0.15s ease;
+}
+.variant-swatch img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+.variant-swatch.active { border-color: var(--text-dark); }
+.variant-swatch:hover { border-color: var(--border); }
 .qty-row { display: flex; gap: 14px; align-items: center; }
 .qty-selector {
   display: flex;
@@ -1856,6 +1868,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="scarcity-text">247 women bought today</span>
     </div>
 
+    <!-- COLOR -->
+    <div class="option-group variant-section" id="variantSection">
+      <div class="option-label"><span>Color</span><span class="variant-label-current" id="variantSelected"></span></div>
+      <div class="variant-swatches" id="variantSwatches"></div>
+    </div>
+
     <!-- QTY -->
     <div class="option-group">
       <div class="option-label"><span>Quantity</span></div>
@@ -2413,7 +2431,11 @@ const products = [
     specsDesc: 'Black-and-cream ornamental motifs on a sturdy structured tote. The most timeless piece in our collection — pairs beautifully with both Indian wear and Western office attire.',
     badge: '17% OFF',
     tag: '✦ Heritage Pattern',
-    stock: 8
+    stock: 8,
+    variants: [
+      { id: '52117676753198', name: 'Offwhite', image: 'assets/RETRO%20TOTE%20BAG%201.jpg' },
+      { id: '52117604663598', name: 'Red',      image: 'assets/RETRO%20TOTE%20BAG%20Red.jpg' }
+    ]
   },
   {
     handle: 'zebra-tote-pu-pocket',
@@ -2454,6 +2476,36 @@ const products = [
 ];
 
 let currentProduct = 2;
+let currentVariantId = null;
+
+// ========================
+// VARIANT RENDERER
+// ========================
+function renderVariants(product) {
+  const section = document.getElementById('variantSection');
+  if (!section) return;
+  if (!product || !product.variants || product.variants.length === 0) {
+    section.classList.remove('is-active');
+    currentVariantId = null;
+    return;
+  }
+  section.classList.add('is-active');
+  currentVariantId = product.variants[0].id;
+  document.getElementById('variantSelected').textContent = product.variants[0].name;
+  const swatchesEl = document.getElementById('variantSwatches');
+  swatchesEl.innerHTML = product.variants.map((v, i) =>
+    `<div class="variant-swatch ${i === 0 ? 'active' : ''}" data-variant-id="${v.id}" data-variant-name="${v.name}" data-variant-image="${v.image}" title="${v.name}"><img src="${v.image}" alt="${v.name}" loading="lazy"></div>`
+  ).join('');
+  swatchesEl.querySelectorAll('.variant-swatch').forEach(sw => {
+    sw.addEventListener('click', function() {
+      swatchesEl.querySelectorAll('.variant-swatch').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+      currentVariantId = this.dataset.variantId;
+      document.getElementById('variantSelected').textContent = this.dataset.variantName;
+      document.getElementById('mainImg').src = this.dataset.variantImage;
+    });
+  });
+}
 
 // ========================
 // SELECT PRODUCT
@@ -2512,6 +2564,8 @@ function selectProduct(idx) {
     specStyle.textContent = p.style;
     specPattern.innerHTML = p.pattern;
 
+    renderVariants(p);
+
     // Update thumbs
     const thumbStack = document.getElementById('thumbStack');
     thumbStack.innerHTML = p.images.map((src, i) =>
@@ -2546,6 +2600,9 @@ document.querySelectorAll('.thumb').forEach(t => {
     document.getElementById('mainImg').src = this.dataset.img;
   });
 });
+
+// Initial variant render for the active product (only shows if product has variants)
+renderVariants(products[currentProduct]);
 
 // ========================
 // QUANTITY
@@ -2684,12 +2741,14 @@ async function handleBuy() {
   const orig = span.innerHTML;
   span.textContent = '✓ Redirecting...';
   try {
-    const variantGid = await getVariantId(product.handle);
-    if (!variantGid) throw new Error('Variant not found for ' + product.handle);
-    // Strip 'gid://shopify/ProductVariant/' prefix -> bare numeric id
-    const variantId = String(variantGid).split('/').pop();
-    // Land on /cart so Breeze (super.money) overlay can pick it up.
-    // Older Shopify cart-permalink: /cart/<variant>:<qty> auto-adds then 302s to /cart.
+    let variantId;
+    if (currentVariantId) {
+      variantId = String(currentVariantId).split('/').pop();
+    } else {
+      const variantGid = await getVariantId(product.handle);
+      if (!variantGid) throw new Error('Variant not found for ' + product.handle);
+      variantId = String(variantGid).split('/').pop();
+    }
     window.location.href = `https://individualdesign.in/cart/add?id=${variantId}&quantity=${qty}&return_to=/cart`;
   } catch (e) {
     console.error(e);
@@ -2704,9 +2763,14 @@ async function handleAddToCart() {
   const product = products[currentProduct];
   fireTracking('AddToCart', product);
   try {
-    const variantGid = await getVariantId(product.handle);
-    if (!variantGid) throw new Error('Variant not found');
-    const variantId = String(variantGid).split('/').pop();
+    let variantId;
+    if (currentVariantId) {
+      variantId = String(currentVariantId).split('/').pop();
+    } else {
+      const variantGid = await getVariantId(product.handle);
+      if (!variantGid) throw new Error('Variant not found');
+      variantId = String(variantGid).split('/').pop();
+    }
     window.location.href = `https://individualdesign.in/cart/add?id=${variantId}&quantity=${qty}&return_to=/cart`;
   } catch (e) {
     console.error(e);
