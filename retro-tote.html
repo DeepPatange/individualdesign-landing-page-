@@ -394,6 +394,39 @@ img { display: block; max-width: 100%; }
 .thumb img { width: 100%; height: 100%; object-fit: cover; }
 .thumb.active { border-color: var(--text-dark); }
 .thumb:hover { border-color: var(--text-mid); }
+.thumb.thumb-video { position: relative; }
+.thumb.thumb-video::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.65);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.thumb.thumb-video::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  border-left: 9px solid white;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  transform: translate(-30%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+.main-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+  position: absolute;
+  top: 0; left: 0;
+  display: none;
+}
+.main-video.is-active { display: block; }
 
 .main-image-wrap {
   width: 100%;
@@ -403,6 +436,7 @@ img { display: block; max-width: 100%; }
   position: relative;
   border-radius: 4px;
 }
+.main-image-wrap.is-video { aspect-ratio: 1/1; }
 .main-image {
   width: 100%;
   height: 100%;
@@ -1819,11 +1853,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="thumb" data-img="assets/RETRO%20TOTE%20BAG%20New.jpg">
         <img src="assets/RETRO%20TOTE%20BAG%20New.jpg" alt="View 4 (campaign)">
       </div>
+      <div class="thumb thumb-video" data-type="video" data-video="https://res.cloudinary.com/dpcivdffv/video/upload/f_auto,q_auto/Retro_Bag_Loop-01_szsxds.mp4" data-poster="https://res.cloudinary.com/dpcivdffv/video/upload/f_auto,q_auto,so_0/Retro_Bag_Loop-01_szsxds.jpg">
+        <img src="https://res.cloudinary.com/dpcivdffv/video/upload/f_auto,q_auto,so_0/Retro_Bag_Loop-01_szsxds.jpg" alt="View 5 (video)" loading="lazy">
+      </div>
     </div>
 
     <div class="main-image-wrap">
       <span class="discount-badge" id="discountBadge">₹500 OFF</span>
       <img class="main-image" id="mainImg" src="assets/RETRO%20TOTE%20BAG%201.jpg" alt="Product">
+      <video class="main-video" id="mainVid" controls preload="none" playsinline muted loop></video>
       <div class="heritage-tag" id="heritageTag">✦ Hand-Crafted in India</div>
     </div>
   </div>
@@ -2413,7 +2451,8 @@ const products = [
     specsDesc: 'The Mini Leopard is your everyday companion — perfectly sized for essentials without compromising silhouette. Bold leopard print, premium canvas, PU handles, antique brass hardware.',
     badge: '17% OFF',
     tag: '✦ Compact · Bold',
-    stock: 6
+    stock: 6,
+    video: { src: 'https://res.cloudinary.com/dpcivdffv/video/upload/f_auto,q_auto/Mini_Bag_Website_Video_nahie8.mp4', poster: 'https://res.cloudinary.com/dpcivdffv/video/upload/f_auto,q_auto,so_0/Mini_Bag_Website_Video_nahie8.jpg' }
   },
   {
     handle: 'retro-tote-bag',
@@ -2433,9 +2472,10 @@ const products = [
     tag: '✦ Heritage Pattern',
     stock: 8,
     variants: [
-      { id: '52117676753198', name: 'Offwhite', image: 'assets/RETRO%20TOTE%20BAG%201.jpg' },
-      { id: '52117604663598', name: 'Red',      image: 'assets/RETRO%20TOTE%20BAG%20Red.jpg' }
-    ]
+      { id: '52117676753198', name: 'Offwhite', image: 'assets/RETRO%20TOTE%20BAG%201.jpg', url: 'retro-tote.html' },
+      { id: '52117604663598', name: 'Red',      image: 'assets/Red%20Retro%20Tote%201.jpg',  url: 'retro-tote-red.html' }
+    ],
+    video: { src: 'https://res.cloudinary.com/dpcivdffv/video/upload/f_auto,q_auto/Retro_Bag_Loop-01_szsxds.mp4', poster: 'https://res.cloudinary.com/dpcivdffv/video/upload/f_auto,q_auto,so_0/Retro_Bag_Loop-01_szsxds.jpg' }
   },
   {
     handle: 'zebra-tote-pu-pocket',
@@ -2453,7 +2493,8 @@ const products = [
     specsDesc: 'Our most premium piece. Heavy-weight zebra-print fabric with two studded black PU pockets on the front, top handle, plus detachable adjustable shoulder strap. Big enough for 13" laptop + essentials.',
     badge: '11% OFF',
     tag: '✦ Premium · Studded',
-    stock: 4
+    stock: 4,
+    video: { src: 'https://res.cloudinary.com/dpcivdffv/video/upload/f_auto,q_auto/Zebra_Bag_Loop-02_tc5s0k.mp4', poster: 'https://res.cloudinary.com/dpcivdffv/video/upload/f_auto,q_auto,so_0/Zebra_Bag_Loop-02_tc5s0k.jpg' }
   },
   {
     handle: 'leopard-tote-bag',
@@ -2494,10 +2535,17 @@ function renderVariants(product) {
   document.getElementById('variantSelected').textContent = product.variants[0].name;
   const swatchesEl = document.getElementById('variantSwatches');
   swatchesEl.innerHTML = product.variants.map((v, i) =>
-    `<div class="variant-swatch ${i === 0 ? 'active' : ''}" data-variant-id="${v.id}" data-variant-name="${v.name}" data-variant-image="${v.image}" title="${v.name}"><img src="${v.image}" alt="${v.name}" loading="lazy"></div>`
+    `<div class="variant-swatch ${i === 0 ? 'active' : ''}" data-variant-id="${v.id}" data-variant-name="${v.name}" data-variant-image="${v.image}" data-variant-url="${v.url || ''}" title="${v.name}"><img src="${v.image}" alt="${v.name}" loading="lazy"></div>`
   ).join('');
   swatchesEl.querySelectorAll('.variant-swatch').forEach(sw => {
     sw.addEventListener('click', function() {
+      const url = this.dataset.variantUrl;
+      if (url) {
+        const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+        if (currentFile === url) return;
+        window.location.href = url;
+        return;
+      }
       swatchesEl.querySelectorAll('.variant-swatch').forEach(x => x.classList.remove('active'));
       this.classList.add('active');
       currentVariantId = this.dataset.variantId;
@@ -2566,18 +2614,23 @@ function selectProduct(idx) {
 
     renderVariants(p);
 
-    // Update thumbs
+    // Reset main image / video state for the new product
+    mainImg.style.display = '';
+    const mainVidEl = document.getElementById('mainVid');
+    if (mainVidEl) { mainVidEl.pause(); mainVidEl.classList.remove('is-active'); }
+    const mainWrapEl = document.querySelector('.main-image-wrap');
+    if (mainWrapEl) mainWrapEl.classList.remove('is-video');
+
+    // Update thumbs (image thumbs + optional video thumb)
     const thumbStack = document.getElementById('thumbStack');
-    thumbStack.innerHTML = p.images.map((src, i) =>
+    let thumbsHtml = p.images.map((src, i) =>
       `<div class="thumb ${i === 0 ? 'active' : ''}" data-img="${src}"><img src="${src}" alt="View ${i+1}"></div>`
     ).join('');
-    document.querySelectorAll('.thumb').forEach(t => {
-      t.addEventListener('click', function() {
-        document.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
-        this.classList.add('active');
-        document.getElementById('mainImg').src = this.dataset.img;
-      });
-    });
+    if (p.video) {
+      thumbsHtml += `<div class="thumb thumb-video" data-type="video" data-video="${p.video.src}" data-poster="${p.video.poster}"><img src="${p.video.poster}" alt="View ${p.images.length + 1} (video)" loading="lazy"></div>`;
+    }
+    thumbStack.innerHTML = thumbsHtml;
+    bindThumbClicks();
 
     title.style.opacity = '1';
     priceCurrent.style.opacity = '1';
@@ -2592,14 +2645,36 @@ document.querySelectorAll('.product-tab').forEach(tab => {
   tab.addEventListener('click', () => selectProduct(parseInt(tab.dataset.product)));
 });
 
-// Initial thumb listeners
-document.querySelectorAll('.thumb').forEach(t => {
-  t.addEventListener('click', function() {
-    document.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
-    this.classList.add('active');
-    document.getElementById('mainImg').src = this.dataset.img;
+// Thumb click binding (image + video aware) — called on init and after every rebuild
+function bindThumbClicks() {
+  document.querySelectorAll('.thumb').forEach(t => {
+    t.onclick = function() {
+      document.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+      const mainImg = document.getElementById('mainImg');
+      const mainVid = document.getElementById('mainVid');
+      const wrap = document.querySelector('.main-image-wrap');
+      if (this.dataset.type === 'video') {
+        if (wrap) wrap.classList.add('is-video');
+        if (mainImg) mainImg.style.display = 'none';
+        if (mainVid) {
+          mainVid.classList.add('is-active');
+          if (this.dataset.poster) mainVid.poster = this.dataset.poster;
+          if (mainVid.getAttribute('src') !== this.dataset.video) mainVid.src = this.dataset.video;
+          mainVid.play().catch(()=>{});
+        }
+      } else {
+        if (wrap) wrap.classList.remove('is-video');
+        if (mainVid) { mainVid.pause(); mainVid.classList.remove('is-active'); }
+        if (mainImg) {
+          mainImg.style.display = '';
+          mainImg.src = this.dataset.img;
+        }
+      }
+    };
   });
-});
+}
+bindThumbClicks();
 
 // Initial variant render for the active product (only shows if product has variants)
 renderVariants(products[currentProduct]);
