@@ -31,7 +31,25 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '389596963559117');
-fbq('track', 'PageView');
+var __pvId = 'ev_' + Date.now() + Math.random().toString(36).slice(2,10);
+fbq('track', 'PageView', {}, {eventID: __pvId});
+(function(){
+  setTimeout(function(){
+    try {
+      var fbp = (document.cookie.match(/_fbp=([^;]+)/) || [])[1];
+      var fbc = (document.cookie.match(/_fbc=([^;]+)/) || [])[1];
+      var extId = null;
+      try {
+        extId = localStorage.getItem('idnt_uid');
+        if (!extId) { extId = 'u_' + Date.now() + '_' + Math.random().toString(36).slice(2,10); localStorage.setItem('idnt_uid', extId); }
+      } catch(e) {}
+      var payload = { event_name: 'PageView', event_id: __pvId, event_source_url: location.href, fbp: fbp, fbc: fbc, external_id: extId };
+      var blob = new Blob([JSON.stringify(payload)], {type: 'application/json'});
+      if (navigator.sendBeacon) navigator.sendBeacon('/api/track', blob);
+      else fetch('/api/track', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), keepalive:true});
+    } catch(e) {}
+  }, 500);
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=389596963559117&ev=PageView&noscript=1"/></noscript>
@@ -2727,6 +2745,7 @@ function toggleFaq(el) {
 // ========================
 function fireTracking(eventName, product) {
   const value = product?.price || 0;
+  const eventId = 'ev_' + Date.now() + Math.random().toString(36).slice(2,10);
   if (window.fbq) {
     fbq('track', eventName, {
       content_name: product?.name,
@@ -2734,8 +2753,33 @@ function fireTracking(eventName, product) {
       content_type: 'product',
       value: value,
       currency: 'INR'
-    });
+    }, { eventID: eventId });
   }
+  try {
+    var fbp = (document.cookie.match(/_fbp=([^;]+)/) || [])[1];
+    var fbc = (document.cookie.match(/_fbc=([^;]+)/) || [])[1];
+    var extId = null;
+    try {
+      extId = localStorage.getItem('idnt_uid');
+      if (!extId) { extId = 'u_' + Date.now() + '_' + Math.random().toString(36).slice(2,10); localStorage.setItem('idnt_uid', extId); }
+    } catch(e) {}
+    var capiPayload = {
+      event_name: eventName,
+      event_id: eventId,
+      event_source_url: location.href,
+      value: value,
+      currency: 'INR',
+      content_ids: [String((currentProduct) + 1)],
+      content_name: product?.name,
+      content_type: 'product',
+      fbp: fbp,
+      fbc: fbc,
+      external_id: extId
+    };
+    var capiBlob = new Blob([JSON.stringify(capiPayload)], {type: 'application/json'});
+    if (navigator.sendBeacon) navigator.sendBeacon('/api/track', capiBlob);
+    else fetch('/api/track', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(capiPayload), keepalive:true});
+  } catch(e) {}
   if (window.dataLayer) {
     dataLayer.push({
       event: eventName === 'AddToCart' ? 'add_to_cart' : 'begin_checkout',
