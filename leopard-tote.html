@@ -186,6 +186,7 @@ img { display: block; max-width: 100%; }
 .nav-actions > svg, .nav-actions a { color: var(--text-dark); cursor: pointer; transition: opacity 0.2s; }
 .nav-actions > svg:hover, .nav-actions a:hover { opacity: 0.55; }
 .nav-actions svg { width: 22px; height: 22px; display: block; }
+.nav-action { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
 .cart-icon {
   position: relative;
   display: inline-flex;
@@ -1769,6 +1770,7 @@ a.collection-card { text-decoration: none; color: inherit; display: block; }
   .faq-toggle { width: 24px; height: 24px; font-size: 14px; }
   .faq-left h2 { font-size: 20px; }
   .logo, .nav-cart { pointer-events: none; }
+  .nav-action { padding: 10px; margin: -10px; }
 }
 </style>
 </head>
@@ -1821,8 +1823,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="https://individualdesign.in/blogs/news">Blogs</a></li>
   </ul>
   <div class="nav-actions">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    <a href="https://individualdesign.in/search" class="nav-action" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a>
+    <a href="https://individualdesign.in/account" class="nav-action" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
     <svg class="nav-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" role="button" aria-label="Open cart" onclick="openCart(); return false;" style="cursor:pointer"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
   </div>
 </nav>
