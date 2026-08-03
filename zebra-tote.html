@@ -2900,7 +2900,10 @@ async function handleBuy() {
       if (!variantGid) throw new Error('Variant not found for ' + product.handle);
       variantId = String(variantGid).split('/').pop();
     }
-    window.location.href = `https://individualdesign.in/cart/add?id=${variantId}&quantity=${qty}&return_to=/cart`;
+    // Let the Meta Pixel / GTM beacons flush before we navigate away,
+    // otherwise the AddToCart event is dropped on the redirect.
+    const cartUrl = `https://individualdesign.in/cart/add?id=${variantId}&quantity=${qty}&return_to=/cart`;
+    setTimeout(function(){ window.location.href = cartUrl; }, 350);
   } catch (e) {
     console.error(e);
     span.innerHTML = orig;
@@ -2922,7 +2925,10 @@ async function handleAddToCart() {
       if (!variantGid) throw new Error('Variant not found');
       variantId = String(variantGid).split('/').pop();
     }
-    window.location.href = `https://individualdesign.in/cart/add?id=${variantId}&quantity=${qty}&return_to=/cart`;
+    // Let the Meta Pixel / GTM beacons flush before we navigate away,
+    // otherwise the AddToCart event is dropped on the redirect.
+    const cartUrl = `https://individualdesign.in/cart/add?id=${variantId}&quantity=${qty}&return_to=/cart`;
+    setTimeout(function(){ window.location.href = cartUrl; }, 350);
   } catch (e) {
     console.error(e);
     alert('Could not add to cart: ' + e.message);
