@@ -31,13 +31,36 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '389596963559117');
+// --- Meta click-id (fbc) capture — Conversions API parameter builder ---
+// Never lowercases or truncates the fbclid. Sends the _fbc cookie verbatim;
+// if the cookie is absent on a first ad-click, builds fb.1.<ts>.<fbclid> from
+// the raw URL fbclid (exact case) and persists it so the Pixel + CAPI agree.
+window.getFbc = function () {
+  try {
+    var fbclid = new URLSearchParams(location.search).get('fbclid');
+    var m = document.cookie.match(/_fbc=([^;]+)/);
+    var cookieFbc = (m && m[1]) ? m[1] : null;
+    if (fbclid) {
+      var cookieClid = cookieFbc ? cookieFbc.split('.').slice(3).join('.') : null;
+      if (cookieFbc && cookieClid === fbclid) return cookieFbc;
+      var fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+      document.cookie = '_fbc=' + fbc + '; max-age=7776000; path=/; SameSite=Lax';
+      return fbc;
+    }
+    return cookieFbc || undefined;
+  } catch (e) {
+    var mm = document.cookie.match(/_fbc=([^;]+)/);
+    return (mm && mm[1]) ? mm[1] : undefined;
+  }
+};
+try { window.getFbc(); } catch (e) {}
 var __pvId = 'ev_' + Date.now() + Math.random().toString(36).slice(2,10);
 fbq('track', 'PageView', {}, {eventID: __pvId});
 (function(){
   setTimeout(function(){
     try {
       var fbp = (document.cookie.match(/_fbp=([^;]+)/) || [])[1];
-      var fbc = (document.cookie.match(/_fbc=([^;]+)/) || [])[1];
+      var fbc = window.getFbc();
       var extId = null;
       try {
         extId = localStorage.getItem('idnt_uid');
@@ -2788,7 +2811,7 @@ function fireTracking(eventName, product) {
   }
   try {
     var fbp = (document.cookie.match(/_fbp=([^;]+)/) || [])[1];
-    var fbc = (document.cookie.match(/_fbc=([^;]+)/) || [])[1];
+    var fbc = window.getFbc();
     var extId = null;
     try {
       extId = localStorage.getItem('idnt_uid');
